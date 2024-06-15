@@ -1,9 +1,6 @@
 package com.nhnacademy.couponapi.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -14,9 +11,12 @@ import lombok.*;
 public class GlobalCoupon {
 
     @Id
-    @OneToOne
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     private Coupon coupon;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private CouponPolicy couponPolicy;
 }
