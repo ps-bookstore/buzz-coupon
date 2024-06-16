@@ -1,9 +1,20 @@
 package com.nhnacademy.couponapi.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
-
 import java.time.ZonedDateTime;
+
+import org.hibernate.annotations.ColumnDefault;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
@@ -12,19 +23,23 @@ import java.time.ZonedDateTime;
 @Entity
 public class Coupon {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
-    @Column(nullable = false, length = 20)
-    private String name;
+	@Setter
+	@Column(nullable = false, length = 20)
+	private String name;
 
-    @Column(nullable = false)
-    private ZonedDateTime createAt;
+	@Column(nullable = false)
+	private ZonedDateTime createDate;
 
-    @Column(nullable = false)
-    private ZonedDateTime expireAt;
+	@Setter
+	@Column
+	private ZonedDateTime expireDate;
 
-    @Column(nullable = false)
-    private boolean isUsed;
+	@Setter
+	@Column(nullable = false)
+	@ColumnDefault("false")
+	private boolean isUsed;
 }

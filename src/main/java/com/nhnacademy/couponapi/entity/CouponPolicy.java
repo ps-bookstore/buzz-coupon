@@ -1,10 +1,20 @@
 package com.nhnacademy.couponapi.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import java.math.BigDecimal;
+
 import org.hibernate.annotations.ColumnDefault;
 
-import java.math.BigDecimal;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
@@ -13,25 +23,31 @@ import java.math.BigDecimal;
 @Entity
 public class CouponPolicy {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
-    @Column(nullable = false, length = 30)
-    private String name;
+	@Setter
+	@Column(nullable = false, length = 30)
+	private String name;
 
-    @Column(nullable = false)
-    @ColumnDefault("1.0")
-    private double discountRate;
+	@Setter
+	@Column(nullable = false)
+	@ColumnDefault("1.0")
+	private double discountRate;
 
-    @Column(nullable = false)
-    private BigDecimal discountAmount;
+	@Setter
+	@Column(nullable = false, columnDefinition = "Decimal(10, 2) default `0.00`")
+	private BigDecimal discountAmount;
 
-    @Column(nullable = false)
-    private BigDecimal standardPrice;
+	@Setter
+	@Column(nullable = false, columnDefinition = "Decimal(10, 2) default `0.00`")
+	private BigDecimal standardPrice;
 
-    @Column(nullable = false)
-    private BigDecimal maxDiscountAmount;
+	@Setter
+	@Column(nullable = false, columnDefinition = "Decimal(10, 2) default `0.00`")
+	private BigDecimal maxDiscountAmount;
 
-    private String condition;
+	@Setter
+	private String description;
 }

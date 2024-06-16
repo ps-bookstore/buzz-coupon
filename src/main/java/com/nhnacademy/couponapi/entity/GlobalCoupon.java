@@ -1,7 +1,17 @@
 package com.nhnacademy.couponapi.entity;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
@@ -10,13 +20,13 @@ import lombok.*;
 @Entity
 public class GlobalCoupon {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
-    @OneToOne(optional = false, fetch = FetchType.LAZY)
-    private Coupon coupon;
+	@OneToOne(optional = false, fetch = FetchType.LAZY)
+	private Coupon coupon;
 
-    @ManyToOne(optional = false)
-    private CouponPolicy couponPolicy;
+	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	private CouponPolicy couponPolicy;
 }

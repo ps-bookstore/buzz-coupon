@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: couponapi
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://133.186.241.167:3306/be6_aa?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: be6_aa
+    password: 6@H(77fpCZDiC6!!
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true

@@ -1,7 +1,10 @@
 package com.nhnacademy.couponapi.repository;
 
-import com.nhnacademy.couponapi.entity.GlobalCoupon;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.nhnacademy.couponapi.entity.GlobalCoupon;
+
 public interface GlobalCouponRepository extends JpaRepository<GlobalCoupon, Long> {
+
+	boolean existsByCouponId(long couponId);
 }
