@@ -3,7 +3,7 @@ pipeline {
 
     environment {  // 환경 변수를 정의
         COUPON_SERVER_1 = 'nhnacademy@133.186.150.78'  // 첫 번째 프론트 서버
-        DEPLOY_PATH_1 = '/home/nhnacademy/'  // 첫 번째 서버의 배포 경로
+        DEPLOY_PATH_1 = '/home/nhnacademy'  // 첫 번째 서버의 배포 경로
         REPO_URL = 'https://github.com/nhnacademy-be6-AA/buzz-coupon-back.git'  // Git 저장소 URL
         ARTIFACT_NAME = 'coupon-0.0.1-SNAPSHOT.jar'  // 빌드 산출물 이름
         JAVA_OPTS = '-XX:+EnableDynamicAgentLoading -XX:+UseParallelGC'  // Java 실행 옵션
