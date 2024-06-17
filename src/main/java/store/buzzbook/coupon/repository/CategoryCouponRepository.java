@@ -1,0 +1,10 @@
+package store.buzzbook.coupon.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import store.buzzbook.coupon.entity.CategoryCoupon;
+
+public interface CategoryCouponRepository extends JpaRepository<CategoryCoupon, Long> {
+
+	boolean existsByCategoryId(long categoryId);
+}
