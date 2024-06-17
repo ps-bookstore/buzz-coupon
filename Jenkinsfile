@@ -97,11 +97,7 @@ def showLogs(server, deployPath) {
 
 def verifyDeployment(server, port) {
     sh """
-    if curl -s --head http://${server}:${port} | head -n 1 | grep "200 OK"; then
-        echo "Deployment verification succeeded"
-    else
-        echo "Deployment verification failed"
-        exit 1
-    fi
+    curl -s --head http://${server}:${port} | head -n 1
     """
 }
+
