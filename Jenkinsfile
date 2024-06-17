@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         COUPON_SERVER_1 = 'nhnacademy@133.186.150.78'
+        COUPON_SERVER_DOMAIN = 'buzz-book.store'
         DEPLOY_PATH_1 = '/home/nhnacademy'
         REPO_URL = 'https://github.com/nhnacademy-be6-AA/buzz-coupon-back.git'
         ARTIFACT_NAME = 'coupon-0.0.1-SNAPSHOT.jar'
@@ -63,7 +64,7 @@ pipeline {
         }
         stage('Verification') {
             steps {
-                verifyDeployment(env.COUPON_SERVER_1, 8080)
+                verifyDeployment(env.COUPON_SERVER_DOMAIN, 8080)
             }
         }
     }
