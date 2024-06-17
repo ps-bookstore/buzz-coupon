@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.nhnacademy</groupId>
-    <artifactId>couponapi</artifactId>
+    <artifactId>coupon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>couponapi</name>
-    <description>couponapi</description>
+    <name>coupon</name>
+    <description>coupon</description>
     <properties>
         <java.version>21</java.version>
     </properties>
