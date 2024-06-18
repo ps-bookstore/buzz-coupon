@@ -1,3 +1,19 @@
+server:
+  port: 8091
+
+eureka:
+  instance:
+    instance-id: coupon-api
+    hostname: coupon-api
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:1234@localhost:8761/eureka
+    instance:
+      prefer-ip-address: true
+
+
 spring:
   application:
     name: coupon
@@ -8,10 +24,10 @@ spring:
     username: be6_aa
     password: 6@H(77fpCZDiC6!!
     type: org.apache.commons.dbcp2.BasicDataSource
-    initial-size: 5
-    max-total: 10
-    max-idle: 5
-    min-idle: 3
+    initial-size: 3
+    max-total: 5
+    max-idle: 3
+    min-idle: 1
 
   jpa:
     database: mysql
@@ -40,4 +56,30 @@ springdoc:
   cache:
     disabled: true
   model-and-view-allowed: true
+
+management:
+  health:
+    status:
+      order: DOWN, UP
+  endpoint:
+    jolokia:
+      enabled: true
+    metrics:
+      enabled: true
+    pause:
+      enabled: true
+    resume:
+      enabled: true
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+
 
