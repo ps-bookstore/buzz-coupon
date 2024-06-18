@@ -18,6 +18,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @Getter
 @AllArgsConstructor
@@ -28,7 +29,7 @@ public class CouponPolicy {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 
 	@NotNull
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -42,6 +43,11 @@ public class CouponPolicy {
 	@Setter
 	@NotNull
 	@Column(nullable = false)
+	private DiscountType discountType;
+
+	@Setter
+	@NotNull
+	@Column(nullable = false)
 	@ColumnDefault("1.0")
 	private double discountRate;
 
@@ -49,6 +55,11 @@ public class CouponPolicy {
 	@NotNull
 	@Column(nullable = false)
 	private int discountAmount;
+
+	@Setter
+	@NotNull
+	@Column(nullable = false)
+	private int period;
 
 	@Setter
 	@NotNull
