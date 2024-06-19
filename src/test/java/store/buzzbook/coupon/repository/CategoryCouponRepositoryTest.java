@@ -69,7 +69,7 @@ class CategoryCouponRepositoryTest {
 
 		testCategoryCoupon = CategoryCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.categoryId(1L)
+			.categoryId(1)
 			.build();
 
 		couponTypeRepository.save(testCouponType);
@@ -83,15 +83,15 @@ class CategoryCouponRepositoryTest {
 		// given
 		CategoryCoupon newCategoryCoupon = CategoryCoupon.builder()
 			.couponPolicy(testCouponPolicy)
+			.categoryId(1)
 			.build();
 
 		// when
-		categoryCouponRepository.save(newCategoryCoupon);
-		Optional<CategoryCoupon> optionalCategoryCoupon = categoryCouponRepository.findById(newCategoryCoupon.getId());
+		CategoryCoupon savedCategoryCoupon = categoryCouponRepository.save(newCategoryCoupon);
 
 		//then
-		assertTrue(optionalCategoryCoupon.isPresent());
-		assertEquals(newCategoryCoupon, optionalCategoryCoupon.get());
+		assertEquals(newCategoryCoupon.getCouponPolicy(), savedCategoryCoupon.getCouponPolicy());
+		assertEquals(newCategoryCoupon.getCategoryId(), savedCategoryCoupon.getCategoryId());
 	}
 
 	@Test
@@ -116,7 +116,7 @@ class CategoryCouponRepositoryTest {
 
 		// when
 		boolean exists = categoryCouponRepository.existsByCategoryId(testCategoryCoupon.getCategoryId());
-		boolean notExists = categoryCouponRepository.existsByCategoryId(2L);
+		boolean notExists = categoryCouponRepository.existsByCategoryId(2);
 
 		// then
 		assertTrue(exists);

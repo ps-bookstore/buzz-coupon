@@ -7,7 +7,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
 import store.buzzbook.coupon.dto.couponlog.CouponLogResponse;
 import store.buzzbook.coupon.dto.couponlog.CreateCouponLogRequest;
@@ -19,7 +18,6 @@ import store.buzzbook.coupon.repository.CouponLogRepository;
 import store.buzzbook.coupon.service.CouponLogService;
 import store.buzzbook.coupon.service.CouponPolicyService;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CouponLogServiceImpl implements CouponLogService {

@@ -6,7 +6,6 @@ import java.util.Objects;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
@@ -15,7 +14,6 @@ import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.service.CouponTypeService;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class CouponTypeServiceImpl implements CouponTypeService {
 
