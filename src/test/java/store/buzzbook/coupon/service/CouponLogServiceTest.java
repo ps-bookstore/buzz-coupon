@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 
 import java.time.ZonedDateTime;
 import java.util.Collections;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,6 +25,7 @@ import org.springframework.transaction.annotation.Transactional;
 import store.buzzbook.coupon.dto.couponlog.CouponLogResponse;
 import store.buzzbook.coupon.dto.couponlog.CreateCouponLogRequest;
 import store.buzzbook.coupon.dto.couponlog.CreateCouponLogResponse;
+import store.buzzbook.coupon.dto.couponlog.UpdateCouponLogRequest;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
@@ -127,5 +129,34 @@ class CouponLogServiceTest {
 
 		// when & then
 		assertThrows(IllegalArgumentException.class, () -> couponLogService.createCouponLog(null));
+	}
+
+	@Test
+	@DisplayName("update")
+	void update() {
+		// given
+		long id = 1L;
+		UpdateCouponLogRequest testRequest = new UpdateCouponLogRequest(CouponStatus.USED);
+		when(couponLogRepository.findById(id)).thenReturn(Optional.of(testCouponLog));
+		when(couponLogRepository.save(any())).thenReturn(testCouponLog);
+
+		// when
+		CouponLogResponse testResponse = couponLogService.updateCouponLog(id, testRequest);
+
+		// then
+		verify(couponLogRepository, times(1)).save(any());
+		assertEquals(CouponStatus.USED, testResponse.status());
+	}
+
+	@Test
+	@DisplayName("update IllegalArgumentException")
+	void updateIllegalArgumentException() {
+		// given
+		UpdateCouponLogRequest testRequest = new UpdateCouponLogRequest(CouponStatus.USED);
+
+		// when & then
+		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCouponLog(-1, testRequest));
+		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCouponLog(0, testRequest));
+		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCouponLog(1, null));
 	}
 }

@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
 import store.buzzbook.coupon.dto.couponlog.CouponLogResponse;
 import store.buzzbook.coupon.dto.couponlog.CreateCouponLogRequest;
 import store.buzzbook.coupon.dto.couponlog.CreateCouponLogResponse;
+import store.buzzbook.coupon.dto.couponlog.UpdateCouponLogRequest;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.repository.CouponLogRepository;
@@ -34,6 +36,7 @@ public class CouponLogServiceImpl implements CouponLogService {
 	@Override
 	public CreateCouponLogResponse createCouponLog(CreateCouponLogRequest request) {
 		if (Objects.isNull(request)) {
+			log.warn("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 			throw new IllegalArgumentException("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 		}
 
@@ -48,6 +51,23 @@ public class CouponLogServiceImpl implements CouponLogService {
 			.build();
 
 		return CreateCouponLogResponse.from(couponLogRepository.save(couponLog));
+	}
+
+	@Override
+	public CouponLogResponse updateCouponLog(long id, UpdateCouponLogRequest request) {
+		validateId(id);
+
+		if (Objects.isNull(request)) {
+			log.warn("쿠폰 로그 수정 요청을 찾을 수 없습니다.");
+			throw new IllegalArgumentException("쿠폰 로그 수정 요청을 찾을 수 없습니다.");
+		}
+
+		CouponLog couponLog = couponLogRepository.findById(id)
+			.orElseThrow(CouponLogNotFoundException::new);
+
+		couponLog.setStatus(request.status());
+
+		return CouponLogResponse.from(couponLogRepository.save(couponLog));
 	}
 
 	private void validateId(long id) {
