@@ -17,8 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
+import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -41,12 +41,13 @@ class CouponLogRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name("book")
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
 			.couponType(testCouponType)
 			.standardPrice(1000)
+			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
 			.startDate(ZonedDateTime.now())

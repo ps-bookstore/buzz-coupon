@@ -22,6 +22,9 @@ public record CreateCouponPolicyRequest(
 	int standardPrice,
 
 	@NotNull
+	int maxDiscountAmount,
+
+	@NotNull
 	int period,
 
 	@NotNull
