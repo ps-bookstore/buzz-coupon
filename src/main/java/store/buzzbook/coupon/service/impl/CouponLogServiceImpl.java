@@ -36,7 +36,6 @@ public class CouponLogServiceImpl implements CouponLogService {
 	@Override
 	public CreateCouponLogResponse createCouponLog(CreateCouponLogRequest request) {
 		if (Objects.isNull(request)) {
-			log.warn("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 			throw new IllegalArgumentException("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 		}
 
@@ -58,7 +57,6 @@ public class CouponLogServiceImpl implements CouponLogService {
 		validateId(id);
 
 		if (Objects.isNull(request)) {
-			log.warn("쿠폰 로그 수정 요청을 찾을 수 없습니다.");
 			throw new IllegalArgumentException("쿠폰 로그 수정 요청을 찾을 수 없습니다.");
 		}
 

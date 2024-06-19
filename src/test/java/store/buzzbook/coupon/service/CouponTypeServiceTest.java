@@ -17,13 +17,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
+import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.service.impl.CouponTypeServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 @Transactional
-public class CouponTypeServiceTest {
+class CouponTypeServiceTest {
 
 	@Mock
 	private CouponTypeRepository couponTypeRepository;
@@ -71,11 +72,67 @@ public class CouponTypeServiceTest {
 	}
 
 	@Test
-	@DisplayName("get coupon type with coupon type not found exception")
-	void getCouponTypeNotFound() {
+	@DisplayName("get coupon type with IllegalArgumentException")
+	void getCouponTypeWithIllegalArgumentException() {
 		// given
 
 		// when & then
-		assertThrows(CouponTypeNotFoundException.class, () -> couponTypeService.getCouponType(null));
+		assertThrows(IllegalArgumentException.class, () -> couponTypeService.getCouponType(null));
+	}
+
+	@Test
+	@DisplayName("get coupon type with coupon type not found exception")
+	void getCouponTypeNotFound() {
+		// given
+		when(couponTypeRepository.findByName(anyString())).thenThrow(CouponTypeNotFoundException.class);
+
+		// when & then
+		assertThrows(CouponTypeNotFoundException.class, () -> couponTypeService.getCouponType("test"));
+	}
+
+	@Test
+	@DisplayName("create")
+	void create() {
+		// given
+		CreateCouponTypeRequest testRequest = new CreateCouponTypeRequest("test");
+		when(couponTypeRepository.save(any())).thenReturn(testCouponType);
+
+		// when
+		CouponTypeResponse testResponse = couponTypeService.createCouponType(testRequest);
+
+		// then
+		assertEquals(testRequest.name(), testResponse.name());
+	}
+
+	@Test
+	@DisplayName("create with IllegalArgumentException")
+	void createWithIllegalArgumentException() {
+		// given
+
+		// when & then
+		assertThrows(IllegalArgumentException.class, () -> couponTypeService.createCouponType(null));
+	}
+
+	@Test
+	@DisplayName("delete")
+	void delete() {
+		// given
+		doNothing().when(couponTypeRepository).deleteById(anyInt());
+
+		// when
+		couponTypeService.deleteCouponType(1);
+
+		// then
+		verify(couponTypeRepository, times(1)).deleteById(anyInt());
+	}
+
+	@Test
+	@DisplayName("delete with IllegalArgumentException")
+	void deleteWithIllegalArgumentException() {
+		// given
+
+		// when & then
+		assertThrows(IllegalArgumentException.class, () -> couponTypeService.deleteCouponType(-1));
+		assertThrows(IllegalArgumentException.class, () -> couponTypeService.deleteCouponType(0));
 	}
 }

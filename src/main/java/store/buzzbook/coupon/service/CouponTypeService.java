@@ -13,4 +13,6 @@ public interface CouponTypeService {
 	CouponType getCouponType(String name);
 
 	CouponTypeResponse createCouponType(CreateCouponTypeRequest request);
+
+	void deleteCouponType(int id);
 }

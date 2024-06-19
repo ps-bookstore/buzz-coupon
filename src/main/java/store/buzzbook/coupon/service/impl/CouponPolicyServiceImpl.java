@@ -42,7 +42,6 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	@Override
 	public CreateCouponPolicyResponse createCouponPolicy(CreateCouponPolicyRequest request) {
 		if (Objects.isNull(request)) {
-			log.warn("쿠폰 생성 요칭이 null 입니다.");
 			throw new IllegalArgumentException("쿠폰 생성 요청을 찾을 수 없습니다.");
 		}
 
@@ -69,7 +68,6 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 		validateId(id);
 
 		if (Objects.isNull(request)) {
-			log.warn("쿠폰 수정 요칭이 null 입니다.");
 			throw new IllegalArgumentException("쿠폰 생성 요청을 찾을 수 없습니다.");
 		}
 
@@ -89,7 +87,6 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 
 	private void validateId(int id) {
 		if (id <= 0) {
-			log.warn("잘못된 파라미터 값입니다. : {}", id);
 			throw new IllegalArgumentException("잘못된 파라미터 값입니다.");
 		}
 	}
