@@ -79,18 +79,16 @@ class CouponPolicyRepositoryTest {
 	void update() {
 		// given
 		CouponPolicy savedCouponPolicy = couponPolicyRepository.findById(testCouponPolicy.getId()).orElse(null);
-		String updateName = "update";
+		ZonedDateTime updatedDate = ZonedDateTime.now().plusDays(1);
 		int updateDiscountAmount = 1000;
 
 		// when
 		assert savedCouponPolicy != null;
-		savedCouponPolicy.setName(updateName);
-		savedCouponPolicy.setDiscountAmount(updateDiscountAmount);
+		savedCouponPolicy.setEndDate(updatedDate);
 		CouponPolicy updatedCouponPolicy = couponPolicyRepository.save(savedCouponPolicy);
 
 		// then
-		assertEquals(updatedCouponPolicy.getName(), updateName);
-		assertEquals(updatedCouponPolicy.getDiscountAmount(), updateDiscountAmount);
+		assertEquals(updatedCouponPolicy.getEndDate(), updatedDate);
 	}
 
 	@Test

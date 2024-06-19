@@ -6,12 +6,15 @@ import org.springframework.data.domain.Pageable;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
+import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 
 public interface CouponPolicyService {
 
 	Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable);
 
-	CreateCouponPolicyResponse createCouponPolicy(CreateCouponPolicyRequest createCouponPolicyRequest);
+	CreateCouponPolicyResponse createCouponPolicy(CreateCouponPolicyRequest request);
+
+	void updateCouponPolicy(int id, UpdateCouponPolicyRequest request);
 
 	void deleteCouponPolicy(int id);
 }

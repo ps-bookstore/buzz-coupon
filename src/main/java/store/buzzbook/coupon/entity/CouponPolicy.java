@@ -35,38 +35,31 @@ public class CouponPolicy {
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private CouponType couponType;
 
-	@Setter
 	@NotNull
 	@Column(nullable = false, length = 30)
 	private String name;
 
-	@Setter
 	@NotNull
 	@Column(nullable = false)
 	private DiscountType discountType;
 
-	@Setter
 	@NotNull
 	@Column(nullable = false)
 	@ColumnDefault("1.0")
 	private double discountRate;
 
-	@Setter
 	@NotNull
 	@Column(nullable = false)
 	private int discountAmount;
-
-	@Setter
+	
 	@NotNull
 	@Column(nullable = false)
 	private int period;
 
-	@Setter
 	@NotNull
 	@Column(nullable = false)
 	private int standardPrice;
 
-	@Setter
 	@NotNull
 	@Column(nullable = false)
 	private int maxDiscountAmount;
@@ -74,6 +67,7 @@ public class CouponPolicy {
 	@NotNull
 	private ZonedDateTime startDate;
 
+	@Setter
 	@NotNull
 	private ZonedDateTime endDate;
 }

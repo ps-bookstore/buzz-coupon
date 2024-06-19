@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 
 import java.time.ZonedDateTime;
 import java.util.Collections;
+import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,9 +21,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
+import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
+import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.constant.DiscountType;
@@ -83,8 +86,8 @@ class CouponPolicyServiceTest {
 	}
 
 	@Test
-	@DisplayName("create coupon policy")
-	void createCouponPolicy() {
+	@DisplayName("create")
+	void create() {
 		// given
 		CreateCouponPolicyRequest testRequest = new CreateCouponPolicyRequest(
 			"test",
@@ -100,6 +103,7 @@ class CouponPolicyServiceTest {
 		);
 
 		when(couponTypeService.getCouponType(anyString())).thenReturn(CouponType.builder().name("book").build());
+		when(couponPolicyRepository.save(any(CouponPolicy.class))).thenReturn(testCouponPolicy);
 
 		// when
 		CreateCouponPolicyResponse result = couponPolicyService.createCouponPolicy(testRequest);
@@ -109,8 +113,8 @@ class CouponPolicyServiceTest {
 	}
 
 	@Test
-	@DisplayName("create coupon policy IllegalArgumentException")
-	void createCouponPolicyIllegalArgumentException() {
+	@DisplayName("create IllegalArgumentException")
+	void createIllegalArgumentException() {
 		// given
 
 		// when & then
@@ -118,8 +122,46 @@ class CouponPolicyServiceTest {
 	}
 
 	@Test
-	@DisplayName("delete coupon policy")
-	void deleteCouponPolicy() {
+	@DisplayName("update")
+	void update() {
+		// given
+		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.of(testCouponPolicy));
+
+		// when
+		couponPolicyService.updateCouponPolicy(1, testRequest);
+
+		// then
+		verify(couponPolicyRepository, times(1)).findById(anyInt());
+		verify(couponPolicyRepository, times(1)).save(any(CouponPolicy.class));
+	}
+
+	@Test
+	@DisplayName("update IllegalArgumentException")
+	void updateIllegalArgumentException() {
+		// given
+		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+
+		// when & then
+		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(0, testRequest));
+		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(-1, testRequest));
+		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(1, null));
+	}
+
+	@Test
+	@DisplayName("update coupon policy not found exception")
+	void updateCouponPolicyNotFoundException() {
+		// given
+		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.empty());
+
+		// when & then
+		assertThrows(CouponPolicyNotFoundException.class, () -> couponPolicyService.updateCouponPolicy(1, testRequest));
+	}
+
+	@Test
+	@DisplayName("delete")
+	void delete() {
 		// given
 		doNothing().when(couponPolicyRepository).deleteById(anyInt());
 
@@ -131,8 +173,8 @@ class CouponPolicyServiceTest {
 	}
 
 	@Test
-	@DisplayName("delete coupon policy IllegalArgumentException")
-	void deleteCouponPolicyIllegalArgumentException() {
+	@DisplayName("delete IllegalArgumentException")
+	void deleteIllegalArgumentException() {
 		// given
 
 		// when & then
