@@ -56,7 +56,7 @@ class SpecificCouponRepositoryTest {
 
 		testSpecificCoupon = SpecificCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.bookId(1L)
+			.bookId(1)
 			.build();
 
 		couponTypeRepository.save(testCouponType);
@@ -70,7 +70,7 @@ class SpecificCouponRepositoryTest {
 		// given
 		SpecificCoupon newSpecificCoupon = SpecificCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.bookId(1L)
+			.bookId(1)
 			.build();
 
 		// when
@@ -103,8 +103,8 @@ class SpecificCouponRepositoryTest {
 		// given
 
 		// when
-		boolean exists = specificCouponRepository.existsByBookId(1L);
-		boolean notExists = specificCouponRepository.existsByBookId(2L);
+		boolean exists = specificCouponRepository.existsByBookId(1);
+		boolean notExists = specificCouponRepository.existsByBookId(2);
 
 		// then
 		assertTrue(exists);

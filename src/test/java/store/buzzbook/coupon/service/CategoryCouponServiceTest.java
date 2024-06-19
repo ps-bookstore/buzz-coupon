@@ -12,7 +12,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.transaction.annotation.Transactional;
 
 import store.buzzbook.coupon.common.exception.CategoryCouponNotFoundException;
 import store.buzzbook.coupon.dto.categorycoupon.CreateCategoryCouponRequest;
@@ -24,7 +23,6 @@ import store.buzzbook.coupon.repository.CategoryCouponRepository;
 import store.buzzbook.coupon.service.impl.CategoryCouponServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
-@Transactional
 class CategoryCouponServiceTest {
 
 	@Mock
