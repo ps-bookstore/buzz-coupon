@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,11 +22,11 @@ public class SpecificCoupon {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private CouponPolicy couponPolicy;
 
-	@NotNull
-	private long bookId;
+	@Min(1)
+	private int bookId;
 }

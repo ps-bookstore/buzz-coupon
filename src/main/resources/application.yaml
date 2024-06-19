@@ -9,7 +9,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://admin:1234@localhost:8761/eureka
+      defaultZone: http://admin:1234@eureka-server:8761/eureka
     instance:
       prefer-ip-address: true
 
@@ -39,6 +39,14 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 50
+        one-indexed-parameters: false
+
 
 springdoc:
   api-docs:

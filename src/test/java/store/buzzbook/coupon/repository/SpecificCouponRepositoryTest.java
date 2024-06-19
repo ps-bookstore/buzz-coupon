@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.entity.constant.CouponRange;
+import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -39,12 +39,13 @@ class SpecificCouponRepositoryTest {
 	@BeforeEach
 	public void setUp() {
 		testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name("book")
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
 			.couponType(testCouponType)
 			.standardPrice(1000)
+			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
 			.startDate(ZonedDateTime.now())
@@ -55,7 +56,7 @@ class SpecificCouponRepositoryTest {
 
 		testSpecificCoupon = SpecificCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.bookId(1L)
+			.bookId(1)
 			.build();
 
 		couponTypeRepository.save(testCouponType);
@@ -69,7 +70,7 @@ class SpecificCouponRepositoryTest {
 		// given
 		SpecificCoupon newSpecificCoupon = SpecificCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.bookId(1L)
+			.bookId(1)
 			.build();
 
 		// when
@@ -102,8 +103,8 @@ class SpecificCouponRepositoryTest {
 		// given
 
 		// when
-		boolean exists = specificCouponRepository.existsByBookId(1L);
-		boolean notExists = specificCouponRepository.existsByBookId(2L);
+		boolean exists = specificCouponRepository.existsByBookId(1);
+		boolean notExists = specificCouponRepository.existsByBookId(2);
 
 		// then
 		assertTrue(exists);

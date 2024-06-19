@@ -12,11 +12,15 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
+import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
+import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -35,14 +39,16 @@ class CouponPolicyRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name("book")
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
 			.couponType(testCouponType)
 			.standardPrice(1000)
+			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
+			.period(14)
 			.startDate(ZonedDateTime.now())
 			.endDate(ZonedDateTime.now().plusDays(1))
 			.name("test")
@@ -73,18 +79,16 @@ class CouponPolicyRepositoryTest {
 	void update() {
 		// given
 		CouponPolicy savedCouponPolicy = couponPolicyRepository.findById(testCouponPolicy.getId()).orElse(null);
-		String updateName = "update";
+		ZonedDateTime updatedDate = ZonedDateTime.now().plusDays(1);
 		int updateDiscountAmount = 1000;
 
 		// when
 		assert savedCouponPolicy != null;
-		savedCouponPolicy.setName(updateName);
-		savedCouponPolicy.setDiscountAmount(updateDiscountAmount);
+		savedCouponPolicy.setEndDate(updatedDate);
 		CouponPolicy updatedCouponPolicy = couponPolicyRepository.save(savedCouponPolicy);
 
 		// then
-		assertEquals(updatedCouponPolicy.getName(), updateName);
-		assertEquals(updatedCouponPolicy.getDiscountAmount(), updateDiscountAmount);
+		assertEquals(updatedCouponPolicy.getEndDate(), updatedDate);
 	}
 
 	@Test
@@ -109,8 +113,10 @@ class CouponPolicyRepositoryTest {
 		CouponPolicy newCouponPolicy = CouponPolicy.builder()
 			.couponType(testCouponType)
 			.standardPrice(1000)
+			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
+			.period(14)
 			.startDate(ZonedDateTime.now())
 			.endDate(ZonedDateTime.now().plusDays(1))
 			.name("new")
@@ -124,5 +130,19 @@ class CouponPolicyRepositoryTest {
 
 		// then
 		assertEquals(2, couponPolicies.size());
+	}
+
+	@Test
+	@DisplayName("find all by paging")
+	void findAllByPaging() {
+		// given
+		Pageable pageable = PageRequest.of(0, 10);
+
+		// when
+		Page<CouponPolicyResponse> result = couponPolicyRepository.findAllBy(pageable);
+
+		// then
+		assertTrue(result.hasContent());
+		assertFalse(result.getContent().isEmpty());
 	}
 }

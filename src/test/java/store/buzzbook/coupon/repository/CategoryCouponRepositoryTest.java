@@ -17,8 +17,8 @@ import store.buzzbook.coupon.entity.CategoryCoupon;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
+import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -44,12 +44,13 @@ class CategoryCouponRepositoryTest {
 	@BeforeEach
 	public void setUp() {
 		testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name("category")
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
 			.couponType(testCouponType)
 			.standardPrice(1000)
+			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
 			.startDate(ZonedDateTime.now())
@@ -68,7 +69,7 @@ class CategoryCouponRepositoryTest {
 
 		testCategoryCoupon = CategoryCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.categoryId(1L)
+			.categoryId(1)
 			.build();
 
 		couponTypeRepository.save(testCouponType);
@@ -82,15 +83,15 @@ class CategoryCouponRepositoryTest {
 		// given
 		CategoryCoupon newCategoryCoupon = CategoryCoupon.builder()
 			.couponPolicy(testCouponPolicy)
+			.categoryId(1)
 			.build();
 
 		// when
-		categoryCouponRepository.save(newCategoryCoupon);
-		Optional<CategoryCoupon> optionalCategoryCoupon = categoryCouponRepository.findById(newCategoryCoupon.getId());
+		CategoryCoupon savedCategoryCoupon = categoryCouponRepository.save(newCategoryCoupon);
 
 		//then
-		assertTrue(optionalCategoryCoupon.isPresent());
-		assertEquals(newCategoryCoupon, optionalCategoryCoupon.get());
+		assertEquals(newCategoryCoupon.getCouponPolicy(), savedCategoryCoupon.getCouponPolicy());
+		assertEquals(newCategoryCoupon.getCategoryId(), savedCategoryCoupon.getCategoryId());
 	}
 
 	@Test
@@ -115,7 +116,7 @@ class CategoryCouponRepositoryTest {
 
 		// when
 		boolean exists = categoryCouponRepository.existsByCategoryId(testCategoryCoupon.getCategoryId());
-		boolean notExists = categoryCouponRepository.existsByCategoryId(2L);
+		boolean notExists = categoryCouponRepository.existsByCategoryId(2);
 
 		// then
 		assertTrue(exists);

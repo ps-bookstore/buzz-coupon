@@ -6,6 +6,8 @@ import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +20,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @Getter
 @AllArgsConstructor
@@ -28,41 +31,40 @@ public class CouponPolicy {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 
 	@NotNull
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private CouponType couponType;
 
-	@Setter
 	@NotNull
-	@Column(nullable = false, length = 30)
+	@Column(length = 30)
 	private String name;
 
-	@Setter
 	@NotNull
-	@Column(nullable = false)
+	@Enumerated(value = EnumType.STRING)
+	private DiscountType discountType;
+
+	@NotNull
 	@ColumnDefault("1.0")
 	private double discountRate;
 
-	@Setter
 	@NotNull
-	@Column(nullable = false)
 	private int discountAmount;
 
-	@Setter
 	@NotNull
-	@Column(nullable = false)
+	private int period;
+
+	@NotNull
 	private int standardPrice;
 
-	@Setter
 	@NotNull
-	@Column(nullable = false)
 	private int maxDiscountAmount;
 
 	@NotNull
 	private ZonedDateTime startDate;
 
+	@Setter
 	@NotNull
 	private ZonedDateTime endDate;
 }
