@@ -38,33 +38,27 @@ public class CouponPolicy {
 	private CouponType couponType;
 
 	@NotNull
-	@Column(nullable = false, length = 30)
+	@Column(length = 30)
 	private String name;
 
 	@NotNull
-	@Column(nullable = false)
 	@Enumerated(value = EnumType.STRING)
 	private DiscountType discountType;
 
 	@NotNull
-	@Column(nullable = false)
 	@ColumnDefault("1.0")
 	private double discountRate;
 
 	@NotNull
-	@Column(nullable = false)
 	private int discountAmount;
 
 	@NotNull
-	@Column(nullable = false)
 	private int period;
 
 	@NotNull
-	@Column(nullable = false)
 	private int standardPrice;
 
 	@NotNull
-	@Column(nullable = false)
 	private int maxDiscountAmount;
 
 	@NotNull

@@ -24,6 +24,6 @@ public class CouponType {
 	private int id;
 
 	@NotNull
-	@Column(nullable = false)
+	@Column(nullable = false, length = 10)
 	private String name;
 }

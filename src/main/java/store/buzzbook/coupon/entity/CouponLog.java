@@ -2,7 +2,6 @@ package store.buzzbook.coupon.entity;
 
 import java.time.ZonedDateTime;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -38,20 +37,16 @@ public class CouponLog {
 	private CouponPolicy couponPolicy;
 
 	@NotNull
-	@Column(nullable = false)
 	private ZonedDateTime createDate;
 
 	@NotNull
-	@Column(nullable = false)
 	private ZonedDateTime expireDate;
 
 	@Setter
 	@NotNull
-	@Column(nullable = false)
 	@Enumerated(value = EnumType.STRING)
 	private CouponStatus status;
 
 	@NotNull
-	@Column(nullable = false)
 	private long userId;
 }
