@@ -17,7 +17,7 @@ public interface CouponPolicyService {
 
 	CreateCouponPolicyResponse createCouponPolicy(CreateCouponPolicyRequest request);
 
-	void updateCouponPolicy(int id, UpdateCouponPolicyRequest request);
+	CouponPolicyResponse updateCouponPolicy(int id, UpdateCouponPolicyRequest request);
 
 	void deleteCouponPolicy(int id);
 }

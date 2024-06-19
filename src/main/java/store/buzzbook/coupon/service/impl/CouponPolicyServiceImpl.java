@@ -62,7 +62,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	}
 
 	@Override
-	public void updateCouponPolicy(int id, UpdateCouponPolicyRequest request) {
+	public CouponPolicyResponse updateCouponPolicy(int id, UpdateCouponPolicyRequest request) {
 		validateId(id);
 
 		if (Objects.isNull(request)) {
@@ -74,7 +74,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 
 		couponPolicy.setEndDate(request.endDate());
 
-		couponPolicyRepository.save(couponPolicy);
+		return CouponPolicyResponse.from(couponPolicyRepository.save(couponPolicy));
 	}
 
 	@Override
