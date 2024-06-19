@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import store.buzzbook.coupon.common.exception.SpecificCouponNotFoundException;
 import store.buzzbook.coupon.dto.specificcoupon.CreateSpecificCouponRequest;
 import store.buzzbook.coupon.dto.specificcoupon.CreateSpecificCouponResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
@@ -91,5 +92,79 @@ public class SpecificCouponServiceTest {
 
 		// when & then
 		assertThrows(IllegalArgumentException.class, () -> specificCouponService.createSpecificCoupon(null));
+	}
+
+	@Test
+	@DisplayName("delete by coupon policy id")
+	void deleteByCouponPolicyId() {
+		// given
+		when(specificCouponRepository.existsByCouponPolicyId(anyInt())).thenReturn(true);
+		doNothing().when(specificCouponRepository).deleteByCouponPolicyId(anyInt());
+
+		// when
+		specificCouponService.deleteSpecificCouponByCouponPolicyId(testCouponPolicy.getId());
+
+		// then
+		verify(specificCouponRepository, times(1)).existsByCouponPolicyId(anyInt());
+		verify(specificCouponRepository, times(1)).deleteByCouponPolicyId(anyInt());
+	}
+
+	@Test
+	@DisplayName("delete by coupon policy id with IllegalArgumentException")
+	void deleteByCouponPolicyIdWithIllegalArgumentException() {
+		// given
+
+		// when & then
+		assertThrows(IllegalArgumentException.class,
+			() -> specificCouponService.deleteSpecificCouponByCouponPolicyId(-1));
+		assertThrows(IllegalArgumentException.class,
+			() -> specificCouponService.deleteSpecificCouponByCouponPolicyId(0));
+	}
+
+	@Test
+	@DisplayName("delete by coupon policy id with SpecificCouponNotFoundException")
+	void deleteByCouponPolicyIdWithSpecificCouponNotFoundException() {
+		// given
+		when(specificCouponRepository.existsByCouponPolicyId(anyInt())).thenReturn(false);
+
+		// when & then
+		assertThrows(SpecificCouponNotFoundException.class,
+			() -> specificCouponService.deleteSpecificCouponByCouponPolicyId(1));
+	}
+
+	@Test
+	@DisplayName("delete by book id")
+	void deleteByBookId() {
+		// given
+		when(specificCouponRepository.existsByBookId(anyInt())).thenReturn(true);
+		doNothing().when(specificCouponRepository).deleteByBookId(anyInt());
+
+		// when
+		specificCouponService.deleteSpecificCouponByBookId(1);
+
+		// then
+		verify(specificCouponRepository, times(1)).existsByBookId(anyInt());
+		verify(specificCouponRepository, times(1)).deleteByBookId(anyInt());
+	}
+
+	@Test
+	@DisplayName("delete by book id with IllegalArgumentException")
+	void deleteByBookIdWithIllegalArgumentException() {
+		// given
+
+		// when & then
+		assertThrows(IllegalArgumentException.class, () -> specificCouponService.deleteSpecificCouponByBookId(-1));
+		assertThrows(IllegalArgumentException.class, () -> specificCouponService.deleteSpecificCouponByBookId(0));
+	}
+
+	@Test
+	@DisplayName("delete by book id with SpecificCouponNotFoundException")
+	void deleteByBookIdWithSpecificCouponNotFoundException() {
+		// given
+		when(specificCouponRepository.existsByBookId(anyInt())).thenReturn(false);
+
+		// when & then
+		assertThrows(SpecificCouponNotFoundException.class,
+			() -> specificCouponService.deleteSpecificCouponByBookId(1));
 	}
 }

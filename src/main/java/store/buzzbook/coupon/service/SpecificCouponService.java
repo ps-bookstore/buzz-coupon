@@ -8,4 +8,6 @@ public interface SpecificCouponService {
 	CreateSpecificCouponResponse createSpecificCoupon(CreateSpecificCouponRequest request);
 
 	void deleteSpecificCouponByCouponPolicyId(int couponPolicyId);
+
+	void deleteSpecificCouponByBookId(int bookId);
 }
