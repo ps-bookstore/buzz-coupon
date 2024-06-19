@@ -4,12 +4,15 @@ import java.time.ZonedDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,18 +32,26 @@ public class CouponLog {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@NotNull
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@JoinColumn(name = "couponPolicy_id")
 	private CouponPolicy couponPolicy;
 
+	@NotNull
 	@Column(nullable = false)
 	private ZonedDateTime createDate;
 
-	@Setter
+	@NotNull
+	@Column(nullable = false)
 	private ZonedDateTime expireDate;
 
 	@Setter
-	@Enumerated
+	@NotNull
+	@Column(nullable = false)
+	@Enumerated(value = EnumType.STRING)
 	private CouponStatus status;
 
+	@NotNull
+	@Column(nullable = false)
 	private long userId;
 }

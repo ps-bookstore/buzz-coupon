@@ -35,12 +35,11 @@ class CouponLogRepositoryTest {
 	private CouponTypeRepository couponTypeRepository;
 
 	private CouponLog testCouponLog;
-	private CouponType testCouponType;
 	private CouponPolicy testCouponPolicy;
 
 	@BeforeEach
 	void setUp() {
-		testCouponType = CouponType.builder()
+		CouponType testCouponType = CouponType.builder()
 			.name("book")
 			.build();
 
@@ -95,15 +94,15 @@ class CouponLogRepositoryTest {
 	void update() {
 		// given
 		CouponLog foundCouponLog = couponLogRepository.findById(testCouponLog.getId()).orElse(null);
-		ZonedDateTime updateDate = ZonedDateTime.now();
+		CouponStatus updatedStatus = CouponStatus.USED;
 
 		// when
 		assert foundCouponLog != null;
-		foundCouponLog.setExpireDate(updateDate);
+		foundCouponLog.setStatus(updatedStatus);
 		couponLogRepository.save(foundCouponLog);
 
 		// then
-		assertEquals(foundCouponLog.getExpireDate(), updateDate);
+		assertEquals(foundCouponLog.getStatus(), updatedStatus);
 	}
 
 	@Test

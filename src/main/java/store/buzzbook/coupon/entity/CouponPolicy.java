@@ -6,6 +6,8 @@ import org.hibernate.annotations.ColumnDefault;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -41,6 +43,7 @@ public class CouponPolicy {
 
 	@NotNull
 	@Column(nullable = false)
+	@Enumerated(value = EnumType.STRING)
 	private DiscountType discountType;
 
 	@NotNull
@@ -51,7 +54,7 @@ public class CouponPolicy {
 	@NotNull
 	@Column(nullable = false)
 	private int discountAmount;
-	
+
 	@NotNull
 	@Column(nullable = false)
 	private int period;

@@ -28,8 +28,15 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	private final CouponPolicyRepository couponPolicyRepository;
 	private final CouponTypeService couponTypeService;
 
+	@Override
 	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable) {
 		return couponPolicyRepository.findAllBy(pageable);
+	}
+
+	@Override
+	public CouponPolicy getCouponPolicyById(int id) {
+		validateId(id);
+		return couponPolicyRepository.findById(id).orElseThrow(CouponPolicyNotFoundException::new);
 	}
 
 	@Override

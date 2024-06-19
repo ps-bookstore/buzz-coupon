@@ -2,6 +2,8 @@ package store.buzzbook.coupon.dto.couponpolicy;
 
 import java.time.ZonedDateTime;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 public record CreateCouponPolicyRequest(
@@ -12,19 +14,20 @@ public record CreateCouponPolicyRequest(
 	@NotNull
 	String discountType,
 
-	@NotNull
+	@Min(0)
+	@Max(1)
 	double discountRate,
 
-	@NotNull
+	@Min(0)
 	int discountAmount,
 
-	@NotNull
+	@Min(0)
 	int standardPrice,
 
-	@NotNull
+	@Min(0)
 	int maxDiscountAmount,
 
-	@NotNull
+	@Min(0)
 	int period,
 
 	@NotNull
