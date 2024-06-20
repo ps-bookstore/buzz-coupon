@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -27,7 +28,7 @@ class CouponTypeRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		couponTypeRepository.save(testCouponType);
@@ -38,7 +39,7 @@ class CouponTypeRepositoryTest {
 	void save() {
 		// given
 		CouponType newCouponType = CouponType.builder()
-			.name("category")
+			.name(CouponRange.CATEGORY)
 			.build();
 
 		couponTypeRepository.save(newCouponType);

@@ -18,6 +18,7 @@ import store.buzzbook.coupon.dto.categorycoupon.CreateCategoryCouponRequest;
 import store.buzzbook.coupon.entity.CategoryCoupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.CategoryCouponRepository;
 import store.buzzbook.coupon.service.impl.CategoryCouponServiceImpl;
@@ -40,7 +41,7 @@ class CategoryCouponServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

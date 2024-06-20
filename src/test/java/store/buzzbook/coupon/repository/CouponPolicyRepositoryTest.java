@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @DataJpaTest
@@ -39,7 +40,7 @@ class CouponPolicyRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

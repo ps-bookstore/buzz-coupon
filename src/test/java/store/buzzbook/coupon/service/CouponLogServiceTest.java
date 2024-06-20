@@ -29,6 +29,7 @@ import store.buzzbook.coupon.dto.couponlog.UpdateCouponLogRequest;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.CouponLogRepository;
@@ -55,7 +56,7 @@ class CouponLogServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

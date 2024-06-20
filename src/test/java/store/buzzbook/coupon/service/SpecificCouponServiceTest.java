@@ -19,6 +19,7 @@ import store.buzzbook.coupon.dto.specificcoupon.CreateSpecificCouponResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.service.impl.SpecificCouponServiceImpl;
@@ -41,7 +42,7 @@ public class SpecificCouponServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

@@ -28,6 +28,7 @@ import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.CouponPolicyRepository;
 import store.buzzbook.coupon.service.impl.CouponPolicyServiceImpl;
@@ -52,7 +53,7 @@ class CouponPolicyServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
@@ -102,7 +103,8 @@ class CouponPolicyServiceTest {
 			"global"
 		);
 
-		when(couponTypeService.getCouponType(anyString())).thenReturn(CouponType.builder().name("book").build());
+		when(couponTypeService.getCouponType(anyString())).thenReturn(
+			CouponType.builder().name(CouponRange.BOOK).build());
 		when(couponPolicyRepository.save(any(CouponPolicy.class))).thenReturn(testCouponPolicy);
 
 		// when
