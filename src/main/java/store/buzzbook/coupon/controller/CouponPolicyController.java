@@ -40,7 +40,7 @@ public class CouponPolicyController {
 
 	@GetMapping
 	@Transactional(readOnly = true)
-	@Operation(summary = "쿠폰 정책 리스트 조회", description = "페이징 처리된 쿠폰 정책 리스트를 조회합니다.")
+	@Operation(summary = "쿠폰 정책 리스트 조회", description = "페이징 처리된 모든 쿠폰 정책 리스트를 조회합니다.")
 	public ResponseEntity<Page<CouponPolicyResponse>> getCouponPoliciesByPaging(Pageable pageable) {
 		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByPaging(pageable));
 	}
@@ -66,6 +66,7 @@ public class CouponPolicyController {
 	}
 
 	@GetMapping("/types")
+	@Transactional(readOnly = true)
 	@Operation(summary = "쿠폰 타입 조회", description = "쿠폰 정책 타입을 조회 합니다.")
 	public ResponseEntity<List<CouponTypeResponse>> getCouponTypes() {
 		return ResponseEntity.ok(couponTypeService.getAllCouponTypes());
@@ -82,5 +83,12 @@ public class CouponPolicyController {
 	public ResponseEntity<Void> deleteCouponType(@PathVariable int couponTypeId) {
 		couponTypeService.deleteCouponType(couponTypeId);
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping("/specifics/{bookId}")
+	@Transactional(readOnly = true)
+	@Operation(summary = "특정 도서 쿠폰 리스트 조회", description = "특정 도서 쿠폰의 리스트를 조회 합니다.")
+	public ResponseEntity<List<CouponPolicyResponse>> getSpecificCoupons(@PathVariable int bookId) {
+		return ResponseEntity.ok(couponPolicyService.getSpecificCoupons(bookId));
 	}
 }

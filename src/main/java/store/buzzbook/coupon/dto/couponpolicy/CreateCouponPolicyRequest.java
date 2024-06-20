@@ -37,6 +37,10 @@ public record CreateCouponPolicyRequest(
 	ZonedDateTime endDate,
 
 	@NotNull
-	String couponType
+	String couponType,
+	
+	boolean isDeleted,
+
+	int targetId
 ) {
 }

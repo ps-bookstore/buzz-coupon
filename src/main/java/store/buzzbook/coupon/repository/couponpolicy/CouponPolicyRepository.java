@@ -1,4 +1,4 @@
-package store.buzzbook.coupon.repository;
+package store.buzzbook.coupon.repository.couponpolicy;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

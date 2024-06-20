@@ -88,7 +88,8 @@ class CouponLogServiceTest {
 	@DisplayName("get coupon log by paging")
 	void getCouponLogByPaging() {
 		// given
-		when(couponLogRepository.findAllByUserId(anyLong(), any(Pageable.class))).thenReturn(testCouponLogPage);
+		when(couponLogRepository.findAllByUserIdAndStatus(anyLong(), any(), any(Pageable.class))).thenReturn(
+			testCouponLogPage);
 		long userId = 1L;
 
 		// when

@@ -14,6 +14,7 @@ public record CouponPolicyResponse(
 	int period,
 	ZonedDateTime startDate,
 	ZonedDateTime endDate,
+	boolean isDeleted,
 	CouponType couponType
 ) {
 	public static CouponPolicyResponse from(CouponPolicy couponPolicy) {
@@ -26,6 +27,7 @@ public record CouponPolicyResponse(
 			couponPolicy.getMaxDiscountAmount(),
 			couponPolicy.getStartDate(),
 			couponPolicy.getEndDate(),
+			couponPolicy.isDeleted(),
 			couponPolicy.getCouponType()
 		);
 	}

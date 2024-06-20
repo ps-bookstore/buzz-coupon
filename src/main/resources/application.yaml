@@ -33,7 +33,7 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     generate-ddl: false
     show-sql: true
     properties:

@@ -9,5 +9,8 @@ import store.buzzbook.coupon.entity.CouponLog;
 
 public interface CouponLogRepository extends JpaRepository<CouponLog, Long> {
 
-	Page<CouponLogResponse> findAllByUserId(Long userId, Pageable pageable);
+	Page<CouponLogResponse> findAllByUserIdAndStatus(Long userId, String status, Pageable pageable);
+
+	boolean existsByCouponPolicyId(int couponPolicyId);
+
 }

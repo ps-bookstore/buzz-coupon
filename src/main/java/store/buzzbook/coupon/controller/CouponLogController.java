@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,9 +32,9 @@ public class CouponLogController {
 	private final CouponLogService couponLogService;
 
 	@GetMapping("/{userId}")
-	@Operation(summary = "회원 쿠폰 내역 조회", description = "회원의 쿠폰 내역을 조회합니다.")
+	@Transactional(readOnly = true)
+	@Operation(summary = "회원 쿠폰 내역 조회", description = "회원의 사용 가능한 쿠폰(status = available) 내역을 조회합니다. ")
 	public ResponseEntity<Page<CouponLogResponse>> getCoupons(@PathVariable long userId, Pageable pageable) {
-		// TODO: 사용안한 쿠폰만 가져오도록 수정
 		return ResponseEntity.ok(couponLogService.getCouponLogByPaging(userId, pageable));
 	}
 

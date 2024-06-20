@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.exception.CategoryCouponNotFoundException;
+import store.buzzbook.coupon.common.exception.CouponLogAlreadyExistsException;
 import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
@@ -29,5 +30,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	public ResponseEntity<String> handleNotFound(Exception exception) {
 		log.warn("handleNotFound : {}", exception.getMessage());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+	}
+
+	@ExceptionHandler({CouponLogAlreadyExistsException.class})
+	public ResponseEntity<String> handleAlreadyExists(Exception exception) {
+		log.warn("handleAlreadyExists : {}", exception.getMessage());
+		return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
 	}
 }

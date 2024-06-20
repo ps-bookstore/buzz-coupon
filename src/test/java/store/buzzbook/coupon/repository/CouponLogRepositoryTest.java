@@ -20,6 +20,7 @@ import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
 import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

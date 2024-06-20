@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import store.buzzbook.coupon.common.exception.CouponLogAlreadyExistsException;
 import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
 import store.buzzbook.coupon.dto.couponlog.CouponLogResponse;
 import store.buzzbook.coupon.dto.couponlog.CreateCouponLogRequest;
@@ -14,6 +15,7 @@ import store.buzzbook.coupon.dto.couponlog.CreateCouponLogResponse;
 import store.buzzbook.coupon.dto.couponlog.UpdateCouponLogRequest;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
+import store.buzzbook.coupon.entity.constant.CouponStatus;
 import store.buzzbook.coupon.repository.CouponLogRepository;
 import store.buzzbook.coupon.service.CouponLogService;
 import store.buzzbook.coupon.service.CouponPolicyService;
@@ -24,17 +26,21 @@ public class CouponLogServiceImpl implements CouponLogService {
 
 	private final CouponLogRepository couponLogRepository;
 	private final CouponPolicyService couponPolicyService;
-
+	
 	@Override
 	public Page<CouponLogResponse> getCouponLogByPaging(long userId, Pageable pageable) {
 		validateId(userId);
-		return couponLogRepository.findAllByUserId(userId, pageable);
+		return couponLogRepository.findAllByUserIdAndStatus(userId, CouponStatus.AVAILABLE.toString(), pageable);
 	}
 
 	@Override
 	public CreateCouponLogResponse createCouponLog(CreateCouponLogRequest request) {
 		if (Objects.isNull(request)) {
 			throw new IllegalArgumentException("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
+		}
+
+		if (couponLogRepository.existsByCouponPolicyId(request.couponPolicyId())) {
+			throw new CouponLogAlreadyExistsException();
 		}
 
 		CouponPolicy couponPolicy = couponPolicyService.getCouponPolicyById(request.couponPolicyId());
