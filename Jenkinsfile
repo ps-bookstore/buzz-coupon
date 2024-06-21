@@ -7,7 +7,9 @@ pipeline {
         DEPLOY_PATH_1 = '/home/nhnacademy'
         REPO_URL = 'https://github.com/nhnacademy-be6-AA/buzz-coupon-back.git'
         ARTIFACT_NAME = 'coupon-0.0.1-SNAPSHOT.jar'
+        DOCKER_IMAGE = 'yourdockerusername/coupon'
         JAVA_OPTS = '-XX:+EnableDynamicAgentLoading -XX:+UseParallelGC'
+        DOCKER_HUB_CREDENTIALS_ID = 'aa-dockerhub'
     }
 
     tools {
@@ -45,25 +47,42 @@ pipeline {
                 }
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    def app = docker.build("${DOCKER_IMAGE}")
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_HUB_CREDENTIALS_ID}") {
+                        def app = docker.image("${DOCKER_IMAGE}")
+                        app.push('latest')
+                    }
+                }
+            }
+        }
         
         stage('Deploy to Front Server 1') {
             steps {
                 script {
-                    def artifactPath = "target/${ARTIFACT_NAME}"
-                    if (!fileExists(artifactPath)) {
-                        error("Artifact not found: ${artifactPath}")
-                    }
+                    deployDockerContainer(env.COUPON_SERVER_1, env.DEPLOY_PATH_1, 8080)
+                    showLogs(env.COUPON_SERVER_1, env.DEPLOY_PATH_1)
                 }
-                deployToServer(env.COUPON_SERVER_1, env.DEPLOY_PATH_1, 8080)
-                showLogs(env.COUPON_SERVER_1, env.DEPLOY_PATH_1)
             }
         }
+        
         stage('Verification') {
             steps {
                 verifyDeployment(env.COUPON_SERVER_DOMAIN, 8080)
             }
         }
     }
+
     post {
         success {
             echo 'Deployment succeeded!'
@@ -74,11 +93,15 @@ pipeline {
     }
 }
 
-def deployToServer(server, deployPath, port) {
+def deployDockerContainer(server, deployPath, port) {
     withCredentials([sshUserPrivateKey(credentialsId: 'aa-ssh', keyFileVariable: 'PEM_FILE')]) {
         sh """
-        scp -o StrictHostKeyChecking=no -i \$PEM_FILE target/${env.ARTIFACT_NAME} ${server}:${deployPath}
-        ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} 'nohup java -jar ${deployPath}/${env.ARTIFACT_NAME} --server.port=${port} ${env.JAVA_OPTS} > ${deployPath}/app.log 2>&1 &'
+        ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} '
+        docker pull ${env.DOCKER_IMAGE}:latest &&
+        docker stop coupon || true &&
+        docker rm coupon || true &&
+        docker run -d --name coupon -p ${port}:8080 ${env.DOCKER_IMAGE}:latest
+        '
         """
     }
 }
@@ -86,7 +109,7 @@ def deployToServer(server, deployPath, port) {
 def showLogs(server, deployPath) {
     withCredentials([sshUserPrivateKey(credentialsId: 'aa-ssh', keyFileVariable: 'PEM_FILE')]) {
         sh """
-        ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} 'tail -n 100 ${deployPath}/app.log'
+        ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} 'docker logs -f coupon'
         """
     }
 }
