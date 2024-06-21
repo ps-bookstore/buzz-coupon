@@ -128,7 +128,7 @@ class CouponPolicyControllerTest {
 				.content(objectMapper.writeValueAsString(request))
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isBadRequest())
-			.andExpect(jsonPath("$.status").exists());
+			.andExpect(jsonPath("$.name").exists());
 
 		verify(couponTypeService, never()).createCouponType(any());
 	}

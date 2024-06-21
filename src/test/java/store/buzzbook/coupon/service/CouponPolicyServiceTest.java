@@ -20,7 +20,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.transaction.annotation.Transactional;
 
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
@@ -38,7 +37,6 @@ import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.impl.CouponPolicyServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
-@Transactional
 class CouponPolicyServiceTest {
 
 	@Mock
@@ -67,7 +65,6 @@ class CouponPolicyServiceTest {
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
-			.id(1)
 			.couponType(testCouponType)
 			.standardPrice(1000)
 			.discountType(DiscountType.AMOUNT)
@@ -77,6 +74,7 @@ class CouponPolicyServiceTest {
 			.endDate(ZonedDateTime.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
+			.isDeleted(false)
 			.build();
 
 		pageable = PageRequest.of(0, 10);
@@ -101,7 +99,7 @@ class CouponPolicyServiceTest {
 	@DisplayName("get specific coupons by bookId")
 	void getSpecificCoupons() {
 		// given
-		when(couponPolicyQuerydslRepository.findAllByBookId(anyInt())).thenReturn(List.of(testCouponPolicy));
+		when(couponPolicyRepository.findAllByBookId(anyInt())).thenReturn(List.of(testCouponPolicy));
 
 		// when
 		List<CouponPolicyResponse> result = couponPolicyService.getSpecificCoupons(1);
@@ -109,7 +107,7 @@ class CouponPolicyServiceTest {
 		// then
 		assertEquals(1, result.size());
 		assertEquals(testCouponPolicy.getId(), result.getFirst().id());
-		verify(couponPolicyQuerydslRepository, times(1)).findAllByBookId(anyInt());
+		verify(couponPolicyRepository, times(1)).findAllByBookId(anyInt());
 	}
 
 	@Test

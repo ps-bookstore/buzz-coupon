@@ -15,7 +15,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.transaction.annotation.Transactional;
 
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
@@ -26,7 +25,6 @@ import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Transactional
 class CouponPolicyRepositoryTest {
 
 	@Autowired
@@ -41,12 +39,11 @@ class CouponPolicyRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.id(1)
 			.name(CouponRange.BOOK)
 			.build();
+		couponTypeRepository.save(testCouponType);
 
 		testCouponPolicy = CouponPolicy.builder()
-			.id(1)
 			.couponType(testCouponType)
 			.standardPrice(1000)
 			.discountType(DiscountType.AMOUNT)
@@ -57,7 +54,9 @@ class CouponPolicyRepositoryTest {
 			.endDate(ZonedDateTime.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
+			.isDeleted(false)
 			.build();
+		couponPolicyRepository.save(testCouponPolicy);
 	}
 
 	@Test
@@ -118,6 +117,7 @@ class CouponPolicyRepositoryTest {
 			.endDate(ZonedDateTime.now().plusDays(1))
 			.name("new")
 			.maxDiscountAmount(10000)
+			.isDeleted(false)
 			.build();
 
 		couponPolicyRepository.save(newCouponPolicy);
@@ -134,13 +134,11 @@ class CouponPolicyRepositoryTest {
 	void findAllByPaging() {
 		// given
 		Pageable pageable = PageRequest.of(0, 10);
-		CouponPolicy couponPolicy = couponPolicyRepository.save(testCouponPolicy);
 
 		// when
 		Page<CouponPolicyResponse> result = couponPolicyRepository.findAllBy(pageable);
 
 		// then
 		assertTrue(result.hasContent());
-		assertFalse(result.getContent().isEmpty());
 	}
 }
