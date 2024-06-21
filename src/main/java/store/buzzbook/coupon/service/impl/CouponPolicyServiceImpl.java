@@ -22,7 +22,6 @@ import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.CategoryCouponRepository;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
-import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyQuerydslRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponTypeService;
@@ -35,7 +34,6 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	private final CategoryCouponRepository categoryCouponRepository;
 	private final SpecificCouponRepository specificCouponRepository;
 	private final CouponTypeService couponTypeService;
-	private final CouponPolicyQuerydslRepository couponPolicyQuerydslRepository;
 
 	@Override
 	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable) {
@@ -46,7 +44,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	public List<CouponPolicyResponse> getSpecificCoupons(int bookId) {
 		validateId(bookId);
 
-		return couponPolicyQuerydslRepository.findAllByBookId(bookId).stream()
+		return couponPolicyRepository.findAllByBookId(bookId).stream()
 			.map(CouponPolicyResponse::from)
 			.toList();
 	}
