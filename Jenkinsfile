@@ -21,7 +21,7 @@ pipeline {
                 git(
                     url: REPO_URL,
                     branch: 'develop',
-                    credentialsId: 'aa-phj'
+                    credentialsId: 'aa-github'
                 )
             }
         }
