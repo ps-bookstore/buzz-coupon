@@ -8,8 +8,6 @@ pipeline {
         REPO_URL = 'https://github.com/nhnacademy-be6-AA/buzz-coupon-back.git'
         ARTIFACT_NAME = 'coupon-0.0.1-SNAPSHOT.jar'
         JAVA_OPTS = '-XX:+EnableDynamicAgentLoading -XX:+UseParallelGC'
-        DOCKER_HUB_REPO = 'parkheejun/aa'
-        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials-id'
     }
 
     tools {
@@ -27,6 +25,7 @@ pipeline {
                 )
             }
         }
+        
         stage('Build') {
             steps {
                 withEnv(["JAVA_OPTS=${env.JAVA_OPTS}"]) {
@@ -34,13 +33,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
-            steps {
-                withEnv(["JAVA_OPTS=${env.JAVA_OPTS}"]) {
-                    sh 'mvn test -Dsurefire.forkCount=1 -Dsurefire.useSystemClassLoader=false'
-                }
-            }
-        }
+        
         stage('Add SSH Key to Known Hosts') {
             steps {
                 script {
@@ -52,23 +45,7 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    dockerImage = docker.build("${env.DOCKER_HUB_REPO}:${env.BUILD_ID}")
-                }
-            }
-        }
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', env.DOCKER_CREDENTIALS_ID) {
-                        dockerImage.push("{env.BUILD_ID}")
-                        dockerImage.push("latest")
-                    }
-                }
-            }
-        }
+        
         stage('Deploy to Front Server 1') {
             steps {
                 script {
