@@ -7,7 +7,7 @@ pipeline {
         DEPLOY_PATH_1 = '/home/nhnacademy'
         REPO_URL = 'https://github.com/nhnacademy-be6-AA/buzz-coupon-back.git'
         ARTIFACT_NAME = 'coupon-0.0.1-SNAPSHOT.jar'
-        DOCKER_IMAGE = 'yourdockerusername/coupon'
+        DOCKER_IMAGE = 'parkheejun2/coupon'
         JAVA_OPTS = '-XX:+EnableDynamicAgentLoading -XX:+UseParallelGC'
         DOCKER_HUB_CREDENTIALS_ID = 'aa-dockerhub'
     }
