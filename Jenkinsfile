@@ -8,6 +8,8 @@ pipeline {
         REPO_URL = 'https://github.com/nhnacademy-be6-AA/buzz-coupon-back.git'
         ARTIFACT_NAME = 'coupon-0.0.1-SNAPSHOT.jar'
         JAVA_OPTS = '-XX:+EnableDynamicAgentLoading -XX:+UseParallelGC'
+        DOCKER_HUB_REPO = 'parkheejun/aa'
+        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials-id'
     }
 
     tools {
@@ -47,6 +49,23 @@ pipeline {
                         mkdir -p ~/.ssh || true
                         ssh-keyscan -H ${remoteHost1} >> ~/.ssh/known_hosts || (echo "ssh-keyscan failed" && exit 1)
                     """
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    dockerImage = docker.build("${env.DOCKER_HUB_REPO}:${env.BUILD_ID}")
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://index.docker.io/v1/', env.DOCKER_CREDENTIALS_ID) {
+                        dockerImage.push("{env.BUILD_ID}")
+                        dockerImage.push("latest")
+                    }
                 }
             }
         }
@@ -100,4 +119,3 @@ def verifyDeployment(server, port) {
     curl -s --head http://${server}:${port} | head -n 1
     """
 }
-

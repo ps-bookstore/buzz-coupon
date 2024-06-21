@@ -18,13 +18,13 @@ public class SwaggerConfig {
 			.info(new Info()
 				.title("buzz-book-store-openapi")
 				.version("1.0")
-				.description("buzz-book-store-openapi-ui 화면입니다."));
+				.description("buzz-book-store-openapi 화면입니다."));
 	}
 
 	@Bean
 	public GroupedOpenApi groupedOpenApi() {
 		String[] paths = {"/api/coupons/**"};
-		String[] packagesToScan = {"com.nhnacademy.couponapi.controller"};
+		String[] packagesToScan = {"store.buzzbook.coupon.controller"};
 		return GroupedOpenApi.builder()
 			.group("buzz-book-store-openapi")
 			.pathsToMatch(paths)

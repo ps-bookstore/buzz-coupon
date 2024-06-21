@@ -19,6 +19,7 @@ import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.service.impl.CouponTypeServiceImpl;
 
@@ -39,7 +40,7 @@ class CouponTypeServiceTest {
 	void setUp() {
 		testCouponType = CouponType.builder()
 			.id(1)
-			.name("test")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponTypeResponse = CouponTypeResponse.from(testCouponType);
@@ -65,7 +66,7 @@ class CouponTypeServiceTest {
 		when(couponTypeRepository.findByName(anyString())).thenReturn(Optional.of(testCouponType));
 
 		// when
-		CouponType newCouponType = couponTypeService.getCouponType(testCouponType.getName());
+		CouponType newCouponType = couponTypeService.getCouponType(testCouponType.getName().toString());
 
 		// then
 		assertEquals(testCouponType, newCouponType);
@@ -94,7 +95,7 @@ class CouponTypeServiceTest {
 	@DisplayName("create")
 	void create() {
 		// given
-		CreateCouponTypeRequest testRequest = new CreateCouponTypeRequest("test");
+		CreateCouponTypeRequest testRequest = new CreateCouponTypeRequest(CouponRange.BOOK);
 		when(couponTypeRepository.save(any())).thenReturn(testCouponType);
 
 		// when

@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 
 import java.time.ZonedDateTime;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -28,8 +29,12 @@ import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.SpecificCoupon;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
-import store.buzzbook.coupon.repository.CouponPolicyRepository;
+import store.buzzbook.coupon.repository.SpecificCouponRepository;
+import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyQuerydslRepository;
+import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.impl.CouponPolicyServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
@@ -42,6 +47,12 @@ class CouponPolicyServiceTest {
 	@Mock
 	private CouponTypeService couponTypeService;
 
+	@Mock
+	private SpecificCouponRepository specificCouponRepository;
+
+	@Mock
+	private CouponPolicyQuerydslRepository couponPolicyQuerydslRepository;
+
 	@InjectMocks
 	private CouponPolicyServiceImpl couponPolicyService;
 
@@ -52,10 +63,11 @@ class CouponPolicyServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name("book")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
+			.id(1)
 			.couponType(testCouponType)
 			.standardPrice(1000)
 			.discountType(DiscountType.AMOUNT)
@@ -86,6 +98,21 @@ class CouponPolicyServiceTest {
 	}
 
 	@Test
+	@DisplayName("get specific coupons by bookId")
+	void getSpecificCoupons() {
+		// given
+		when(couponPolicyQuerydslRepository.findAllByBookId(anyInt())).thenReturn(List.of(testCouponPolicy));
+
+		// when
+		List<CouponPolicyResponse> result = couponPolicyService.getSpecificCoupons(1);
+
+		// then
+		assertEquals(1, result.size());
+		assertEquals(testCouponPolicy.getId(), result.getFirst().id());
+		verify(couponPolicyQuerydslRepository, times(1)).findAllByBookId(anyInt());
+	}
+
+	@Test
 	@DisplayName("create")
 	void create() {
 		// given
@@ -99,11 +126,20 @@ class CouponPolicyServiceTest {
 			14,
 			ZonedDateTime.now(),
 			ZonedDateTime.now().plusDays(10),
-			"global"
+			"book",
+			false,
+			1
 		);
 
-		when(couponTypeService.getCouponType(anyString())).thenReturn(CouponType.builder().name("book").build());
+		SpecificCoupon testSpecificCoupon = SpecificCoupon.builder()
+			.couponPolicy(testCouponPolicy)
+			.bookId(testRequest.targetId())
+			.build();
+
+		when(couponTypeService.getCouponType(anyString())).thenReturn(
+			CouponType.builder().name(CouponRange.BOOK).build());
 		when(couponPolicyRepository.save(any(CouponPolicy.class))).thenReturn(testCouponPolicy);
+		when(specificCouponRepository.save(any(SpecificCoupon.class))).thenReturn(testSpecificCoupon);
 
 		// when
 		CreateCouponPolicyResponse result = couponPolicyService.createCouponPolicy(testRequest);
@@ -127,6 +163,7 @@ class CouponPolicyServiceTest {
 		// given
 		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
 		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.of(testCouponPolicy));
+		when(couponPolicyRepository.save(any(CouponPolicy.class))).thenReturn(testCouponPolicy);
 
 		// when
 		couponPolicyService.updateCouponPolicy(1, testRequest);
@@ -163,23 +200,34 @@ class CouponPolicyServiceTest {
 	@DisplayName("delete")
 	void delete() {
 		// given
-		doNothing().when(couponPolicyRepository).deleteById(anyInt());
+		when(couponPolicyRepository.existsById(anyInt())).thenReturn(true);
+		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.of(testCouponPolicy));
 
 		// when
 		couponPolicyService.deleteCouponPolicy(1);
 
 		// then
-		verify(couponPolicyRepository, times(1)).deleteById(anyInt());
+		verify(couponPolicyRepository, times(1)).save(any());
 	}
 
 	@Test
-	@DisplayName("delete IllegalArgumentException")
+	@DisplayName("delete with IllegalArgumentException")
 	void deleteIllegalArgumentException() {
 		// given
 
 		// when & then
 		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(-1));
 		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(0));
+	}
+
+	@Test
+	@DisplayName("delete with CouponPolicyNotFoundException")
+	void deleteCouponPolicyNotFoundException() {
+		// given
+		when(couponPolicyRepository.existsById(anyInt())).thenReturn(false);
+
+		// when & then
+		assertThrows(CouponPolicyNotFoundException.class, () -> couponPolicyService.deleteCouponPolicy(1));
 	}
 }
 

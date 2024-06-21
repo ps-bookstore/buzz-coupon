@@ -17,8 +17,10 @@ import store.buzzbook.coupon.entity.CategoryCoupon;
 import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
 import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -44,7 +46,7 @@ class CategoryCouponRepositoryTest {
 	@BeforeEach
 	public void setUp() {
 		testCouponType = CouponType.builder()
-			.name("category")
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

@@ -67,4 +67,8 @@ public class CouponPolicy {
 	@Setter
 	@NotNull
 	private ZonedDateTime endDate;
+
+	@Setter
+	@NotNull
+	private boolean isDeleted;
 }

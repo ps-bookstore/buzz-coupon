@@ -19,10 +19,10 @@ public record CreateCouponPolicyResponse(
 	 * @param request 응답을 생성할 CouponPolicy 엔티티
 	 * @return 주어진 CouponPolicy 의 id와 name 을 포함하는 새로운 CreateCouponPolicyResponse
 	 */
-	public static CreateCouponPolicyResponse from(CouponPolicy request) {
+	public static CreateCouponPolicyResponse from(CouponPolicy couponPolicy) {
 		return new CreateCouponPolicyResponse(
-			request.getId(),
-			request.getName()
+			couponPolicy.getId(),
+			couponPolicy.getName()
 		);
 	}
 }

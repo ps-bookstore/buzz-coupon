@@ -2,6 +2,8 @@ package store.buzzbook.coupon.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 
 @Getter
 @AllArgsConstructor
@@ -25,5 +28,6 @@ public class CouponType {
 
 	@NotNull
 	@Column(nullable = false, length = 10)
-	private String name;
+	@Enumerated(value = EnumType.STRING)
+	private CouponRange name;
 }

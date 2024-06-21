@@ -33,7 +33,7 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     generate-ddl: false
     show-sql: true
     properties:
@@ -54,7 +54,7 @@ springdoc:
     groups:
       enabled: true
   swagger-ui:
-    path: /swagger-ui-custom.html
+    path: /swagger
     enabled: true
     groups-order: ASC
     tags-sorter: alpha

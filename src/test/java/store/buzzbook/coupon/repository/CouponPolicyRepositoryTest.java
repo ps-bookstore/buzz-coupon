@@ -20,7 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -39,10 +41,12 @@ class CouponPolicyRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.name("book")
+			.id(1)
+			.name(CouponRange.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
+			.id(1)
 			.couponType(testCouponType)
 			.standardPrice(1000)
 			.discountType(DiscountType.AMOUNT)
@@ -54,9 +58,6 @@ class CouponPolicyRepositoryTest {
 			.name("test")
 			.maxDiscountAmount(10000)
 			.build();
-
-		couponTypeRepository.save(testCouponType);
-		couponPolicyRepository.save(testCouponPolicy);
 	}
 
 	@Test
@@ -65,41 +66,37 @@ class CouponPolicyRepositoryTest {
 		// given
 
 		// when
-		Optional<CouponPolicy> optionalCouponPolicy = couponPolicyRepository.findById(testCouponPolicy.getId());
+		CouponPolicy savedCouponPolicy = couponPolicyRepository.save(testCouponPolicy);
 
 		// then
-		assertTrue(optionalCouponPolicy.isPresent());
-		assertEquals(optionalCouponPolicy.get().getName(), testCouponPolicy.getName());
-		assertEquals(optionalCouponPolicy.get().getDiscountAmount(), testCouponPolicy.getDiscountAmount());
-		assertEquals(optionalCouponPolicy.get().getMaxDiscountAmount(), testCouponPolicy.getMaxDiscountAmount());
+		assertEquals(testCouponPolicy.getName(), savedCouponPolicy.getName());
+		assertEquals(testCouponPolicy.getDiscountAmount(), savedCouponPolicy.getDiscountAmount());
+		assertEquals(testCouponPolicy.getMaxDiscountAmount(), savedCouponPolicy.getMaxDiscountAmount());
 	}
 
 	@Test
 	@DisplayName("update")
 	void update() {
 		// given
-		CouponPolicy savedCouponPolicy = couponPolicyRepository.findById(testCouponPolicy.getId()).orElse(null);
-		ZonedDateTime updatedDate = ZonedDateTime.now().plusDays(1);
-		int updateDiscountAmount = 1000;
+		CouponPolicy savedCouponPolicy = couponPolicyRepository.save(testCouponPolicy);
+		ZonedDateTime updatedDate = ZonedDateTime.now().plusDays(2);
 
 		// when
-		assert savedCouponPolicy != null;
 		savedCouponPolicy.setEndDate(updatedDate);
 		CouponPolicy updatedCouponPolicy = couponPolicyRepository.save(savedCouponPolicy);
 
 		// then
-		assertEquals(updatedCouponPolicy.getEndDate(), updatedDate);
+		assertEquals(updatedCouponPolicy.getEndDate(), savedCouponPolicy.getEndDate());
 	}
 
 	@Test
 	@DisplayName("delete")
 	void delete() {
 		// given
-		CouponPolicy savedCouponPolicy = couponPolicyRepository.findById(testCouponPolicy.getId()).orElse(null);
+		CouponPolicy savedCouponPolicy = couponPolicyRepository.save(testCouponPolicy);
 
 		// when
-		assert savedCouponPolicy != null;
-		couponPolicyRepository.delete(savedCouponPolicy);
+		couponPolicyRepository.deleteById(savedCouponPolicy.getId());
 		Optional<CouponPolicy> optionalCouponPolicy = couponPolicyRepository.findById(savedCouponPolicy.getId());
 
 		// then
@@ -137,6 +134,7 @@ class CouponPolicyRepositoryTest {
 	void findAllByPaging() {
 		// given
 		Pageable pageable = PageRequest.of(0, 10);
+		CouponPolicy couponPolicy = couponPolicyRepository.save(testCouponPolicy);
 
 		// when
 		Page<CouponPolicyResponse> result = couponPolicyRepository.findAllBy(pageable);
