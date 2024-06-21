@@ -7,6 +7,4 @@ import store.buzzbook.coupon.entity.CouponPolicy;
 public interface CouponPolicyQuerydslRepository {
 
 	List<CouponPolicy> findAllByBookId(int bookId);
-
-	List<CouponPolicy> findAllByCategoryId(int categoryId);
 }

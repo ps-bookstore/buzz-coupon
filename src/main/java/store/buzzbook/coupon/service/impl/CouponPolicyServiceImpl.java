@@ -45,7 +45,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	@Override
 	public List<CouponPolicyResponse> getSpecificCoupons(int bookId) {
 		validateId(bookId);
-		
+
 		return couponPolicyQuerydslRepository.findAllByBookId(bookId).stream()
 			.map(CouponPolicyResponse::from)
 			.toList();
@@ -77,6 +77,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.startDate(request.startDate())
 			.endDate(request.endDate())
 			.couponType(couponType)
+			.isDeleted(request.isDeleted())
 			.build();
 
 		if (couponType.getName().equals(CouponRange.BOOK)) {

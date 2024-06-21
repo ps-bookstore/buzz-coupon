@@ -108,7 +108,7 @@ class CouponPolicyServiceTest {
 
 		// then
 		assertEquals(1, result.size());
-		assertEquals(testCouponPolicy.getId(), result.get(0).id());
+		assertEquals(testCouponPolicy.getId(), result.getFirst().id());
 		verify(couponPolicyQuerydslRepository, times(1)).findAllByBookId(anyInt());
 	}
 
