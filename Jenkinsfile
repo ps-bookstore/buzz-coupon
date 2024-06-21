@@ -21,7 +21,7 @@ pipeline {
                 git(
                     url: REPO_URL,
                     branch: 'develop',
-                    credentialsId: 'aa-github'
+                    credentialsId: 'aa-ssh'
                 )
             }
         }
@@ -75,7 +75,7 @@ pipeline {
 }
 
 def deployToServer(server, deployPath, port) {
-    withCredentials([sshUserPrivateKey(credentialsId: 'aa-phj', keyFileVariable: 'PEM_FILE')]) {
+    withCredentials([sshUserPrivateKey(credentialsId: 'aa-ssh', keyFileVariable: 'PEM_FILE')]) {
         sh """
         scp -o StrictHostKeyChecking=no -i \$PEM_FILE target/${env.ARTIFACT_NAME} ${server}:${deployPath}
         ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} 'nohup java -jar ${deployPath}/${env.ARTIFACT_NAME} --server.port=${port} ${env.JAVA_OPTS} > ${deployPath}/app.log 2>&1 &'
@@ -84,7 +84,7 @@ def deployToServer(server, deployPath, port) {
 }
 
 def showLogs(server, deployPath) {
-    withCredentials([sshUserPrivateKey(credentialsId: 'aa-phj', keyFileVariable: 'PEM_FILE')]) {
+    withCredentials([sshUserPrivateKey(credentialsId: 'aa-ssh', keyFileVariable: 'PEM_FILE')]) {
         sh """
         ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} 'tail -n 100 ${deployPath}/app.log'
         """
