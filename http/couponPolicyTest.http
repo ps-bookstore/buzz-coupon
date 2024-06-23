@@ -1,0 +1,19 @@
+POST http://localhost:8091/api/coupons/policies
+Content-Type: application/json
+
+{
+  "name": "생일 쿠폰",
+  "discountType": "rate",
+  "discountRate": 0.2,
+  "discountAmount": 0,
+  "standardPrice": 10000,
+  "maxDiscountAmount": 20000,
+  "period": 14,
+  "startDate": "2024-06-23T07:50:02.387Z",
+  "endDate": "2024-06-23T07:50:02.387Z",
+  "couponType": "book",
+  "isDeleted": false,
+  "targetId": 1
+}
+
+###

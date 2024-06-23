@@ -173,8 +173,8 @@ class CouponPolicyControllerTest {
 			10000,
 			10000,
 			14,
-			ZonedDateTime.now(),
-			ZonedDateTime.now().plusDays(10),
+			ZonedDateTime.now().toString(),
+			ZonedDateTime.now().plusDays(10).toString(),
 			"book",
 			false,
 			1

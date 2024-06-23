@@ -47,7 +47,8 @@ public class CouponPolicyController {
 
 	@PostMapping
 	@Operation(summary = "쿠폰 정책 생성", description = "쿠폰 정책을 생성합니다.")
-	public ResponseEntity<CreateCouponPolicyResponse> createCouponPolicy(CreateCouponPolicyRequest request) {
+	public ResponseEntity<CreateCouponPolicyResponse> createCouponPolicy(
+		@Valid @RequestBody CreateCouponPolicyRequest request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(couponPolicyService.createCouponPolicy(request));
 	}
 

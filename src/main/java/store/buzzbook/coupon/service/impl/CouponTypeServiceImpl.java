@@ -10,6 +10,7 @@ import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.entity.CouponType;
+import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.service.CouponTypeService;
 
@@ -29,7 +30,7 @@ public class CouponTypeServiceImpl implements CouponTypeService {
 		if (Objects.isNull(name)) {
 			throw new IllegalArgumentException("잘못된 파라미터 값입니다.");
 		}
-		return couponTypeRepository.findByName(name)
+		return couponTypeRepository.findAllByName(CouponRange.fromString(name))
 			.orElseThrow(CouponTypeNotFoundException::new);
 	}
 

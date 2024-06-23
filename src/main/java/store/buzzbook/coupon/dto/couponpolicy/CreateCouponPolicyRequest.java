@@ -1,7 +1,5 @@
 package store.buzzbook.coupon.dto.couponpolicy;
 
-import java.time.ZonedDateTime;
-
 import org.hibernate.validator.constraints.Range;
 
 import jakarta.validation.constraints.Min;
@@ -32,10 +30,10 @@ public record CreateCouponPolicyRequest(
 	Integer period,
 
 	@NotNull(message = "쿠폰 정책 다운로드 날짜는 null 이 아니어야 합니다.")
-	ZonedDateTime startDate,
+	String startDate,
 
 	@NotNull(message = "쿠폰 정책 다운로드 날짜는 null 이 아니어야 합니다.")
-	ZonedDateTime endDate,
+	String endDate,
 
 	@NotBlank(message = "쿠폰 정책 타입은 공백이 불가 합니다.")
 	String couponType,

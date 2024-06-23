@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
+import store.buzzbook.coupon.common.util.ZonedDateTimeConvertor;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
@@ -72,8 +73,8 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.standardPrice(request.standardPrice())
 			.maxDiscountAmount(request.maxDiscountAmount())
 			.period(request.period())
-			.startDate(request.startDate())
-			.endDate(request.endDate())
+			.startDate(ZonedDateTimeConvertor.toZonedDateTime(request.startDate()))
+			.endDate(ZonedDateTimeConvertor.toZonedDateTime(request.endDate()))
 			.couponType(couponType)
 			.isDeleted(request.isDeleted())
 			.build();
