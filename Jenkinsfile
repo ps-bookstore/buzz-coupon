@@ -21,7 +21,7 @@ pipeline {
             steps {
                 git(
                     url: REPO_URL,
-                    branch: 'develop',
+                    branch: 'main',
                     credentialsId: 'aa-ssh'
                 )
             }
@@ -43,25 +43,6 @@ pipeline {
                         mkdir -p ~/.ssh || true
                         ssh-keyscan -H ${remoteHost1} >> ~/.ssh/known_hosts || (echo "ssh-keyscan failed" && exit 1)
                     """
-                }
-            }
-        }
-
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    def app = docker.build("${DOCKER_IMAGE}")
-                }
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                script {
-                    docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_HUB_CREDENTIALS_ID}") {
-                        def app = docker.image("${DOCKER_IMAGE}")
-                        app.push('latest')
-                    }
                 }
             }
         }
