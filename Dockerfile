@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jre
 
-EXPOSE 8080
+ARG JAR_FILE_PATH=build/libs/*.jar
 
-ADD target/coupon-0.0.1-SNAPSHOT.jar /coupon.jar
+COPY ${JAR_FILE_PATH} /app.jar
 
-ENTRYPOINT ["java", "-jar", "/coupon.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
