@@ -3,9 +3,9 @@ package store.buzzbook.coupon.dto.couponlog;
 import jakarta.validation.constraints.NotNull;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
 
-public record UpdateCouponLogRequest(
+public record UpdateCouponRequest(
 
-	@NotNull
+	@NotNull(message = "status 는 null 일 수 없습니다.")
 	CouponStatus status
 ) {
 }

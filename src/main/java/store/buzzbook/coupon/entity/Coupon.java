@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import store.buzzbook.coupon.entity.constant.CouponStatus;
 
 @Getter
@@ -25,7 +24,7 @@ import store.buzzbook.coupon.entity.constant.CouponStatus;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 @Entity
-public class CouponLog {
+public class Coupon {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +32,7 @@ public class CouponLog {
 
 	@NotNull
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
-	@JoinColumn(name = "couponPolicy_id")
+	@JoinColumn(name = "coupon_policy_id")
 	private CouponPolicy couponPolicy;
 
 	@NotNull
@@ -42,11 +41,11 @@ public class CouponLog {
 	@NotNull
 	private ZonedDateTime expireDate;
 
-	@Setter
 	@NotNull
 	@Enumerated(value = EnumType.STRING)
 	private CouponStatus status;
 
-	@NotNull
-	private long userId;
+	public void changeStatus(CouponStatus newStatus) {
+		this.status = newStatus;
+	}
 }

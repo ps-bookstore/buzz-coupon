@@ -38,7 +38,8 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 
 	@Override
 	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable) {
-		return couponPolicyRepository.findAllBy(pageable);
+		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllBy(pageable);
+		return couponPolicies.map(CouponPolicyResponse::from);
 	}
 
 	@Override
@@ -109,10 +110,9 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 		}
 
 		CouponPolicy couponPolicy = getCouponPolicyById(id);
+		couponPolicy.changeEndDate(request.endDate());
 
-		couponPolicy.setEndDate(request.endDate());
-
-		return CouponPolicyResponse.from(couponPolicyRepository.save(couponPolicy));
+		return CouponPolicyResponse.from(couponPolicy);
 	}
 
 	@Override
@@ -124,8 +124,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 		}
 
 		CouponPolicy couponPolicy = getCouponPolicyById(id);
-		couponPolicy.setDeleted(true);
-		couponPolicyRepository.save(couponPolicy);
+		couponPolicy.delete();
 	}
 
 	private void validateId(int id) {

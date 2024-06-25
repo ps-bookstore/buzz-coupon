@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-import store.buzzbook.coupon.entity.CouponLog;
+import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.constant.CouponRange;
@@ -23,10 +23,10 @@ import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class CouponLogRepositoryTest {
+class CouponRepositoryTest {
 
 	@Autowired
-	private CouponLogRepository couponLogRepository;
+	private CouponRepository couponRepository;
 
 	@Autowired
 	private CouponPolicyRepository couponPolicyRepository;
@@ -34,7 +34,7 @@ class CouponLogRepositoryTest {
 	@Autowired
 	private CouponTypeRepository couponTypeRepository;
 
-	private CouponLog testCouponLog;
+	private Coupon testCouponLog;
 	private CouponPolicy testCouponPolicy;
 
 	@BeforeEach
@@ -55,34 +55,32 @@ class CouponLogRepositoryTest {
 			.maxDiscountAmount(10000)
 			.build();
 
-		testCouponLog = CouponLog.builder()
+		testCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
 			.createDate(ZonedDateTime.now())
 			.expireDate(ZonedDateTime.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
-			.userId(1L)
 			.build();
 
 		couponTypeRepository.save(testCouponType);
 		couponPolicyRepository.save(testCouponPolicy);
-		couponLogRepository.save(testCouponLog);
+		couponRepository.save(testCouponLog);
 	}
 
 	@Test
 	@DisplayName("save")
 	void save() {
 		// given
-		CouponLog newCouponLog = CouponLog.builder()
+		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
 			.createDate(ZonedDateTime.now())
 			.expireDate(ZonedDateTime.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
-			.userId(1L)
 			.build();
 
 		// when
-		couponLogRepository.save(newCouponLog);
-		Optional<CouponLog> foundCoupon = couponLogRepository.findById(newCouponLog.getId());
+		couponRepository.save(newCouponLog);
+		Optional<Coupon> foundCoupon = couponRepository.findById(newCouponLog.getId());
 
 		// then
 		assertThat(foundCoupon).isPresent();
@@ -93,28 +91,28 @@ class CouponLogRepositoryTest {
 	@DisplayName("update")
 	void update() {
 		// given
-		CouponLog foundCouponLog = couponLogRepository.findById(testCouponLog.getId()).orElse(null);
+		Coupon foundCoupon = couponRepository.findById(testCouponLog.getId()).orElse(null);
 		CouponStatus updatedStatus = CouponStatus.USED;
 
 		// when
-		assert foundCouponLog != null;
-		foundCouponLog.setStatus(updatedStatus);
-		couponLogRepository.save(foundCouponLog);
+		assert foundCoupon != null;
+		foundCoupon.changeStatus(updatedStatus);
+		couponRepository.save(foundCoupon);
 
 		// then
-		assertEquals(foundCouponLog.getStatus(), updatedStatus);
+		assertEquals(foundCoupon.getStatus(), updatedStatus);
 	}
 
 	@Test
 	@DisplayName("delete")
 	void delete() {
 		// given
-		CouponLog savedCouponLog = couponLogRepository.findById(testCouponLog.getId()).orElse(null);
+		Coupon savedCouponLog = couponRepository.findById(testCouponLog.getId()).orElse(null);
 
 		// when
 		assert savedCouponLog != null;
-		couponLogRepository.deleteById(savedCouponLog.getId());
-		Optional<CouponLog> foundCoupon = couponLogRepository.findById(savedCouponLog.getId());
+		couponRepository.deleteById(savedCouponLog.getId());
+		Optional<Coupon> foundCoupon = couponRepository.findById(savedCouponLog.getId());
 
 		// then
 		assertThat(foundCoupon).isNotPresent();
@@ -124,18 +122,17 @@ class CouponLogRepositoryTest {
 	@DisplayName("find all")
 	void findAll() {
 		// given
-		CouponLog newCouponLog = CouponLog.builder()
+		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
 			.createDate(ZonedDateTime.now())
 			.expireDate(ZonedDateTime.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
-			.userId(1L)
 			.build();
 
-		couponLogRepository.save(newCouponLog);
+		couponRepository.save(newCouponLog);
 
 		// when
-		Iterable<CouponLog> coupons = couponLogRepository.findAll();
+		Iterable<Coupon> coupons = couponRepository.findAll();
 
 		// then
 		assertThat(coupons).hasSize(2);

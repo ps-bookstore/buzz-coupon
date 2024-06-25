@@ -46,6 +46,7 @@ public class CouponPolicyController {
 	}
 
 	@PostMapping
+	@Transactional
 	@Operation(summary = "쿠폰 정책 생성", description = "쿠폰 정책을 생성합니다.")
 	public ResponseEntity<CreateCouponPolicyResponse> createCouponPolicy(
 		@Valid @RequestBody CreateCouponPolicyRequest request) {
@@ -53,6 +54,7 @@ public class CouponPolicyController {
 	}
 
 	@PutMapping("/{couponPolicyId}")
+	@Transactional
 	@Operation(summary = "쿠폰 정책 수정", description = "쿠폰 정책의 다운로드가 끝나는 날을 수정합니다.")
 	public ResponseEntity<CouponPolicyResponse> updateCouponPolicy(@PathVariable int couponPolicyId,
 		UpdateCouponPolicyRequest request) {
@@ -60,6 +62,7 @@ public class CouponPolicyController {
 	}
 
 	@DeleteMapping("/{couponPolicyId}")
+	@Transactional
 	@Operation(summary = "쿠폰 정책 삭제", description = "쿠폰 정책을 삭제합니다.")
 	public ResponseEntity<Void> deleteCouponPolicy(@PathVariable int couponPolicyId) {
 		couponPolicyService.deleteCouponPolicy(couponPolicyId);
@@ -74,12 +77,14 @@ public class CouponPolicyController {
 	}
 
 	@PostMapping("/types")
+	@Transactional
 	@Operation(summary = "쿠폰 타입 등록", description = "쿠폰 정책 타입을 등록 합니다.")
 	public ResponseEntity<CouponTypeResponse> createCouponType(@Valid @RequestBody CreateCouponTypeRequest request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(couponTypeService.createCouponType(request));
 	}
 
 	@DeleteMapping("/types/{couponTypeId}")
+	@Transactional
 	@Operation(summary = "쿠폰 타입 삭제", description = "쿠폰 정책 타입을 삭제 합니다.")
 	public ResponseEntity<Void> deleteCouponType(@PathVariable int couponTypeId) {
 		couponTypeService.deleteCouponType(couponTypeId);
