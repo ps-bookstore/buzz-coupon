@@ -32,7 +32,6 @@ import store.buzzbook.coupon.entity.SpecificCoupon;
 import store.buzzbook.coupon.entity.constant.CouponRange;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
-import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyQuerydslRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.impl.CouponPolicyServiceImpl;
 
@@ -48,14 +47,11 @@ class CouponPolicyServiceTest {
 	@Mock
 	private SpecificCouponRepository specificCouponRepository;
 
-	@Mock
-	private CouponPolicyQuerydslRepository couponPolicyQuerydslRepository;
-
 	@InjectMocks
 	private CouponPolicyServiceImpl couponPolicyService;
 
 	private Pageable pageable;
-	private Page<CouponPolicyResponse> couponPolicyPage;
+	private Page<CouponPolicy> couponPolicyPage;
 	private CouponPolicy testCouponPolicy;
 
 	@BeforeEach
@@ -65,6 +61,7 @@ class CouponPolicyServiceTest {
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
+			.id(1)
 			.couponType(testCouponType)
 			.standardPrice(1000)
 			.discountType(DiscountType.AMOUNT)
@@ -78,7 +75,7 @@ class CouponPolicyServiceTest {
 			.build();
 
 		pageable = PageRequest.of(0, 10);
-		couponPolicyPage = new PageImpl<>(Collections.singletonList(CouponPolicyResponse.from(testCouponPolicy)));
+		couponPolicyPage = new PageImpl<>(Collections.singletonList(testCouponPolicy));
 	}
 
 	@Test
@@ -161,14 +158,12 @@ class CouponPolicyServiceTest {
 		// given
 		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
 		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.of(testCouponPolicy));
-		when(couponPolicyRepository.save(any(CouponPolicy.class))).thenReturn(testCouponPolicy);
 
 		// when
 		couponPolicyService.updateCouponPolicy(1, testRequest);
 
 		// then
 		verify(couponPolicyRepository, times(1)).findById(anyInt());
-		verify(couponPolicyRepository, times(1)).save(any(CouponPolicy.class));
 	}
 
 	@Test
@@ -205,7 +200,8 @@ class CouponPolicyServiceTest {
 		couponPolicyService.deleteCouponPolicy(1);
 
 		// then
-		verify(couponPolicyRepository, times(1)).save(any());
+		verify(couponPolicyRepository, times(1)).existsById(anyInt());
+		verify(couponPolicyRepository, times(1)).findById(anyInt());
 	}
 
 	@Test

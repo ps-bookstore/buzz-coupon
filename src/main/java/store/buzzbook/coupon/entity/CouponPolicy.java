@@ -19,7 +19,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 
 @Getter
@@ -33,7 +32,6 @@ public class CouponPolicy {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@NotNull
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	private CouponType couponType;
 
@@ -64,11 +62,17 @@ public class CouponPolicy {
 	@NotNull
 	private ZonedDateTime startDate;
 
-	@Setter
 	@NotNull
 	private ZonedDateTime endDate;
 
-	@Setter
 	@NotNull
 	private boolean isDeleted;
+
+	public void changeEndDate(ZonedDateTime endDate) {
+		this.endDate = endDate;
+	}
+
+	public void delete() {
+		this.isDeleted = true;
+	}
 }

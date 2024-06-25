@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.exception.CategoryCouponNotFoundException;
-import store.buzzbook.coupon.common.exception.CouponLogAlreadyExistsException;
+import store.buzzbook.coupon.common.exception.CouponAlreadyExistsException;
 import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
 	}
 
-	@ExceptionHandler({CouponLogAlreadyExistsException.class})
+	@ExceptionHandler({CouponAlreadyExistsException.class})
 	public ResponseEntity<String> handleAlreadyExists(Exception exception) {
 		log.warn("handleAlreadyExists : {}", exception.getMessage());
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
@@ -48,7 +48,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 		HttpHeaders headers, HttpStatusCode status, WebRequest request) {
 		Map<String, String> errors = new HashMap<>();
-		ex.getBindingResult().getAllErrors().forEach((error) -> {
+		ex.getBindingResult().getAllErrors().forEach(error -> {
 			String fieldName = ((org.springframework.validation.FieldError)error).getField();
 			String errorMessage = error.getDefaultMessage();
 			errors.put(fieldName, errorMessage);

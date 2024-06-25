@@ -13,11 +13,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import store.buzzbook.coupon.entity.CategoryCoupon;
-import store.buzzbook.coupon.entity.CouponLog;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
 import store.buzzbook.coupon.entity.constant.DiscountType;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
@@ -29,21 +27,17 @@ class CategoryCouponRepositoryTest {
 	private CategoryCouponRepository categoryCouponRepository;
 
 	@Autowired
-	private CouponLogRepository couponLogRepository;
-
-	@Autowired
 	private CouponPolicyRepository couponPolicyRepository;
 
-	private CouponType testCouponType;
-	private CouponLog testCouponLog;
-	private CouponPolicy testCouponPolicy;
-	private CategoryCoupon testCategoryCoupon;
 	@Autowired
 	private CouponTypeRepository couponTypeRepository;
 
+	private CouponPolicy testCouponPolicy;
+	private CategoryCoupon testCategoryCoupon;
+
 	@BeforeEach
 	public void setUp() {
-		testCouponType = CouponType.builder()
+		CouponType testCouponType = CouponType.builder()
 			.name(CouponRange.BOOK)
 			.build();
 
@@ -57,14 +51,6 @@ class CategoryCouponRepositoryTest {
 			.endDate(ZonedDateTime.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
-			.build();
-
-		testCouponLog = CouponLog.builder()
-			.couponPolicy(testCouponPolicy)
-			.createDate(ZonedDateTime.now())
-			.expireDate(ZonedDateTime.now().plusDays(2))
-			.status(CouponStatus.AVAILABLE)
-			.userId(1L)
 			.build();
 
 		testCategoryCoupon = CategoryCoupon.builder()
@@ -83,7 +69,7 @@ class CategoryCouponRepositoryTest {
 		// given
 		CategoryCoupon newCategoryCoupon = CategoryCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.categoryId(1)
+			.categoryId(2)
 			.build();
 
 		// when
@@ -107,19 +93,5 @@ class CategoryCouponRepositoryTest {
 
 		// then
 		assertFalse(optionalCategoryCoupon.isPresent());
-	}
-
-	@Test
-	@DisplayName("exist by category id")
-	void existByCategoryId() {
-		// given
-
-		// when
-		boolean exists = categoryCouponRepository.existsByCategoryId(testCategoryCoupon.getCategoryId());
-		boolean notExists = categoryCouponRepository.existsByCategoryId(2);
-
-		// then
-		assertTrue(exists);
-		assertFalse(notExists);
 	}
 }

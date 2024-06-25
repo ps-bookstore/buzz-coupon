@@ -16,7 +16,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.constant.CouponRange;
@@ -81,7 +80,7 @@ class CouponPolicyRepositoryTest {
 		ZonedDateTime updatedDate = ZonedDateTime.now().plusDays(2);
 
 		// when
-		savedCouponPolicy.setEndDate(updatedDate);
+		savedCouponPolicy.changeEndDate(updatedDate);
 		CouponPolicy updatedCouponPolicy = couponPolicyRepository.save(savedCouponPolicy);
 
 		// then
@@ -136,7 +135,7 @@ class CouponPolicyRepositoryTest {
 		Pageable pageable = PageRequest.of(0, 10);
 
 		// when
-		Page<CouponPolicyResponse> result = couponPolicyRepository.findAllBy(pageable);
+		Page<CouponPolicy> result = couponPolicyRepository.findAllBy(pageable);
 
 		// then
 		assertTrue(result.hasContent());

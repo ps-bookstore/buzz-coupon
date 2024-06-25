@@ -1,22 +1,81 @@
 server:
   port: 8091
 
-eureka:
-  instance:
-    instance-id: coupon-api
-    hostname: coupon-api
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://admin:1234@eureka-server:8761/eureka
-    instance:
-      prefer-ip-address: true
-
-
 spring:
   application:
     name: coupon
+
+  profiles:
+    default: test
+    active:
+
+  data:
+    web:
+      pageable:
+        default-page-size: 10
+        max-page-size: 50
+        one-indexed-parameters: false
+
+  rabbitmq:
+    host: 133.186.241.167
+    port: 5672
+    username: admin
+    password: nhnacademy123!
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger
+    enabled: true
+    groups-order: ASC
+    tags-sorter: alpha
+    operations-sorter: alpha
+    display-request-duration: true
+    doc-expansion: none
+  cache:
+    disabled: true
+  model-and-view-allowed: true
+
+logging:
+  level:
+    org:
+      hibernate: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    type: org.apache.commons.dbcp2.BasicDataSource
+    initial-size: 3
+    max-total: 5
+    max-idle: 3
+    min-idle: 1
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -39,31 +98,6 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-  data:
-    web:
-      pageable:
-        default-page-size: 10
-        max-page-size: 50
-        one-indexed-parameters: false
-
-
-springdoc:
-  api-docs:
-    path: /api-docs
-    groups:
-      enabled: true
-  swagger-ui:
-    path: /swagger
-    enabled: true
-    groups-order: ASC
-    tags-sorter: alpha
-    operations-sorter: alpha
-    display-request-duration: true
-    doc-expansion: none
-  cache:
-    disabled: true
-  model-and-view-allowed: true
 
 management:
   health:
@@ -90,4 +124,79 @@ management:
     env:
       enabled: true
 
+eureka:
+  instance:
+    instance-id: coupon-api
+    hostname: coupon-api
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:1234@eureka-server:8761/eureka
+    instance:
+      prefer-ip-address: true
 
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://133.186.241.167:3306/be6_aa_prod?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+    username: be6_aa
+    password: 6@H(77fpCZDiC6!!
+    type: org.apache.commons.dbcp2.BasicDataSource
+    initial-size: 3
+    max-total: 5
+    max-idle: 3
+    min-idle: 1
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+management:
+  health:
+    status:
+      order: DOWN, UP
+  endpoint:
+    jolokia:
+      enabled: true
+    metrics:
+      enabled: true
+    pause:
+      enabled: true
+    resume:
+      enabled: true
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+
+eureka:
+  instance:
+    instance-id: coupon-api
+    hostname: coupon-api
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://admin:1234@eureka-server:8761/eureka
+    instance:
+      prefer-ip-address: true

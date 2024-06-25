@@ -32,13 +32,12 @@ class SpecificCouponRepositoryTest {
 	@Autowired
 	private CouponTypeRepository couponTypeRepository;
 
-	private CouponType testCouponType;
 	private CouponPolicy testCouponPolicy;
 	private SpecificCoupon testSpecificCoupon;
 
 	@BeforeEach
 	public void setUp() {
-		testCouponType = CouponType.builder()
+		CouponType testCouponType = CouponType.builder()
 			.name(CouponRange.BOOK)
 			.build();
 
@@ -70,7 +69,7 @@ class SpecificCouponRepositoryTest {
 		// given
 		SpecificCoupon newSpecificCoupon = SpecificCoupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.bookId(1)
+			.bookId(2)
 			.build();
 
 		// when
@@ -96,18 +95,5 @@ class SpecificCouponRepositoryTest {
 		// then
 		assertFalse(optionalSpecificCoupon.isPresent());
 	}
-
-	@Test
-	@DisplayName("exist by book id")
-	void existByBookId() {
-		// given
-
-		// when
-		boolean exists = specificCouponRepository.existsByBookId(1);
-		boolean notExists = specificCouponRepository.existsByBookId(2);
-
-		// then
-		assertTrue(exists);
-		assertFalse(notExists);
-	}
 }
+

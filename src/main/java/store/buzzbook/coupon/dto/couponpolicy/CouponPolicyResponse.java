@@ -2,8 +2,8 @@ package store.buzzbook.coupon.dto.couponpolicy;
 
 import java.time.ZonedDateTime;
 
+import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
-import store.buzzbook.coupon.entity.CouponType;
 
 public record CouponPolicyResponse(
 	int id,
@@ -15,7 +15,7 @@ public record CouponPolicyResponse(
 	ZonedDateTime startDate,
 	ZonedDateTime endDate,
 	boolean isDeleted,
-	CouponType couponType
+	CouponTypeResponse couponTypeResponse
 ) {
 	public static CouponPolicyResponse from(CouponPolicy couponPolicy) {
 		return new CouponPolicyResponse(
@@ -28,7 +28,7 @@ public record CouponPolicyResponse(
 			couponPolicy.getStartDate(),
 			couponPolicy.getEndDate(),
 			couponPolicy.isDeleted(),
-			couponPolicy.getCouponType()
+			CouponTypeResponse.from(couponPolicy.getCouponType())
 		);
 	}
 }

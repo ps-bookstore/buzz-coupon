@@ -88,7 +88,7 @@ class CouponTypeServiceTest {
 		when(couponTypeRepository.findAllByName(any())).thenThrow(CouponTypeNotFoundException.class);
 
 		// when & then
-		assertThrows(CouponTypeNotFoundException.class, () -> couponTypeService.getCouponType("test"));
+		assertThrows(CouponTypeNotFoundException.class, () -> couponTypeService.getCouponType("global"));
 	}
 
 	@Test
