@@ -30,7 +30,7 @@ public class CouponLogServiceImpl implements CouponLogService {
 	@Override
 	public Page<CouponLogResponse> getCouponLogByPaging(long userId, Pageable pageable) {
 		validateId(userId);
-		return couponLogRepository.findAllByUserIdAndStatus(userId, CouponStatus.AVAILABLE.toString(), pageable);
+		return couponLogRepository.findAllByUserIdAndStatus(userId, CouponStatus.AVAILABLE, pageable);
 	}
 
 	@Override

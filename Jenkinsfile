@@ -78,13 +78,6 @@ def deployDockerContainer(server, deployPath, port) {
         sh """
         scp -o StrictHostKeyChecking=no -i \$PEM_FILE target/${env.ARTIFACT_NAME} ${server}:${deployPath}
         ssh -o StrictHostKeyChecking=no -i \$PEM_FILE ${server} 'nohup java -jar ${deployPath}/${env.ARTIFACT_NAME} --server.port=${port} ${env.JAVA_OPTS} > ${deployPath}/app.log 2>&1 &'
-        'echo 123456789a | docker login -u qmzo552@gmail.com --password-stdin'
-        docker build -t parkheejun2/book-coupon-api:latest .
-        docker push parkheejun2/book-coupon-api:latest
-        docker pull parkheejun2/book-coupon-api:latest
-        docker stop coupon_api || true
-        docker rm coupon_api || true
-        docker run -d --name coupon_api --network api_network  -p 8091:8091 parkheejun2/book-coupon-api:latest
         """
     }
 }
