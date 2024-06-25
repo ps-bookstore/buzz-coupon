@@ -173,9 +173,13 @@ class CouponPolicyServiceTest {
 		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(0, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(-1, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(1, null));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class,
+				() -> couponPolicyService.updateCouponPolicy(0, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class,
+				() -> couponPolicyService.updateCouponPolicy(-1, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(1, null))
+		);
 	}
 
 	@Test
@@ -210,8 +214,10 @@ class CouponPolicyServiceTest {
 		// given
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(-1));
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(0));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(-1)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(0))
+		);
 	}
 
 	@Test

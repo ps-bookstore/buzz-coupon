@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.exception.CategoryCouponNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponAlreadyExistsException;
-import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
+import store.buzzbook.coupon.common.exception.CouponNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.common.exception.SpecificCouponNotFoundException;
@@ -31,7 +31,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
 	}
 
-	@ExceptionHandler({CategoryCouponNotFoundException.class, CouponLogNotFoundException.class,
+	@ExceptionHandler({CategoryCouponNotFoundException.class, CouponNotFoundException.class,
 		CouponPolicyNotFoundException.class, CouponTypeNotFoundException.class, SpecificCouponNotFoundException.class})
 	public ResponseEntity<String> handleNotFound(Exception exception) {
 		log.warn("handleNotFound : {}", exception.getMessage());

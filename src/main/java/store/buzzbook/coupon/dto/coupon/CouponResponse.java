@@ -1,4 +1,4 @@
-package store.buzzbook.coupon.dto.couponlog;
+package store.buzzbook.coupon.dto.coupon;
 
 import java.time.ZonedDateTime;
 
@@ -11,7 +11,6 @@ public record CouponResponse(
 	ZonedDateTime createDate,
 	ZonedDateTime expireDate,
 	CouponStatus status,
-
 	CouponPolicyResponse couponPolicyResponse
 ) {
 	public static CouponResponse from(Coupon coupon) {

@@ -16,10 +16,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import store.buzzbook.coupon.dto.couponlog.CouponResponse;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponRequest;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponResponse;
-import store.buzzbook.coupon.dto.couponlog.UpdateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
@@ -78,10 +78,7 @@ class CouponServiceTest {
 	void save() {
 		// given
 		CreateCouponRequest testRequest = new CreateCouponRequest(
-			1,
-			ZonedDateTime.now(),
-			ZonedDateTime.now().plusDays(5),
-			CouponStatus.AVAILABLE
+			1
 		);
 
 		when(couponPolicyService.getCouponPolicyById(anyInt())).thenReturn(testCouponPolicy);
@@ -93,7 +90,6 @@ class CouponServiceTest {
 		// then
 		verify(couponPolicyService, times(1)).getCouponPolicyById(anyInt());
 		verify(couponRepository, times(1)).save(any());
-		assertEquals(testRequest.status(), testResponse.couponStatus());
 		assertEquals(testRequest.couponPolicyId(), testResponse.couponPolicyResponse().id());
 	}
 
@@ -128,8 +124,10 @@ class CouponServiceTest {
 		UpdateCouponRequest testRequest = new UpdateCouponRequest(CouponStatus.USED);
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(-1, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(0, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(1, null));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(-1, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(0, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(1, null))
+		);
 	}
 }

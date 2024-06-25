@@ -1,0 +1,25 @@
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    type: org.apache.commons.dbcp2.BasicDataSource
+    initial-size: 3
+    max-total: 5
+    max-idle: 3
+    min-idle: 1
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect

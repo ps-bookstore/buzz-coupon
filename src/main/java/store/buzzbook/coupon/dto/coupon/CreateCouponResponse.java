@@ -1,4 +1,4 @@
-package store.buzzbook.coupon.dto.couponlog;
+package store.buzzbook.coupon.dto.coupon;
 
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.Coupon;
