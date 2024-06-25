@@ -79,23 +79,25 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.isDeleted(request.isDeleted())
 			.build();
 
+		CouponPolicy savedPolicy = couponPolicyRepository.save(couponPolicy);
+
 		if (couponType.getName().equals(CouponRange.BOOK)) {
 			SpecificCoupon specificCoupon = SpecificCoupon.builder()
-				.couponPolicy(couponPolicy)
+				.couponPolicy(savedPolicy)
 				.bookId(request.targetId())
 				.build();
 
 			specificCouponRepository.save(specificCoupon);
 		} else if (couponType.getName().equals(CouponRange.CATEGORY)) {
 			CategoryCoupon categoryCoupon = CategoryCoupon.builder()
-				.couponPolicy(couponPolicy)
+				.couponPolicy(savedPolicy)
 				.categoryId(request.targetId())
 				.build();
 
 			categoryCouponRepository.save(categoryCoupon);
 		}
 
-		return CreateCouponPolicyResponse.from(couponPolicyRepository.save(couponPolicy));
+		return CreateCouponPolicyResponse.from(savedPolicy);
 	}
 
 	@Override

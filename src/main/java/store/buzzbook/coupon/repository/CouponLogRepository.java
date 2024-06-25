@@ -11,6 +11,6 @@ public interface CouponLogRepository extends JpaRepository<CouponLog, Long> {
 
 	Page<CouponLogResponse> findAllByUserIdAndStatus(Long userId, String status, Pageable pageable);
 
-	boolean existsByCouponPolicyId(int couponPolicyId);
+	boolean existsByCouponPolicyIdAndUserId(int couponPolicyId, long userId);
 
 }

@@ -26,7 +26,7 @@ public class CouponLogServiceImpl implements CouponLogService {
 
 	private final CouponLogRepository couponLogRepository;
 	private final CouponPolicyService couponPolicyService;
-	
+
 	@Override
 	public Page<CouponLogResponse> getCouponLogByPaging(long userId, Pageable pageable) {
 		validateId(userId);
@@ -39,7 +39,7 @@ public class CouponLogServiceImpl implements CouponLogService {
 			throw new IllegalArgumentException("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 		}
 
-		if (couponLogRepository.existsByCouponPolicyId(request.couponPolicyId())) {
+		if (couponLogRepository.existsByCouponPolicyIdAndUserId(request.couponPolicyId(), request.userId())) {
 			throw new CouponLogAlreadyExistsException();
 		}
 

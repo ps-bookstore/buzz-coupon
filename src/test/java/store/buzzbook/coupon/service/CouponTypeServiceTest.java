@@ -63,7 +63,7 @@ class CouponTypeServiceTest {
 	@DisplayName("get coupon type")
 	void getCouponType() {
 		// given
-		when(couponTypeRepository.findAllByName(anyString())).thenReturn(Optional.of(testCouponType));
+		when(couponTypeRepository.findAllByName(any())).thenReturn(Optional.of(testCouponType));
 
 		// when
 		CouponType newCouponType = couponTypeService.getCouponType(testCouponType.getName().toString());
@@ -85,7 +85,7 @@ class CouponTypeServiceTest {
 	@DisplayName("get coupon type with coupon type not found exception")
 	void getCouponTypeNotFound() {
 		// given
-		when(couponTypeRepository.findAllByName(anyString())).thenThrow(CouponTypeNotFoundException.class);
+		when(couponTypeRepository.findAllByName(any())).thenThrow(CouponTypeNotFoundException.class);
 
 		// when & then
 		assertThrows(CouponTypeNotFoundException.class, () -> couponTypeService.getCouponType("test"));
