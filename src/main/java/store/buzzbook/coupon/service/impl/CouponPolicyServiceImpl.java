@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
-import store.buzzbook.coupon.common.util.ZonedDateTimeConvertor;
+import store.buzzbook.coupon.common.utils.DateFormatter;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
@@ -19,8 +19,8 @@ import store.buzzbook.coupon.entity.CategoryCoupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.CategoryCouponRepository;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
@@ -74,8 +74,8 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.standardPrice(request.standardPrice())
 			.maxDiscountAmount(request.maxDiscountAmount())
 			.period(request.period())
-			.startDate(ZonedDateTimeConvertor.toZonedDateTime(request.startDate()))
-			.endDate(ZonedDateTimeConvertor.toZonedDateTime(request.endDate()))
+			.startDate(DateFormatter.toLocalDate(request.startDate()))
+			.endDate(DateFormatter.toLocalDate(request.endDate()))
 			.couponType(couponType)
 			.isDeleted(request.isDeleted())
 			.build();

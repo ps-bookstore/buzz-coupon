@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,16 +16,16 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import store.buzzbook.coupon.dto.couponlog.CouponResponse;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponRequest;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponResponse;
-import store.buzzbook.coupon.dto.couponlog.UpdateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.CouponRepository;
 import store.buzzbook.coupon.service.impl.CouponServiceImpl;
 
@@ -58,8 +58,8 @@ class CouponServiceTest {
 			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(1))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.build();
@@ -67,8 +67,8 @@ class CouponServiceTest {
 		testCouponLog = Coupon.builder()
 			.id(1L)
 			.couponPolicy(testCouponPolicy)
-			.createDate(ZonedDateTime.now())
-			.expireDate(ZonedDateTime.now().plusDays(7))
+			.createDate(LocalDate.now())
+			.expireDate(LocalDate.now().plusDays(7))
 			.status(CouponStatus.AVAILABLE)
 			.build();
 	}
@@ -78,10 +78,7 @@ class CouponServiceTest {
 	void save() {
 		// given
 		CreateCouponRequest testRequest = new CreateCouponRequest(
-			1,
-			ZonedDateTime.now(),
-			ZonedDateTime.now().plusDays(5),
-			CouponStatus.AVAILABLE
+			1
 		);
 
 		when(couponPolicyService.getCouponPolicyById(anyInt())).thenReturn(testCouponPolicy);
@@ -93,7 +90,6 @@ class CouponServiceTest {
 		// then
 		verify(couponPolicyService, times(1)).getCouponPolicyById(anyInt());
 		verify(couponRepository, times(1)).save(any());
-		assertEquals(testRequest.status(), testResponse.couponStatus());
 		assertEquals(testRequest.couponPolicyId(), testResponse.couponPolicyResponse().id());
 	}
 
@@ -128,8 +124,10 @@ class CouponServiceTest {
 		UpdateCouponRequest testRequest = new UpdateCouponRequest(CouponStatus.USED);
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(-1, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(0, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(1, null));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(-1, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(0, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponLogService.updateCoupon(1, null))
+		);
 	}
 }

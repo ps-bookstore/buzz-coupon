@@ -2,7 +2,7 @@ package store.buzzbook.coupon.repository.couponpolicy.impl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
@@ -14,8 +14,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
@@ -49,8 +49,8 @@ class CouponPolicyQuerydslRepositoryImplTest {
 			.discountAmount(3000)
 			.discountRate(1.0)
 			.period(14)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(10))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(10))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.isDeleted(false)
@@ -64,8 +64,8 @@ class CouponPolicyQuerydslRepositoryImplTest {
 			.discountAmount(3000)
 			.discountRate(1.0)
 			.period(14)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(10))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(10))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.isDeleted(false)

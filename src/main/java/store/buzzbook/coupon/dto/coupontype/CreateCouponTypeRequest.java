@@ -2,7 +2,7 @@ package store.buzzbook.coupon.dto.coupontype;
 
 import jakarta.validation.constraints.NotNull;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponRange;
 
 public record CreateCouponTypeRequest(
 

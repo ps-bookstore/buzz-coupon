@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -29,8 +29,8 @@ import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.impl.CouponPolicyServiceImpl;
@@ -67,8 +67,8 @@ class CouponPolicyServiceTest {
 			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(1))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.isDeleted(false)
@@ -119,8 +119,8 @@ class CouponPolicyServiceTest {
 			10000,
 			10000,
 			14,
-			ZonedDateTime.now().toString(),
-			ZonedDateTime.now().plusDays(10).toString(),
+			LocalDate.now().toString(),
+			LocalDate.now().plusDays(10).toString(),
 			"book",
 			false,
 			1
@@ -156,7 +156,7 @@ class CouponPolicyServiceTest {
 	@DisplayName("update")
 	void update() {
 		// given
-		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(LocalDate.now().plusDays(10));
 		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.of(testCouponPolicy));
 
 		// when
@@ -170,19 +170,23 @@ class CouponPolicyServiceTest {
 	@DisplayName("update IllegalArgumentException")
 	void updateIllegalArgumentException() {
 		// given
-		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(LocalDate.now().plusDays(10));
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(0, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(-1, testRequest));
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(1, null));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class,
+				() -> couponPolicyService.updateCouponPolicy(0, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class,
+				() -> couponPolicyService.updateCouponPolicy(-1, testRequest)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponPolicyService.updateCouponPolicy(1, null))
+		);
 	}
 
 	@Test
 	@DisplayName("update coupon policy not found exception")
 	void updateCouponPolicyNotFoundException() {
 		// given
-		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+		UpdateCouponPolicyRequest testRequest = new UpdateCouponPolicyRequest(LocalDate.now().plusDays(10));
 		when(couponPolicyRepository.findById(anyInt())).thenReturn(Optional.empty());
 
 		// when & then
@@ -210,8 +214,10 @@ class CouponPolicyServiceTest {
 		// given
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(-1));
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(0));
+		assertAll(
+			() -> assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(-1)),
+			() -> assertThrows(IllegalArgumentException.class, () -> couponPolicyService.deleteCouponPolicy(0))
+		);
 	}
 
 	@Test

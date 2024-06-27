@@ -57,7 +57,7 @@ public class CouponPolicyController {
 	@Transactional
 	@Operation(summary = "쿠폰 정책 수정", description = "쿠폰 정책의 다운로드가 끝나는 날을 수정합니다.")
 	public ResponseEntity<CouponPolicyResponse> updateCouponPolicy(@PathVariable int couponPolicyId,
-		UpdateCouponPolicyRequest request) {
+		@Valid @RequestBody UpdateCouponPolicyRequest request) {
 		return ResponseEntity.ok(couponPolicyService.updateCouponPolicy(couponPolicyId, request));
 	}
 

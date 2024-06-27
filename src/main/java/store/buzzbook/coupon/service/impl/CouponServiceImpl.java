@@ -1,17 +1,20 @@
 package store.buzzbook.coupon.service.impl;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import store.buzzbook.coupon.common.exception.CouponLogNotFoundException;
-import store.buzzbook.coupon.dto.couponlog.CouponResponse;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponRequest;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponResponse;
-import store.buzzbook.coupon.dto.couponlog.UpdateCouponRequest;
+import store.buzzbook.coupon.common.exception.CouponNotFoundException;
+import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
+import store.buzzbook.coupon.common.constant.CouponStatus;
 import store.buzzbook.coupon.repository.CouponRepository;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponService;
@@ -22,6 +25,16 @@ public class CouponServiceImpl implements CouponService {
 
 	private final CouponRepository couponRepository;
 	private final CouponPolicyService couponPolicyService;
+	private final RabbitTemplate rabbitTemplate;
+
+	@Override
+	public CouponResponse getCoupon(long id) {
+		validateId(id);
+
+		Coupon coupon = couponRepository.findById(id).orElseThrow(CouponNotFoundException::new);
+
+		return CouponResponse.from(coupon);
+	}
 
 	@Override
 	public CreateCouponResponse createCoupon(CreateCouponRequest request) {
@@ -30,11 +43,12 @@ public class CouponServiceImpl implements CouponService {
 		}
 
 		CouponPolicy couponPolicy = couponPolicyService.getCouponPolicyById(request.couponPolicyId());
+		LocalDate now = LocalDate.now();
 
 		Coupon coupon = Coupon.builder()
-			.createDate(request.createDate())
-			.expireDate(request.expireDate())
-			.status(request.status())
+			.createDate(now)
+			.expireDate(now.plusDays(couponPolicy.getPeriod()))
+			.status(CouponStatus.AVAILABLE)
 			.couponPolicy(couponPolicy)
 			.build();
 
@@ -50,7 +64,7 @@ public class CouponServiceImpl implements CouponService {
 		}
 
 		Coupon coupon = couponRepository.findById(id)
-			.orElseThrow(CouponLogNotFoundException::new);
+			.orElseThrow(CouponNotFoundException::new);
 
 		coupon.changeStatus(request.status());
 

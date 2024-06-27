@@ -2,7 +2,7 @@ package store.buzzbook.coupon.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,8 +18,8 @@ import org.springframework.data.domain.Pageable;
 
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
@@ -49,8 +49,8 @@ class CouponPolicyRepositoryTest {
 			.discountAmount(10000)
 			.discountRate(1.0)
 			.period(14)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(1))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.isDeleted(false)
@@ -77,7 +77,7 @@ class CouponPolicyRepositoryTest {
 	void update() {
 		// given
 		CouponPolicy savedCouponPolicy = couponPolicyRepository.save(testCouponPolicy);
-		ZonedDateTime updatedDate = ZonedDateTime.now().plusDays(2);
+		LocalDate updatedDate = LocalDate.now().plusDays(2);
 
 		// when
 		savedCouponPolicy.changeEndDate(updatedDate);
@@ -112,8 +112,8 @@ class CouponPolicyRepositoryTest {
 			.discountAmount(10000)
 			.discountRate(1.0)
 			.period(14)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(1))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(1))
 			.name("new")
 			.maxDiscountAmount(10000)
 			.isDeleted(false)

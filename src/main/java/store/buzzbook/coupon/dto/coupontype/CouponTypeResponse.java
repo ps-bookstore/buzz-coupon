@@ -1,7 +1,7 @@
 package store.buzzbook.coupon.dto.coupontype;
 
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponRange;
 
 public record CouponTypeResponse(
 	int id,

@@ -1,11 +1,13 @@
 package store.buzzbook.coupon.service;
 
-import store.buzzbook.coupon.dto.couponlog.CouponResponse;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponRequest;
-import store.buzzbook.coupon.dto.couponlog.CreateCouponResponse;
-import store.buzzbook.coupon.dto.couponlog.UpdateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
+import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 
 public interface CouponService {
+
+	CouponResponse getCoupon(long id);
 
 	CreateCouponResponse createCoupon(CreateCouponRequest request);
 

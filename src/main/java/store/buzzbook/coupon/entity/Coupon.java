@@ -1,6 +1,6 @@
 package store.buzzbook.coupon.entity;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.CouponStatus;
 
 @Getter
 @AllArgsConstructor
@@ -36,10 +36,10 @@ public class Coupon {
 	private CouponPolicy couponPolicy;
 
 	@NotNull
-	private ZonedDateTime createDate;
+	private LocalDate createDate;
 
 	@NotNull
-	private ZonedDateTime expireDate;
+	private LocalDate expireDate;
 
 	@NotNull
 	@Enumerated(value = EnumType.STRING)

@@ -1,6 +1,6 @@
 package store.buzzbook.coupon.entity;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.ColumnDefault;
 
@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.DiscountType;
 
 @Getter
 @AllArgsConstructor
@@ -60,15 +60,15 @@ public class CouponPolicy {
 	private int maxDiscountAmount;
 
 	@NotNull
-	private ZonedDateTime startDate;
+	private LocalDate startDate;
 
 	@NotNull
-	private ZonedDateTime endDate;
+	private LocalDate endDate;
 
 	@NotNull
 	private boolean isDeleted;
 
-	public void changeEndDate(ZonedDateTime endDate) {
+	public void changeEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
