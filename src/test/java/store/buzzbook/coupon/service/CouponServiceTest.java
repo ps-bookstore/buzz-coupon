@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -23,9 +23,9 @@ import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.CouponRepository;
 import store.buzzbook.coupon.service.impl.CouponServiceImpl;
 
@@ -58,8 +58,8 @@ class CouponServiceTest {
 			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(1))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.build();
@@ -67,8 +67,8 @@ class CouponServiceTest {
 		testCouponLog = Coupon.builder()
 			.id(1L)
 			.couponPolicy(testCouponPolicy)
-			.createDate(ZonedDateTime.now())
-			.expireDate(ZonedDateTime.now().plusDays(7))
+			.createDate(LocalDate.now())
+			.expireDate(LocalDate.now().plusDays(7))
 			.status(CouponStatus.AVAILABLE)
 			.build();
 	}

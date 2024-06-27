@@ -1,25 +1,29 @@
-package store.buzzbook.coupon.entity.constant;
+package store.buzzbook.coupon.common.constant;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-public enum DiscountType {
-	RATE, AMOUNT;
+public enum CouponStatus {
+	USED,
+	AVAILABLE,
+	EXPIRED;
 
 	@JsonCreator
-	public static DiscountType fromString(String value) {
+	public static CouponStatus fromString(String value) {
 		if (value == null) {
 			throw new IllegalArgumentException("enum 값을 찾을 수 없습니다.");
 		}
 
 		return switch (value.toLowerCase()) {
-			case "rate" -> RATE;
-			case "amount" -> AMOUNT;
+			case "used" -> USED;
+			case "available" -> AVAILABLE;
+			case "expired" -> EXPIRED;
 			default -> throw new IllegalArgumentException("enum 값을 찾을 수 없습니다.");
 		};
 	}
 
 	@JsonValue
+	@Override
 	public String toString() {
 		return name().toLowerCase();
 	}

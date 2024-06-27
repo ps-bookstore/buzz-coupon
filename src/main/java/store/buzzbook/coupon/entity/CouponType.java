@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import store.buzzbook.coupon.entity.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponRange;
 
 @Getter
 @AllArgsConstructor

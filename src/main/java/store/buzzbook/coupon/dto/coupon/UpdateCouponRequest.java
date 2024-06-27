@@ -1,7 +1,7 @@
 package store.buzzbook.coupon.dto.coupon;
 
 import jakarta.validation.constraints.NotNull;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.CouponStatus;
 
 public record UpdateCouponRequest(
 

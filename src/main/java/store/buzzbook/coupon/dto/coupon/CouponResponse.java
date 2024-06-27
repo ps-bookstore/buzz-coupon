@@ -1,15 +1,15 @@
 package store.buzzbook.coupon.dto.coupon;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.Coupon;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.CouponStatus;
 
 public record CouponResponse(
 	long id,
-	ZonedDateTime createDate,
-	ZonedDateTime expireDate,
+	LocalDate createDate,
+	LocalDate expireDate,
 	CouponStatus status,
 	CouponPolicyResponse couponPolicyResponse
 ) {

@@ -4,6 +4,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.List;
 
@@ -29,8 +30,8 @@ import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponTypeService;
 
@@ -71,8 +72,8 @@ class CouponPolicyControllerTest {
 			.discountAmount(3000)
 			.discountRate(1.0)
 			.period(14)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(10))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(10))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.isDeleted(false)
@@ -197,7 +198,7 @@ class CouponPolicyControllerTest {
 	@DisplayName("update coupon policy")
 	void updateCouponPolicy() throws Exception {
 		// given
-		UpdateCouponPolicyRequest request = new UpdateCouponPolicyRequest(ZonedDateTime.now().plusDays(10));
+		UpdateCouponPolicyRequest request = new UpdateCouponPolicyRequest(LocalDate.now().plusDays(10));
 		when(couponPolicyService.updateCouponPolicy(anyInt(), any())).thenReturn(testCouponPolicyResponse);
 
 		// when & then

@@ -2,7 +2,7 @@ package store.buzzbook.coupon.dto.coupon;
 
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.entity.Coupon;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.CouponStatus;
 
 public record CreateCouponResponse(
 	long id,

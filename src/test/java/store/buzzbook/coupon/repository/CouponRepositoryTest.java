@@ -3,7 +3,7 @@ package store.buzzbook.coupon.repository;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -16,9 +16,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
-import store.buzzbook.coupon.entity.constant.CouponStatus;
-import store.buzzbook.coupon.entity.constant.DiscountType;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
@@ -49,16 +49,16 @@ class CouponRepositoryTest {
 			.discountType(DiscountType.AMOUNT)
 			.discountAmount(10000)
 			.discountRate(1.0)
-			.startDate(ZonedDateTime.now())
-			.endDate(ZonedDateTime.now().plusDays(1))
+			.startDate(LocalDate.now())
+			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
 			.build();
 
 		testCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.createDate(ZonedDateTime.now())
-			.expireDate(ZonedDateTime.now().plusDays(2))
+			.createDate(LocalDate.now())
+			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
 			.build();
 
@@ -73,8 +73,8 @@ class CouponRepositoryTest {
 		// given
 		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.createDate(ZonedDateTime.now())
-			.expireDate(ZonedDateTime.now().plusDays(2))
+			.createDate(LocalDate.now())
+			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
 			.build();
 
@@ -124,8 +124,8 @@ class CouponRepositoryTest {
 		// given
 		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.createDate(ZonedDateTime.now())
-			.expireDate(ZonedDateTime.now().plusDays(2))
+			.createDate(LocalDate.now())
+			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
 			.build();
 

@@ -38,15 +38,15 @@ public class CouponController {
 
 	@PostMapping
 	@Transactional
-	@Operation(summary = "쿠폰 등록", description = "쿠폰을 등록합니다.")
-	public ResponseEntity<CreateCouponResponse> createCouponLog(@Valid @RequestBody CreateCouponRequest request) {
+	@Operation(summary = "쿠폰 발급", description = "쿠폰을 발급합니다.")
+	public ResponseEntity<CreateCouponResponse> createCoupon(@Valid @RequestBody CreateCouponRequest request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(couponService.createCoupon(request));
 	}
 
 	@PutMapping("/{couponId}")
 	@Transactional
 	@Operation(summary = "쿠폰 수정", description = "쿠폰 상태를 수정합니다.")
-	public ResponseEntity<CouponResponse> updateCouponLog(@PathVariable long couponId,
+	public ResponseEntity<CouponResponse> updateCoupon(@PathVariable long couponId,
 		@Valid @RequestBody UpdateCouponRequest request) {
 		return ResponseEntity.ok(couponService.updateCoupon(couponId, request));
 	}

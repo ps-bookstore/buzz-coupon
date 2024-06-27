@@ -10,7 +10,7 @@ import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.entity.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponRange;
 import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.service.CouponTypeService;
 

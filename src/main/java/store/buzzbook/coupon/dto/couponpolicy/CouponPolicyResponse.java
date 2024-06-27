@@ -1,6 +1,6 @@
 package store.buzzbook.coupon.dto.couponpolicy;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDate;
 
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
@@ -12,8 +12,8 @@ public record CouponPolicyResponse(
 	int discountAmount,
 	int standardPrice,
 	int period,
-	ZonedDateTime startDate,
-	ZonedDateTime endDate,
+	LocalDate startDate,
+	LocalDate endDate,
 	boolean isDeleted,
 	CouponTypeResponse couponTypeResponse
 ) {

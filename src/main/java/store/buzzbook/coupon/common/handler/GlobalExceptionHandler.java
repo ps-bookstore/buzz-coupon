@@ -27,20 +27,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler({IllegalArgumentException.class})
 	public ResponseEntity<String> handleBadRequest(Exception exception) {
-		log.warn("handleBadRequest : {}", exception.getMessage());
+		log.debug("handleBadRequest : {}", exception.getMessage());
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
 	}
 
 	@ExceptionHandler({CategoryCouponNotFoundException.class, CouponNotFoundException.class,
 		CouponPolicyNotFoundException.class, CouponTypeNotFoundException.class, SpecificCouponNotFoundException.class})
 	public ResponseEntity<String> handleNotFound(Exception exception) {
-		log.warn("handleNotFound : {}", exception.getMessage());
+		log.debug("handleNotFound : {}", exception.getMessage());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
 	}
 
 	@ExceptionHandler({CouponAlreadyExistsException.class})
 	public ResponseEntity<String> handleAlreadyExists(Exception exception) {
-		log.warn("handleAlreadyExists : {}", exception.getMessage());
+		log.debug("handleAlreadyExists : {}", exception.getMessage());
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
 	}
 
@@ -53,7 +53,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 			String errorMessage = error.getDefaultMessage();
 			errors.put(fieldName, errorMessage);
 		});
-		log.warn("handleMethodArgumentNotValid : {}", errors);
+		log.debug("handleMethodArgumentNotValid : {}", errors);
 		return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 	}
 }
