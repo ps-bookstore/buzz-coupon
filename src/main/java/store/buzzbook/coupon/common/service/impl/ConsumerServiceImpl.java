@@ -4,17 +4,18 @@ import static store.buzzbook.coupon.common.config.RabbitmqConfig.*;
 import static store.buzzbook.coupon.common.constant.CouponPolicyConstant.*;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.http.HttpStatus;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import store.buzzbook.coupon.adapter.UserAdapter;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.CreateUserCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateWelcomeCouponRequest;
-import store.buzzbook.coupon.dto.coupon.CreateWelcomeCouponResponse;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.CouponService;
@@ -24,9 +25,13 @@ import store.buzzbook.coupon.service.CouponService;
 @RequiredArgsConstructor
 public class ConsumerServiceImpl {
 
-	private final CouponProducerServiceImpl couponProducerService;
+	private static final int MAX_RETRY_ATTEMPTS = 3;
+
 	private final CouponPolicyRepository couponPolicyRepository;
+	private final UserAdapter userAdapter;
 	private final CouponService couponService;
+
+	private final RabbitTemplate rabbitTemplate;
 
 	@Transactional
 	@RabbitListener(queues = REQUEST_QUEUE_NAME)
@@ -40,10 +45,15 @@ public class ConsumerServiceImpl {
 			.couponPolicyId(welcomeCouponPolicy.getId())
 			.build());
 
-		couponProducerService.sendWelcomeCouponResponse(CreateWelcomeCouponResponse.builder()
-			.resultCode(HttpStatus.OK.value())
+		userAdapter.createUserCoupon(CreateUserCouponRequest.builder()
 			.userId(request.userId())
 			.couponId(savedCoupon.id())
 			.build());
+	}
+
+	@RabbitListener(queues = DLQ_QUEUE_NAME)
+	public void handleDlqMessage(CreateWelcomeCouponRequest request) {
+
+		rabbitTemplate.convertAndSend(REQUEST_QUEUE_NAME, REQUEST_ROUTING_KEY, request);
 	}
 }
