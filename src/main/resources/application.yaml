@@ -20,6 +20,15 @@ spring:
     port: 5672
     username: admin
     password: nhnacademy123!
+    listener:
+      simple:
+        acknowledge-mode: auto
+        retry:
+          enabled: true
+          initial-interval: 2s
+          max-interval: 6s
+          max-attempts: 2
+          multiplier: 3
 
 springdoc:
   api-docs:

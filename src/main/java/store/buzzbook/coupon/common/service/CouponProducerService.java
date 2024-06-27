@@ -1,8 +1,8 @@
 package store.buzzbook.coupon.common.service;
 
-import store.buzzbook.coupon.dto.coupon.CreateWelcomeCouponResponse;
+import store.buzzbook.coupon.dto.coupon.CreateUserCouponRequest;
 
 public interface CouponProducerService {
 
-	void sendWelcomeCouponResponse(CreateWelcomeCouponResponse response);
+	void sendWelcomeCouponResponse(CreateUserCouponRequest response);
 }
