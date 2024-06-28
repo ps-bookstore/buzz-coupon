@@ -38,9 +38,6 @@ public record CreateCouponPolicyRequest(
 	@NotBlank(message = "쿠폰 정책 타입은 공백이 불가 합니다.")
 	String couponType,
 
-	@NotNull(message = "삭제 여부는 null 이 불가합니다.")
-	Boolean isDeleted,
-
 	@Min(value = 0, message = "id는 0보다 작을 수 없습니다.")
 	Integer targetId
 ) {

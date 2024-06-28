@@ -5,7 +5,6 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,11 +15,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
@@ -29,8 +26,6 @@ import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.impl.CouponPolicyServiceImpl;
@@ -50,8 +45,6 @@ class CouponPolicyServiceTest {
 	@InjectMocks
 	private CouponPolicyServiceImpl couponPolicyService;
 
-	private Pageable pageable;
-	private Page<CouponPolicy> couponPolicyPage;
 	private CouponPolicy testCouponPolicy;
 
 	@BeforeEach
@@ -73,23 +66,6 @@ class CouponPolicyServiceTest {
 			.maxDiscountAmount(10000)
 			.isDeleted(false)
 			.build();
-
-		pageable = PageRequest.of(0, 10);
-		couponPolicyPage = new PageImpl<>(Collections.singletonList(testCouponPolicy));
-	}
-
-	@Test
-	@DisplayName("get coupon policies by paging")
-	void getCouponPoliciesByPaging() {
-		// given
-		when(couponPolicyRepository.findAllBy(any(Pageable.class))).thenReturn(couponPolicyPage);
-
-		// when
-		Page<CouponPolicyResponse> result = couponPolicyService.getCouponPoliciesByPaging(pageable);
-
-		// then
-		assertEquals(1, result.getTotalElements());
-		assertEquals(1, result.getContent().size());
 	}
 
 	@Test
@@ -122,7 +98,6 @@ class CouponPolicyServiceTest {
 			LocalDate.now().toString(),
 			LocalDate.now().plusDays(10).toString(),
 			"book",
-			false,
 			1
 		);
 

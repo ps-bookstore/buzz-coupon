@@ -20,6 +20,7 @@ public enum DiscountType {
 	}
 
 	@JsonValue
+	@Override
 	public String toString() {
 		return name().toLowerCase();
 	}

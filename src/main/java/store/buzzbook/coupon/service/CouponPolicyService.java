@@ -13,7 +13,11 @@ import store.buzzbook.coupon.entity.CouponPolicy;
 
 public interface CouponPolicyService {
 
-	Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable);
+	Page<CouponPolicyResponse> getCouponPoliciesByPaging(
+		Pageable pageable,
+		String discountTypeName,
+		String isDeleted,
+		String couponTypeName);
 
 	List<CouponPolicyResponse> getSpecificCoupons(int bookId);
 

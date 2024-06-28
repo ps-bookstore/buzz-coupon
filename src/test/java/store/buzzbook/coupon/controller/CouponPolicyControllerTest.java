@@ -16,22 +16,20 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
-import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponTypeService;
 
@@ -101,68 +99,6 @@ class CouponPolicyControllerTest {
 	}
 
 	@Test
-	@DisplayName("create coupon type")
-	void createCouponType() throws Exception {
-		// given
-		CreateCouponTypeRequest request = new CreateCouponTypeRequest(CouponRange.BOOK);
-		when(couponTypeService.createCouponType(any())).thenReturn(testCouponTypeResponse);
-
-		// when & then
-		mockMvc.perform(post("/api/coupons/policies/types")
-				.content(objectMapper.writeValueAsString(request))
-				.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isCreated())
-			.andExpect(jsonPath("$.id").value(testCouponTypeResponse.id()))
-			.andExpect(jsonPath("$.name").value(testCouponTypeResponse.name().toString()));
-
-		verify(couponTypeService).createCouponType(any());
-	}
-
-	@Test
-	@DisplayName("create coupon type with invalid")
-	void createCouponTypeInvalid() throws Exception {
-		// given
-		CreateCouponTypeRequest request = new CreateCouponTypeRequest(null);
-
-		// when & then
-		mockMvc.perform(post("/api/coupons/policies/types")
-				.content(objectMapper.writeValueAsString(request))
-				.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isBadRequest())
-			.andExpect(jsonPath("$.name").exists());
-
-		verify(couponTypeService, never()).createCouponType(any());
-	}
-
-	@Test
-	@DisplayName("delete coupon type")
-	void deleteCouponType() throws Exception {
-		// given
-		doNothing().when(couponTypeService).deleteCouponType(anyInt());
-
-		// when & then
-		mockMvc.perform(delete("/api/coupons/policies/types/1"))
-			.andExpect(status().isNoContent());
-
-		verify(couponTypeService).deleteCouponType(anyInt());
-	}
-
-	@Test
-	@DisplayName("get coupon policies by paging")
-	void getCouponPoliciesByPaging() throws Exception {
-		// given
-		when(couponPolicyService.getCouponPoliciesByPaging(any(Pageable.class))).thenReturn(couponPolicyPage);
-
-		// when & then
-		mockMvc.perform(get("/api/coupons/policies").param("page", "0").param("size", "10"))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.content[0].id").value(testCouponPolicyResponse.id()))
-			.andExpect(jsonPath("$.content[0].name").value(testCouponPolicyResponse.name()));
-
-		verify(couponPolicyService).getCouponPoliciesByPaging(any(Pageable.class));
-	}
-
-	@Test
 	@DisplayName("create coupon policy")
 	void createCouponPolicy() throws Exception {
 		// given
@@ -177,7 +113,6 @@ class CouponPolicyControllerTest {
 			ZonedDateTime.now().toString(),
 			ZonedDateTime.now().plusDays(10).toString(),
 			"book",
-			false,
 			1
 		);
 

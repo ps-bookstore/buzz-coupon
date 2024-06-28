@@ -5,13 +5,12 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
-import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.entity.CouponType;
 
 public interface CouponTypeRepository extends JpaRepository<CouponType, Integer> {
 
-	List<CouponTypeResponse> findAllBy();
+	List<CouponType> findAllBy();
 
 	Optional<CouponType> findAllByName(CouponRange name);
 
