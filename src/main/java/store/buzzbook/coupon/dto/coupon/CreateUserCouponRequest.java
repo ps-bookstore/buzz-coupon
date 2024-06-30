@@ -6,6 +6,6 @@ import lombok.Builder;
 public record CreateUserCouponRequest(
 
 	long userId,
-	long couponId
+	String couponCode
 ) {
 }

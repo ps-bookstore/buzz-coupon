@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.common.utils.DateFormatter;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
@@ -19,8 +21,6 @@ import store.buzzbook.coupon.entity.CategoryCoupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.CategoryCouponRepository;
 import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
@@ -37,8 +37,16 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	private final CouponTypeService couponTypeService;
 
 	@Override
-	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable) {
-		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllBy(pageable);
+	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(
+		Pageable pageable,
+		String discountTypeName,
+		String isDeleted,
+		String couponTypeName) {
+		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(
+			pageable,
+			discountTypeName,
+			isDeleted,
+			couponTypeName);
 		return couponPolicies.map(CouponPolicyResponse::from);
 	}
 
@@ -77,7 +85,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.startDate(DateFormatter.toLocalDate(request.startDate()))
 			.endDate(DateFormatter.toLocalDate(request.endDate()))
 			.couponType(couponType)
-			.isDeleted(request.isDeleted())
+			.isDeleted(false)
 			.build();
 
 		CouponPolicy savedPolicy = couponPolicyRepository.save(couponPolicy);

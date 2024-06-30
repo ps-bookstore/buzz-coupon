@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -25,7 +26,6 @@ import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.UpdateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
-import store.buzzbook.coupon.dto.coupontype.CreateCouponTypeRequest;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponTypeService;
 
@@ -40,9 +40,17 @@ public class CouponPolicyController {
 
 	@GetMapping
 	@Transactional(readOnly = true)
-	@Operation(summary = "쿠폰 정책 리스트 조회", description = "페이징 처리된 모든 쿠폰 정책 리스트를 조회합니다.")
-	public ResponseEntity<Page<CouponPolicyResponse>> getCouponPoliciesByPaging(Pageable pageable) {
-		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByPaging(pageable));
+	@Operation(summary = "쿠폰 정책 리스트 조회", description = "조건과 페이징 처리된 모든 쿠폰 정책 리스트를 조회합니다.")
+	public ResponseEntity<Page<CouponPolicyResponse>> getCouponPoliciesByPaging(
+		Pageable pageable,
+		@RequestParam String discountTypeName,
+		@RequestParam String isDeleted,
+		@RequestParam String couponTypeName) {
+		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByPaging(
+			pageable,
+			discountTypeName,
+			isDeleted,
+			couponTypeName));
 	}
 
 	@PostMapping
@@ -74,21 +82,6 @@ public class CouponPolicyController {
 	@Operation(summary = "쿠폰 타입 조회", description = "쿠폰 정책 타입을 조회 합니다.")
 	public ResponseEntity<List<CouponTypeResponse>> getCouponTypes() {
 		return ResponseEntity.ok(couponTypeService.getAllCouponTypes());
-	}
-
-	@PostMapping("/types")
-	@Transactional
-	@Operation(summary = "쿠폰 타입 등록", description = "쿠폰 정책 타입을 등록 합니다.")
-	public ResponseEntity<CouponTypeResponse> createCouponType(@Valid @RequestBody CreateCouponTypeRequest request) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(couponTypeService.createCouponType(request));
-	}
-
-	@DeleteMapping("/types/{couponTypeId}")
-	@Transactional
-	@Operation(summary = "쿠폰 타입 삭제", description = "쿠폰 정책 타입을 삭제 합니다.")
-	public ResponseEntity<Void> deleteCouponType(@PathVariable int couponTypeId) {
-		couponTypeService.deleteCouponType(couponTypeId);
-		return ResponseEntity.noContent().build();
 	}
 
 	@GetMapping("/specifics/{bookId}")

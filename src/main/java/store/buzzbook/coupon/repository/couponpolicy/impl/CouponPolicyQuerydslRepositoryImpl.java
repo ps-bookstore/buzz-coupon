@@ -1,14 +1,28 @@
 package store.buzzbook.coupon.repository.couponpolicy.impl;
 
+import static store.buzzbook.coupon.entity.QCouponPolicy.*;
+
 import java.util.List;
+import java.util.Objects;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.stereotype.Repository;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
+
+import lombok.extern.slf4j.Slf4j;
+import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.QCouponPolicy;
 import store.buzzbook.coupon.entity.QSpecificCoupon;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyQuerydslRepository;
 
+@Slf4j
+@Repository
 public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySupport
 	implements CouponPolicyQuerydslRepository {
 
@@ -18,7 +32,6 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 
 	@Override
 	public List<CouponPolicy> findAllByBookId(int bookId) {
-
 		QCouponPolicy couponPolicy = QCouponPolicy.couponPolicy;
 		QSpecificCoupon specificCoupon = QSpecificCoupon.specificCoupon;
 
@@ -27,5 +40,49 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 			.where(specificCoupon.bookId.eq(bookId))
 			.select(couponPolicy)
 			.fetch();
+	}
+
+	@Override
+	public Page<CouponPolicy> findAllByCondition(
+		Pageable pageable,
+		String discountTypeName,
+		String isDeleted,
+		String couponTypeName) {
+		QCouponPolicy couponPolicy = QCouponPolicy.couponPolicy;
+
+		List<CouponPolicy> couponPolicies = from(couponPolicy)
+			.where(
+				discountTypeEq(discountTypeName),
+				isDeletedEq(isDeleted),
+				couponTypeEq(couponTypeName))
+			.offset(pageable.getOffset())
+			.limit(pageable.getPageSize())
+			.select(couponPolicy)
+			.fetch();
+
+		long total = from(couponPolicy)
+			.where(
+				discountTypeEq(discountTypeName),
+				isDeletedEq(isDeleted),
+				couponTypeEq(couponTypeName))
+			.fetchCount();
+
+		return new PageImpl<>(couponPolicies, pageable, total);
+	}
+
+	private BooleanExpression discountTypeEq(String discountType) {
+		return !Objects.equals(discountType, "ALL") ? couponPolicy.discountType.eq(DiscountType.valueOf(discountType)) :
+			null;
+	}
+
+	private BooleanExpression isDeletedEq(String isDeleted) {
+		return !Objects.equals(isDeleted, "ALL") ? couponPolicy.isDeleted.eq(Boolean.valueOf(isDeleted)) :
+			null;
+	}
+
+	private BooleanExpression couponTypeEq(String couponType) {
+		return !Objects.equals(couponType, "ALL") ?
+			couponPolicy.couponType.name.eq(CouponRange.fromString(couponType)) :
+			null;
 	}
 }
