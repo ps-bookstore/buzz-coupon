@@ -36,6 +36,9 @@ public class Coupon {
 	private CouponPolicy couponPolicy;
 
 	@NotNull
+	private String couponCode;
+
+	@NotNull
 	private LocalDate createDate;
 
 	@NotNull

@@ -47,7 +47,7 @@ public class ConsumerServiceImpl {
 
 		userAdapter.createUserCoupon(CreateUserCouponRequest.builder()
 			.userId(request.userId())
-			.couponId(savedCoupon.id())
+			.couponCode(savedCoupon.couponCode())
 			.build());
 	}
 
