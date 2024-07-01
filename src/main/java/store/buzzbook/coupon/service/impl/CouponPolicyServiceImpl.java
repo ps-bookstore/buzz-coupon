@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +12,7 @@ import store.buzzbook.coupon.common.constant.CouponRange;
 import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.common.utils.DateFormatter;
+import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
@@ -37,16 +37,8 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	private final CouponTypeService couponTypeService;
 
 	@Override
-	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(
-		Pageable pageable,
-		String discountTypeName,
-		String isDeleted,
-		String couponTypeName) {
-		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(
-			pageable,
-			discountTypeName,
-			isDeleted,
-			couponTypeName);
+	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(CouponPolicyConditionRequest condition) {
+		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(condition);
 		return couponPolicies.map(CouponPolicyResponse::from);
 	}
 

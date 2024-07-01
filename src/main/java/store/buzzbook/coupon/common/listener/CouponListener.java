@@ -26,7 +26,6 @@ public class CouponListener implements ApplicationListener<ApplicationReadyEvent
 	private final CouponTypeRepository couponTypeRepository;
 	private final CouponPolicyRepository couponPolicyRepository;
 
-	@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
 
@@ -70,7 +69,7 @@ public class CouponListener implements ApplicationListener<ApplicationReadyEvent
 				.couponType(globalType)
 				.build());
 		}
-		
+
 		if (!couponPolicyRepository.existsByName(BIRTHDAY_COUPON_POLICY_NAME)) {
 			couponPolicyRepository.save(CouponPolicy.builder()
 				.name(BIRTHDAY_COUPON_POLICY_NAME)

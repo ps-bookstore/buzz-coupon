@@ -3,8 +3,8 @@ package store.buzzbook.coupon.service;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
+import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
@@ -13,11 +13,7 @@ import store.buzzbook.coupon.entity.CouponPolicy;
 
 public interface CouponPolicyService {
 
-	Page<CouponPolicyResponse> getCouponPoliciesByPaging(
-		Pageable pageable,
-		String discountTypeName,
-		String isDeleted,
-		String couponTypeName);
+	Page<CouponPolicyResponse> getCouponPoliciesByPaging(CouponPolicyConditionRequest condition);
 
 	List<CouponPolicyResponse> getSpecificCoupons(int bookId);
 
