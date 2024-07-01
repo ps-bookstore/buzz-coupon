@@ -3,7 +3,6 @@ package store.buzzbook.coupon.controller;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,13 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyResponse;
@@ -38,19 +37,12 @@ public class CouponPolicyController {
 	private final CouponPolicyService couponPolicyService;
 	private final CouponTypeService couponTypeService;
 
-	@GetMapping
+	@PostMapping("/condition")
 	@Transactional(readOnly = true)
 	@Operation(summary = "쿠폰 정책 리스트 조회", description = "조건과 페이징 처리된 모든 쿠폰 정책 리스트를 조회합니다.")
 	public ResponseEntity<Page<CouponPolicyResponse>> getCouponPoliciesByPaging(
-		Pageable pageable,
-		@RequestParam String discountTypeName,
-		@RequestParam String isDeleted,
-		@RequestParam String couponTypeName) {
-		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByPaging(
-			pageable,
-			discountTypeName,
-			isDeleted,
-			couponTypeName));
+		@Valid @RequestBody CouponPolicyConditionRequest condition) {
+		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByPaging(condition));
 	}
 
 	@PostMapping
@@ -87,7 +79,7 @@ public class CouponPolicyController {
 	@GetMapping("/specifics/{bookId}")
 	@Transactional(readOnly = true)
 	@Operation(summary = "특정 도서 쿠폰 리스트 조회", description = "특정 도서 쿠폰의 리스트를 조회 합니다.")
-	public ResponseEntity<List<CouponPolicyResponse>> getSpecificCoupons(@PathVariable int bookId) {
+	public ResponseEntity<List<CouponPolicyResponse>> getSpecificCouponPolicies(@PathVariable int bookId) {
 		return ResponseEntity.ok(couponPolicyService.getSpecificCoupons(bookId));
 	}
 }

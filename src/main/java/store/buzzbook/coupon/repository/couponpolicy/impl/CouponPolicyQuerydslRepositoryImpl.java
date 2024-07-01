@@ -7,7 +7,6 @@ import java.util.Objects;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +15,7 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.constant.CouponRange;
 import store.buzzbook.coupon.common.constant.DiscountType;
+import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.QCouponPolicy;
 import store.buzzbook.coupon.entity.QSpecificCoupon;
@@ -37,37 +37,33 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 
 		return from(specificCoupon)
 			.join(specificCoupon.couponPolicy, couponPolicy)
-			.where(specificCoupon.bookId.eq(bookId))
+			.where(specificCoupon.bookId.eq(bookId), couponPolicy.isDeleted.eq(false))
 			.select(couponPolicy)
 			.fetch();
 	}
 
 	@Override
-	public Page<CouponPolicy> findAllByCondition(
-		Pageable pageable,
-		String discountTypeName,
-		String isDeleted,
-		String couponTypeName) {
+	public Page<CouponPolicy> findAllByCondition(CouponPolicyConditionRequest condition) {
 		QCouponPolicy couponPolicy = QCouponPolicy.couponPolicy;
 
 		List<CouponPolicy> couponPolicies = from(couponPolicy)
 			.where(
-				discountTypeEq(discountTypeName),
-				isDeletedEq(isDeleted),
-				couponTypeEq(couponTypeName))
-			.offset(pageable.getOffset())
-			.limit(pageable.getPageSize())
+				discountTypeEq(condition.discountTypeName()),
+				isDeletedEq(condition.isDeleted()),
+				couponTypeEq(condition.couponTypeName()))
+			.offset(condition.pageable().getOffset())
+			.limit(condition.pageable().getPageSize())
 			.select(couponPolicy)
 			.fetch();
 
 		long total = from(couponPolicy)
 			.where(
-				discountTypeEq(discountTypeName),
-				isDeletedEq(isDeleted),
-				couponTypeEq(couponTypeName))
-			.fetchCount();
+				discountTypeEq(condition.discountTypeName()),
+				isDeletedEq(condition.isDeleted()),
+				couponTypeEq(condition.couponTypeName()))
+			.fetch().size();
 
-		return new PageImpl<>(couponPolicies, pageable, total);
+		return new PageImpl<>(couponPolicies, condition.pageable(), total);
 	}
 
 	private BooleanExpression discountTypeEq(String discountType) {
