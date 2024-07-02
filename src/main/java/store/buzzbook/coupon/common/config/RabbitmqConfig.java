@@ -17,9 +17,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitmqConfig {
 
-	public static final String REQUEST_EXCHANGE_NAME = "aa.coupon.welcome.exchange";
-	public static final String REQUEST_QUEUE_NAME = "aa.coupon.welcome.queue";
-	public static final String REQUEST_ROUTING_KEY = "aa.coupon.welcome.key";
+	public static final String REQUEST_EXCHANGE_NAME = "aa.coupon.exchange";
+	public static final String REQUEST_QUEUE_NAME = "aa.coupon.queue";
+	public static final String REQUEST_ROUTING_KEY = "aa.coupon.key";
 
 	public static final String DLX_EXCHANGE_NAME = "aa.coupon.dlx.exchange";
 	public static final String DLQ_QUEUE_NAME = "aa.coupon.dlx.queue";

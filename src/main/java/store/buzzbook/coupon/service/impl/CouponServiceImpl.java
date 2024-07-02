@@ -19,6 +19,12 @@ import store.buzzbook.coupon.repository.CouponRepository;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponService;
 
+/**
+ * 쿠폰 서비스 구현 클래스입니다.
+ * <p>
+ * 쿠폰의 생성, 조회, 수정과 관련된 비즈니스 로직을 처리합니다.
+ * </p>
+ */
 @Service
 @RequiredArgsConstructor
 public class CouponServiceImpl implements CouponService {
@@ -26,6 +32,13 @@ public class CouponServiceImpl implements CouponService {
 	private final CouponRepository couponRepository;
 	private final CouponPolicyService couponPolicyService;
 
+	/**
+	 * 쿠폰 ID로 쿠폰을 조회합니다.
+	 *
+	 * @param id 쿠폰 ID
+	 * @return 조회된 쿠폰 응답 객체
+	 * @throws CouponNotFoundException 쿠폰을 찾을 수 없는 경우
+	 */
 	@Override
 	public CouponResponse getCoupon(long id) {
 		validateId(id);
@@ -35,6 +48,13 @@ public class CouponServiceImpl implements CouponService {
 		return CouponResponse.from(coupon);
 	}
 
+	/**
+	 * 새로운 쿠폰을 생성합니다.
+	 *
+	 * @param request 쿠폰 생성 요청 객체
+	 * @return 생성된 쿠폰 응답 객체
+	 * @throws IllegalArgumentException 요청 객체가 null 인 경우
+	 */
 	@Override
 	public CreateCouponResponse createCoupon(CreateCouponRequest request) {
 		if (Objects.isNull(request)) {
@@ -55,6 +75,15 @@ public class CouponServiceImpl implements CouponService {
 		return CreateCouponResponse.from(couponRepository.save(coupon));
 	}
 
+	/**
+	 * 쿠폰을 업데이트합니다.
+	 *
+	 * @param id 쿠폰 ID
+	 * @param request 쿠폰 업데이트 요청 객체
+	 * @return 업데이트된 쿠폰 응답 객체
+	 * @throws CouponNotFoundException 쿠폰을 찾을 수 없는 경우
+	 * @throws IllegalArgumentException 요청 객체가 null 인 경우
+	 */
 	@Override
 	public CouponResponse updateCoupon(long id, UpdateCouponRequest request) {
 		validateId(id);
@@ -71,6 +100,12 @@ public class CouponServiceImpl implements CouponService {
 		return CouponResponse.from(coupon);
 	}
 
+	/**
+	 * 주어진 ID가 유효한지 확인합니다.
+	 *
+	 * @param id 유효성을 검사할 ID
+	 * @throws IllegalArgumentException ID가 유효하지 않은 경우
+	 */
 	private void validateId(long id) {
 		if (id <= 0) {
 			throw new IllegalArgumentException("잘못된 파라미터 요청입니다.");

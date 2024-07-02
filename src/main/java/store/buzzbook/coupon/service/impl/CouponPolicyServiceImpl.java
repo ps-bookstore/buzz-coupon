@@ -31,6 +31,12 @@ import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponTypeService;
 
+/**
+ * 쿠폰 정책 서비스 구현 클래스입니다.
+ * <p>
+ * 쿠폰 정책의 생성, 조회, 수정, 삭제와 관련된 비즈니스 로직을 처리합니다.
+ * </p>
+ */
 @Service
 @RequiredArgsConstructor
 public class CouponPolicyServiceImpl implements CouponPolicyService {
@@ -40,12 +46,24 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	private final SpecificCouponRepository specificCouponRepository;
 	private final CouponTypeService couponTypeService;
 
+	/**
+	 * 조건에 따라 페이징 처리된 쿠폰 정책 리스트를 조회합니다.
+	 *
+	 * @param condition 쿠폰 정책 조회 조건
+	 * @return 페이징 처리된 쿠폰 정책 응답 리스트
+	 */
 	@Override
 	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(CouponPolicyConditionRequest condition) {
 		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(condition);
 		return couponPolicies.map(CouponPolicyResponse::from);
 	}
 
+	/**
+	 * 쿠폰 범위에 따라 모든 쿠폰 정책을 조회합니다.
+	 *
+	 * @param scope 쿠폰 범위 리스트
+	 * @return 쿠폰 범위에 따른 쿠폰 정책 응답 리스트
+	 */
 	@Override
 	public CouponPoliciesResponse getCouponPoliciesByScope(List<String> scope) {
 		Map<CouponScope, List<CouponPolicyResponse>> policiesMap = new EnumMap<>(CouponScope.class);
@@ -57,7 +75,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			CouponScope couponScope = CouponScope.fromString(scopeName);
 			if (couponScope != null) {
 				policiesMap.computeIfPresent(couponScope, (key, value) -> couponPolicyRepository
-					.findAllByCouponTypeNameAndDeletedIsFalse(couponScope)
+					.findAllByCouponScope(couponScope)
 					.stream()
 					.map(CouponPolicyResponse::from)
 					.toList());
@@ -71,6 +89,12 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.build();
 	}
 
+	/**
+	 * 특정 책에 대한 모든 쿠폰 정책을 조회합니다.
+	 *
+	 * @param bookId 책 ID
+	 * @return 특정 책에 대한 쿠폰 정책 응답 리스트
+	 */
 	@Override
 	public List<CouponPolicyResponse> getSpecificCoupons(int bookId) {
 		validateId(bookId);
@@ -80,12 +104,25 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 			.toList();
 	}
 
+	/**
+	 * 쿠폰 정책 ID로 쿠폰 정책을 조회합니다.
+	 *
+	 * @param id 쿠폰 정책 ID
+	 * @return 쿠폰 정책 엔티티
+	 * @throws CouponPolicyNotFoundException 쿠폰 정책을 찾을 수 없는 경우
+	 */
 	@Override
 	public CouponPolicy getCouponPolicyById(int id) {
 		validateId(id);
 		return couponPolicyRepository.findById(id).orElseThrow(CouponPolicyNotFoundException::new);
 	}
 
+	/**
+	 * 새로운 쿠폰 정책을 생성합니다.
+	 *
+	 * @param request 쿠폰 정책 생성 요청 객체
+	 * @return 생성된 쿠폰 정책 응답 객체
+	 */
 	@Transactional
 	@Override
 	public CreateCouponPolicyResponse createCouponPolicy(CreateCouponPolicyRequest request) {
@@ -130,6 +167,13 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 		return CreateCouponPolicyResponse.from(savedPolicy);
 	}
 
+	/**
+	 * 쿠폰 정책을 업데이트합니다.
+	 *
+	 * @param id 쿠폰 정책 ID
+	 * @param request 쿠폰 정책 업데이트 요청 객체
+	 * @return 업데이트된 쿠폰 정책 응답 객체
+	 */
 	@Override
 	public CouponPolicyResponse updateCouponPolicy(int id, UpdateCouponPolicyRequest request) {
 		validateId(id);
@@ -144,6 +188,11 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 		return CouponPolicyResponse.from(couponPolicy);
 	}
 
+	/**
+	 * 쿠폰 정책을 삭제 상태로 변경합니다.
+	 *
+	 * @param id 쿠폰 정책 ID
+	 */
 	@Override
 	public void deleteCouponPolicy(int id) {
 		validateId(id);
@@ -156,6 +205,12 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 		couponPolicy.delete();
 	}
 
+	/**
+	 * 주어진 ID가 유효한지 확인합니다.
+	 *
+	 * @param id 유효성을 검사할 ID
+	 * @throws IllegalArgumentException ID가 유효하지 않은 경우
+	 */
 	private void validateId(int id) {
 		if (id <= 0) {
 			throw new IllegalArgumentException("잘못된 파라미터 값입니다.");

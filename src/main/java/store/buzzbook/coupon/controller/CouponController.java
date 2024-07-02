@@ -21,6 +21,12 @@ import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
 import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.service.CouponService;
 
+/**
+ * 쿠폰 관련 API 를 처리하는 컨트롤러 클래스입니다.
+ * <p>
+ * 쿠폰 조회, 발급, 수정 기능을 제공합니다.
+ * </p>
+ */
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/coupons/")
@@ -29,6 +35,12 @@ public class CouponController {
 
 	private final CouponService couponService;
 
+	/**
+	 * 쿠폰 정보를 조회합니다.
+	 *
+	 * @param couponId 조회할 쿠폰의 ID
+	 * @return 조회된 쿠폰 정보를 담은 ResponseEntity 객체
+	 */
 	@GetMapping("/{couponId}")
 	@Transactional(readOnly = true)
 	@Operation(summary = "쿠폰 조회", description = "쿠폰 정보를 조회합니다.")
@@ -36,6 +48,12 @@ public class CouponController {
 		return ResponseEntity.ok(couponService.getCoupon(couponId));
 	}
 
+	/**
+	 * 쿠폰을 발급합니다.
+	 *
+	 * @param request 쿠폰 발급 요청 정보를 담은 객체
+	 * @return 발급된 쿠폰 정보를 담은 ResponseEntity 객체
+	 */
 	@PostMapping
 	@Transactional
 	@Operation(summary = "쿠폰 발급", description = "쿠폰을 발급합니다.")
@@ -43,6 +61,13 @@ public class CouponController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(couponService.createCoupon(request));
 	}
 
+	/**
+	 * 쿠폰 상태를 수정합니다.
+	 *
+	 * @param couponId 수정할 쿠폰의 ID
+	 * @param request 쿠폰 수정 요청 정보를 담은 객체
+	 * @return 수정된 쿠폰 정보를 담은 ResponseEntity 객체
+	 */
 	@PutMapping("/{couponId}")
 	@Transactional
 	@Operation(summary = "쿠폰 수정", description = "쿠폰 상태를 수정합니다.")

@@ -31,6 +31,7 @@ public class ConsumerServiceImpl {
 	private final CouponPolicyRepository couponPolicyRepository;
 	private final UserAdapter userAdapter;
 	private final CouponService couponService;
+	private final ObjectMapper objectMapper;
 
 	private final RabbitTemplate rabbitTemplate;
 
@@ -55,10 +56,9 @@ public class ConsumerServiceImpl {
 
 	private <T> T deserialize(Message message, Class<T> clazz) {
 		try {
-			ObjectMapper mapper = new ObjectMapper();
-			return mapper.readValue(message.getBody(), clazz);
+			return objectMapper.readValue(message.getBody(), clazz);
 		} catch (Exception e) {
-			throw new RuntimeException("Deserialization error", e);
+			throw new IllegalArgumentException(e.getMessage());
 		}
 	}
 

@@ -5,11 +5,36 @@ import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
 import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 
+/**
+ * 쿠폰 서비스 인터페이스입니다.
+ * <p>
+ * 쿠폰의 생성, 조회, 수정과 관련된 비즈니스 로직을 정의합니다.
+ * </p>
+ */
 public interface CouponService {
 
+	/**
+	 * 쿠폰 ID로 쿠폰을 조회합니다.
+	 *
+	 * @param id 쿠폰 ID
+	 * @return 조회된 쿠폰 응답 객체
+	 */
 	CouponResponse getCoupon(long id);
 
+	/**
+	 * 새로운 쿠폰을 생성합니다.
+	 *
+	 * @param request 쿠폰 생성 요청 객체
+	 * @return 생성된 쿠폰 응답 객체
+	 */
 	CreateCouponResponse createCoupon(CreateCouponRequest request);
 
+	/**
+	 * 쿠폰을 업데이트합니다.
+	 *
+	 * @param id 쿠폰 ID
+	 * @param request 쿠폰 업데이트 요청 객체
+	 * @return 업데이트된 쿠폰 응답 객체
+	 */
 	CouponResponse updateCoupon(long id, UpdateCouponRequest request);
 }
