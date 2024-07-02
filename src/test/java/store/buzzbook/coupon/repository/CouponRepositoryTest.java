@@ -74,7 +74,7 @@ class CouponRepositoryTest {
 		// given
 		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
-			.couponCode("AAAA-AAAA-AAAA")
+			.couponCode("AAAA-AAAA-AAAB")
 			.createDate(LocalDate.now())
 			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
