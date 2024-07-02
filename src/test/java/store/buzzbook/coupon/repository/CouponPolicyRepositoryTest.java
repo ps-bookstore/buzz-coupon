@@ -16,10 +16,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import store.buzzbook.coupon.common.constant.CouponScope;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
@@ -38,7 +38,7 @@ class CouponPolicyRepositoryTest {
 	@BeforeEach
 	void setUp() {
 		testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 		couponTypeRepository.save(testCouponType);
 
@@ -53,7 +53,7 @@ class CouponPolicyRepositoryTest {
 			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
-			.isDeleted(false)
+			.deleted(false)
 			.build();
 		couponPolicyRepository.save(testCouponPolicy);
 	}
@@ -116,7 +116,7 @@ class CouponPolicyRepositoryTest {
 			.endDate(LocalDate.now().plusDays(1))
 			.name("new")
 			.maxDiscountAmount(10000)
-			.isDeleted(false)
+			.deleted(false)
 			.build();
 
 		couponPolicyRepository.save(newCouponPolicy);

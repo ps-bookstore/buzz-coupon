@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
+import store.buzzbook.coupon.dto.coupon.CouponPoliciesResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
@@ -14,6 +15,8 @@ import store.buzzbook.coupon.entity.CouponPolicy;
 public interface CouponPolicyService {
 
 	Page<CouponPolicyResponse> getCouponPoliciesByPaging(CouponPolicyConditionRequest condition);
+
+	CouponPoliciesResponse getCouponPoliciesByScope(List<String> scope);
 
 	List<CouponPolicyResponse> getSpecificCoupons(int bookId);
 

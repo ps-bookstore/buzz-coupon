@@ -16,7 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.common.exception.CouponPolicyNotFoundException;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
@@ -50,7 +50,7 @@ class CouponPolicyServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
@@ -64,7 +64,7 @@ class CouponPolicyServiceTest {
 			.endDate(LocalDate.now().plusDays(1))
 			.name("test")
 			.maxDiscountAmount(10000)
-			.isDeleted(false)
+			.deleted(false)
 			.build();
 	}
 
@@ -107,7 +107,7 @@ class CouponPolicyServiceTest {
 			.build();
 
 		when(couponTypeService.getCouponType(anyString())).thenReturn(
-			CouponType.builder().name(CouponRange.BOOK).build());
+			CouponType.builder().name(CouponScope.BOOK).build());
 		when(couponPolicyRepository.save(any(CouponPolicy.class))).thenReturn(testCouponPolicy);
 		when(specificCouponRepository.save(any(SpecificCoupon.class))).thenReturn(testSpecificCoupon);
 

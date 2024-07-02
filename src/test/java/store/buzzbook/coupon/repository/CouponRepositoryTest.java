@@ -13,12 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import store.buzzbook.coupon.common.constant.CouponScope;
+import store.buzzbook.coupon.common.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.CouponStatus;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
@@ -34,13 +34,13 @@ class CouponRepositoryTest {
 	@Autowired
 	private CouponTypeRepository couponTypeRepository;
 
-	private Coupon testCouponLog;
+	private Coupon testCoupon;
 	private CouponPolicy testCouponPolicy;
 
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()
@@ -55,8 +55,9 @@ class CouponRepositoryTest {
 			.maxDiscountAmount(10000)
 			.build();
 
-		testCouponLog = Coupon.builder()
+		testCoupon = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
+			.couponCode("AAAA-AAAA-AAAA")
 			.createDate(LocalDate.now())
 			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
@@ -64,7 +65,7 @@ class CouponRepositoryTest {
 
 		couponTypeRepository.save(testCouponType);
 		couponPolicyRepository.save(testCouponPolicy);
-		couponRepository.save(testCouponLog);
+		couponRepository.save(testCoupon);
 	}
 
 	@Test
@@ -73,6 +74,7 @@ class CouponRepositoryTest {
 		// given
 		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
+			.couponCode("AAAA-AAAA-AAAA")
 			.createDate(LocalDate.now())
 			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
@@ -91,7 +93,7 @@ class CouponRepositoryTest {
 	@DisplayName("update")
 	void update() {
 		// given
-		Coupon foundCoupon = couponRepository.findById(testCouponLog.getId()).orElse(null);
+		Coupon foundCoupon = couponRepository.findById(testCoupon.getId()).orElse(null);
 		CouponStatus updatedStatus = CouponStatus.USED;
 
 		// when
@@ -107,7 +109,7 @@ class CouponRepositoryTest {
 	@DisplayName("delete")
 	void delete() {
 		// given
-		Coupon savedCouponLog = couponRepository.findById(testCouponLog.getId()).orElse(null);
+		Coupon savedCouponLog = couponRepository.findById(testCoupon.getId()).orElse(null);
 
 		// when
 		assert savedCouponLog != null;
@@ -124,6 +126,7 @@ class CouponRepositoryTest {
 		// given
 		Coupon newCouponLog = Coupon.builder()
 			.couponPolicy(testCouponPolicy)
+			.couponCode("BBBB-BBBB-BBBB")
 			.createDate(LocalDate.now())
 			.expireDate(LocalDate.now().plusDays(2))
 			.status(CouponStatus.AVAILABLE)
