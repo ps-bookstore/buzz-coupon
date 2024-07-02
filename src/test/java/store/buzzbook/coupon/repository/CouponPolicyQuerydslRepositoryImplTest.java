@@ -1,4 +1,4 @@
-package store.buzzbook.coupon.repository.couponpolicy.impl;
+package store.buzzbook.coupon.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,8 +16,6 @@ import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.repository.CouponTypeRepository;
-import store.buzzbook.coupon.repository.SpecificCouponRepository;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
