@@ -1,7 +1,7 @@
 FROM eclipse-temurin:21-jre
 
-ARG JAR_FILE_PATH=build/libs/*.jar
+WORKDIR /app
 
-COPY ${JAR_FILE_PATH} /app.jar
+COPY /target/coupon-0.0.1-SNAPSHOT.jar /app/core.jar
 
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/core.jar", "--spring.profiles.active=prod"]
