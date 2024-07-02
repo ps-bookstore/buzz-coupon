@@ -29,19 +29,6 @@ management:
   health:
     status:
       order: DOWN, UP
-  endpoint:
-    jolokia:
-      enabled: true
-    metrics:
-      enabled: true
-    pause:
-      enabled: true
-    resume:
-      enabled: true
-    restart:
-      enabled: true
-    shutdown:
-      enabled: true
   endpoints:
     web:
       exposure:

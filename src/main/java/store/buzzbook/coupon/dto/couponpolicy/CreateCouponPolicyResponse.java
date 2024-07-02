@@ -16,7 +16,7 @@ public record CreateCouponPolicyResponse(
 	/**
 	 * 주어진 CouponPolicy 엔티티로부터 CreateCouponPolicyResponse 의 새로운 인스턴스를 생성합니다.
 	 *
-	 * @param request 응답을 생성할 CouponPolicy 엔티티
+	 * @param couponPolicy 응답을 생성할 CouponPolicy 엔티티
 	 * @return 주어진 CouponPolicy 의 id와 name 을 포함하는 새로운 CreateCouponPolicyResponse
 	 */
 	public static CreateCouponPolicyResponse from(CouponPolicy couponPolicy) {

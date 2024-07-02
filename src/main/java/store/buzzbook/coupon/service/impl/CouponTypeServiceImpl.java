@@ -13,12 +13,23 @@ import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.repository.CouponTypeRepository;
 import store.buzzbook.coupon.service.CouponTypeService;
 
+/**
+ * 쿠폰 타입 서비스 구현 클래스입니다.
+ * <p>
+ * 쿠폰 타입의 조회와 관련된 비즈니스 로직을 처리합니다.
+ * </p>
+ */
 @Service
 @RequiredArgsConstructor
 public class CouponTypeServiceImpl implements CouponTypeService {
 
 	private final CouponTypeRepository couponTypeRepository;
 
+	/**
+	 * 모든 쿠폰 타입을 조회합니다.
+	 *
+	 * @return 모든 쿠폰 타입 응답 리스트
+	 */
 	@Override
 	public List<CouponTypeResponse> getAllCouponTypes() {
 		return couponTypeRepository.findAllBy().stream()
@@ -26,6 +37,14 @@ public class CouponTypeServiceImpl implements CouponTypeService {
 			.toList();
 	}
 
+	/**
+	 * 쿠폰 타입 이름으로 쿠폰 타입을 조회합니다.
+	 *
+	 * @param name 쿠폰 타입 이름
+	 * @return 조회된 쿠폰 타입 엔티티
+	 * @throws IllegalArgumentException 이름이 null 인 경우
+	 * @throws CouponTypeNotFoundException 쿠폰 타입을 찾을 수 없는 경우
+	 */
 	@Override
 	public CouponType getCouponType(String name) {
 		if (Objects.isNull(name)) {
