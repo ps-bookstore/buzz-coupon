@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import store.buzzbook.coupon.dto.coupon.CouponPoliciesResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
@@ -43,6 +45,13 @@ public class CouponPolicyController {
 	public ResponseEntity<Page<CouponPolicyResponse>> getCouponPoliciesByPaging(
 		@Valid @RequestBody CouponPolicyConditionRequest condition) {
 		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByPaging(condition));
+	}
+
+	@GetMapping
+	@Transactional(readOnly = true)
+	@Operation(summary = "특정 범위 쿠폰 정책 리스트 조회", description = "특정 범위의 다운로드 가능한 쿠폰 정책 리스트를 조회합니다.")
+	public ResponseEntity<CouponPoliciesResponse> getCouponPoliciesByScope(@RequestParam List<String> scope) {
+		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByScope(scope));
 	}
 
 	@PostMapping

@@ -21,7 +21,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CreateCouponPolicyRequest;
@@ -57,7 +57,7 @@ class CouponPolicyControllerTest {
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
 			.id(1)
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 
 		testCouponTypeResponse = CouponTypeResponse.from(testCouponType);
@@ -74,7 +74,7 @@ class CouponPolicyControllerTest {
 			.endDate(LocalDate.now().plusDays(10))
 			.name("test")
 			.maxDiscountAmount(10000)
-			.isDeleted(false)
+			.deleted(false)
 			.build();
 
 		testCouponPolicyResponse = CouponPolicyResponse.from(testCouponPolicy);

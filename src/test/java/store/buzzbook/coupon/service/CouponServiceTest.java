@@ -16,6 +16,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import store.buzzbook.coupon.common.constant.CouponScope;
+import store.buzzbook.coupon.common.constant.CouponStatus;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
@@ -23,9 +26,6 @@ import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.CouponStatus;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.CouponRepository;
 import store.buzzbook.coupon.service.impl.CouponServiceImpl;
 
@@ -48,7 +48,7 @@ class CouponServiceTest {
 	@BeforeEach
 	void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

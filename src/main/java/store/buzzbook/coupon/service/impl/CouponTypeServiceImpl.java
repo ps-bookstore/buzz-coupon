@@ -6,7 +6,7 @@ import java.util.Objects;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.entity.CouponType;
@@ -31,7 +31,7 @@ public class CouponTypeServiceImpl implements CouponTypeService {
 		if (Objects.isNull(name)) {
 			throw new IllegalArgumentException("잘못된 파라미터 값입니다.");
 		}
-		return couponTypeRepository.findAllByName(CouponRange.fromString(name))
+		return couponTypeRepository.findAllByName(CouponScope.fromString(name))
 			.orElseThrow(CouponTypeNotFoundException::new);
 	}
 }

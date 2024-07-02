@@ -15,7 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.dto.coupontype.CouponTypeResponse;
 import store.buzzbook.coupon.entity.CouponType;
@@ -38,7 +38,7 @@ class CouponTypeServiceTest {
 	void setUp() {
 		testCouponType = CouponType.builder()
 			.id(1)
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 	}
 

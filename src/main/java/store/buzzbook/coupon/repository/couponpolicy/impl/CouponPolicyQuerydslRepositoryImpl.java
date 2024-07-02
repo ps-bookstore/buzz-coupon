@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.querydsl.core.types.dsl.BooleanExpression;
 
 import lombok.extern.slf4j.Slf4j;
-import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
 import store.buzzbook.coupon.entity.CouponPolicy;
@@ -37,7 +37,7 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 
 		return from(specificCoupon)
 			.join(specificCoupon.couponPolicy, couponPolicy)
-			.where(specificCoupon.bookId.eq(bookId), couponPolicy.isDeleted.eq(false))
+			.where(specificCoupon.bookId.eq(bookId), couponPolicy.deleted.eq(false))
 			.select(couponPolicy)
 			.fetch();
 	}
@@ -72,13 +72,13 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 	}
 
 	private BooleanExpression isDeletedEq(String isDeleted) {
-		return !Objects.equals(isDeleted, "ALL") ? couponPolicy.isDeleted.eq(Boolean.valueOf(isDeleted)) :
+		return !Objects.equals(isDeleted, "ALL") ? couponPolicy.deleted.eq(Boolean.valueOf(isDeleted)) :
 			null;
 	}
 
 	private BooleanExpression couponTypeEq(String couponType) {
 		return !Objects.equals(couponType, "ALL") ?
-			couponPolicy.couponType.name.eq(CouponRange.fromString(couponType)) :
+			couponPolicy.couponType.name.eq(CouponScope.fromString(couponType)) :
 			null;
 	}
 }

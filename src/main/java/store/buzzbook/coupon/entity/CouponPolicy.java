@@ -66,13 +66,13 @@ public class CouponPolicy {
 	private LocalDate endDate;
 
 	@NotNull
-	private boolean isDeleted;
+	private boolean deleted;
 
 	public void changeEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 
 	public void delete() {
-		this.isDeleted = true;
+		this.deleted = true;
 	}
 }

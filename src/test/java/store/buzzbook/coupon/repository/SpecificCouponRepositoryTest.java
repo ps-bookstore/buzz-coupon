@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import store.buzzbook.coupon.common.constant.CouponScope;
+import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.entity.CouponType;
 import store.buzzbook.coupon.entity.SpecificCoupon;
-import store.buzzbook.coupon.common.constant.CouponRange;
-import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 
 @DataJpaTest
@@ -38,7 +38,7 @@ class SpecificCouponRepositoryTest {
 	@BeforeEach
 	public void setUp() {
 		CouponType testCouponType = CouponType.builder()
-			.name(CouponRange.BOOK)
+			.name(CouponScope.BOOK)
 			.build();
 
 		testCouponPolicy = CouponPolicy.builder()

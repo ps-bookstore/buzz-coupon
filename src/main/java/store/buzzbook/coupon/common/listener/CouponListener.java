@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import store.buzzbook.coupon.common.constant.CouponRange;
+import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.common.exception.CouponTypeNotFoundException;
 import store.buzzbook.coupon.entity.CouponPolicy;
@@ -30,28 +30,28 @@ public class CouponListener implements ApplicationListener<ApplicationReadyEvent
 	public void onApplicationEvent(ApplicationReadyEvent event) {
 
 		String action = "Created coupon type {}";
-		if (!couponTypeRepository.existsByName(CouponRange.GLOBAL)) {
+		if (!couponTypeRepository.existsByName(CouponScope.GLOBAL)) {
 			couponTypeRepository.save(CouponType.builder()
-				.name(CouponRange.GLOBAL)
+				.name(CouponScope.GLOBAL)
 				.build());
-			log.debug(action, CouponRange.GLOBAL);
+			log.debug(action, CouponScope.GLOBAL);
 		}
 
-		if (!couponTypeRepository.existsByName(CouponRange.BOOK)) {
+		if (!couponTypeRepository.existsByName(CouponScope.BOOK)) {
 			couponTypeRepository.save(CouponType.builder()
-				.name(CouponRange.BOOK)
+				.name(CouponScope.BOOK)
 				.build());
-			log.debug(action, CouponRange.BOOK);
+			log.debug(action, CouponScope.BOOK);
 		}
 
-		if (!couponTypeRepository.existsByName(CouponRange.CATEGORY)) {
+		if (!couponTypeRepository.existsByName(CouponScope.CATEGORY)) {
 			couponTypeRepository.save(CouponType.builder()
-				.name(CouponRange.CATEGORY)
+				.name(CouponScope.CATEGORY)
 				.build());
-			log.debug(action, CouponRange.CATEGORY);
+			log.debug(action, CouponScope.CATEGORY);
 		}
 
-		CouponType globalType = couponTypeRepository.findAllByName(CouponRange.GLOBAL)
+		CouponType globalType = couponTypeRepository.findAllByName(CouponScope.GLOBAL)
 			.orElseThrow(CouponTypeNotFoundException::new);
 
 		if (!couponPolicyRepository.existsByName(WELCOME_COUPON_POLICY_NAME)) {
@@ -65,7 +65,7 @@ public class CouponListener implements ApplicationListener<ApplicationReadyEvent
 				.startDate(LocalDate.EPOCH)
 				.endDate(LocalDate.of(2099, 12, 31))
 				.period(30)
-				.isDeleted(false)
+				.deleted(false)
 				.couponType(globalType)
 				.build());
 		}
@@ -81,7 +81,7 @@ public class CouponListener implements ApplicationListener<ApplicationReadyEvent
 				.startDate(LocalDate.EPOCH)
 				.endDate(LocalDate.of(2099, 12, 31))
 				.period(0)
-				.isDeleted(false)
+				.deleted(false)
 				.couponType(globalType)
 				.build());
 		}
