@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import store.buzzbook.coupon.dto.coupon.CreateUserCouponRequest;
 
-@FeignClient(name = "UserCouponAdapter", url = "http://${api.gateway.host}:" + "${api.gateway.port}/api/auth")
+@FeignClient(name = "UserCouponAdapter", url = "http://${api.gateway.host}:" + "${api.gateway.port}/api/account")
 public interface UserAdapter {
 
-	@PostMapping("/api/account/coupons")
+	@PostMapping("/coupons")
 	ResponseEntity<Void> createUserCoupon(@RequestBody CreateUserCouponRequest request);
 }
