@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: coupon
+    name: coupon-api
 
   profiles:
     default: test

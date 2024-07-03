@@ -29,6 +29,19 @@ management:
   health:
     status:
       order: DOWN, UP
+  endpoint:
+    jolokia:
+      enabled: true
+    metrics:
+      enabled: true
+    pause:
+      enabled: true
+    resume:
+      enabled: true
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
   endpoints:
     web:
       exposure:
@@ -48,3 +61,7 @@ eureka:
     service-url:
       defaultZone: http://admin:1234@localhost:8761/eureka
 
+api:
+  gateway:
+    host: localhost
+    port: 8080

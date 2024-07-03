@@ -11,7 +11,7 @@ import java.security.SecureRandom;
  */
 public class CodeCreator {
 	private static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	private static final int GROUP_LENGTH = 4;
+	private static final int GROUP_LENGTH = 5;
 	private static final int GROUP_COUNT = 4;
 	private static final SecureRandom random = new SecureRandom();
 
