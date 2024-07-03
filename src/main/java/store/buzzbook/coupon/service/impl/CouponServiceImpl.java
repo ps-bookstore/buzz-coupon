@@ -61,11 +61,16 @@ public class CouponServiceImpl implements CouponService {
 			throw new IllegalArgumentException("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 		}
 
+		String couponCode = CodeCreator.createCode();
+		while (Boolean.TRUE.equals(couponRepository.existsByCouponCode(couponCode))) {
+			couponCode = CodeCreator.createCode();
+		}
+
 		CouponPolicy couponPolicy = couponPolicyService.getCouponPolicyById(request.couponPolicyId());
 		LocalDate now = LocalDate.now();
 
 		Coupon coupon = Coupon.builder()
-			.couponCode(CodeCreator.createCode())
+			.couponCode(couponCode)
 			.createDate(now)
 			.expireDate(now.plusDays(couponPolicy.getPeriod()))
 			.status(CouponStatus.AVAILABLE)

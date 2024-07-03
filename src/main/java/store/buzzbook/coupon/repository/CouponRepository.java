@@ -11,4 +11,6 @@ import store.buzzbook.coupon.entity.Coupon;
  * </p>
  */
 public interface CouponRepository extends JpaRepository<Coupon, Long> {
+
+	Boolean existsByCouponCode(String couponCode);
 }
