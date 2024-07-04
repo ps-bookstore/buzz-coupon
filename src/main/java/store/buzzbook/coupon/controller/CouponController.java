@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
@@ -62,7 +62,7 @@ public class CouponController {
 	@Transactional(readOnly = true)
 	@Operation(summary = "회원 쿠폰 조회", description = "회원이 가진 쿠폰 정보를 조회합니다.")
 	public ResponseEntity<List<CouponResponse>> getUserCoupons(@Valid @RequestBody List<CouponLogRequest> request,
-		@NotBlank @RequestBody String couponStatusName) {
+		@RequestParam String couponStatusName) {
 		return ResponseEntity.ok(couponService.getAllCouponsByStatus(request, couponStatusName));
 	}
 
