@@ -1,5 +1,7 @@
 package store.buzzbook.coupon.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
+import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
@@ -29,7 +33,7 @@ import store.buzzbook.coupon.service.CouponService;
  */
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/coupons/")
+@RequestMapping("/api/coupons")
 @Tag(name = "쿠폰 내역 API", description = "쿠폰 내역 API 전체 설명서")
 public class CouponController {
 
@@ -46,6 +50,20 @@ public class CouponController {
 	@Operation(summary = "쿠폰 조회", description = "쿠폰 정보를 조회합니다.")
 	public ResponseEntity<CouponResponse> getCoupon(@PathVariable long couponId) {
 		return ResponseEntity.ok(couponService.getCoupon(couponId));
+	}
+
+	/**
+	 * 회원이 가진 쿠폰 정보를 조회합니다.
+	 *
+	 * @param request 쿠폰 상태 조회 요청 객체 리스트
+	 * @return 조회된 쿠폰 응답 객체 리스트를 포함한 ResponseEntity
+	 */
+	@PostMapping("/condition")
+	@Transactional(readOnly = true)
+	@Operation(summary = "회원 쿠폰 조회", description = "회원이 가진 쿠폰 정보를 조회합니다.")
+	public ResponseEntity<List<CouponResponse>> getUserCoupons(@Valid @RequestBody List<CouponLogRequest> request,
+		@NotBlank @RequestBody String couponStatusName) {
+		return ResponseEntity.ok(couponService.getAllCouponsByStatus(request, couponStatusName));
 	}
 
 	/**

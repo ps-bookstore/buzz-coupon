@@ -1,6 +1,8 @@
 package store.buzzbook.coupon.service.impl;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.common.constant.CouponStatus;
 import store.buzzbook.coupon.common.exception.CouponNotFoundException;
 import store.buzzbook.coupon.common.utils.CodeCreator;
+import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
@@ -46,6 +49,39 @@ public class CouponServiceImpl implements CouponService {
 		Coupon coupon = couponRepository.findById(id).orElseThrow(CouponNotFoundException::new);
 
 		return CouponResponse.from(coupon);
+	}
+
+	/**
+	 * 주어진 요청 목록에 따라 쿠폰 상태를 기준으로 모든 쿠폰을 조회합니다.
+	 *
+	 * @param request 쿠폰 상태 조회 요청 객체 리스트
+	 * @return 조회된 쿠폰 응답 객체 리스트
+	 * @throws CouponNotFoundException 요청 조건에 맞는 쿠폰을 찾을 수 없는 경우
+	 */
+	@Override
+	public List<CouponResponse> getAllCouponsByStatus(List<CouponLogRequest> request, String couponStatusName) {
+		List<CouponResponse> responses = new ArrayList<>();
+
+		if (couponStatusName.equals("all")) {
+			for (CouponLogRequest couponLogRequest : request) {
+				Coupon coupon = couponRepository.findByCouponCodeAndCouponPolicyId(
+						couponLogRequest.couponCode(),
+						couponLogRequest.couponPolicyId())
+					.orElseThrow(CouponNotFoundException::new);
+				responses.add(CouponResponse.from(coupon));
+			}
+		} else {
+			for (CouponLogRequest couponLogRequest : request) {
+				Coupon coupon = couponRepository.findByCouponCodeAndCouponPolicyIdAndStatus(
+						couponLogRequest.couponCode(),
+						couponLogRequest.couponPolicyId(),
+						CouponStatus.fromString(couponStatusName))
+					.orElseThrow(CouponNotFoundException::new);
+				responses.add(CouponResponse.from(coupon));
+			}
+		}
+
+		return responses;
 	}
 
 	/**
