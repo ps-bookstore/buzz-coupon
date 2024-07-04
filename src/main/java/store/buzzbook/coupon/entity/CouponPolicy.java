@@ -68,13 +68,14 @@ public class CouponPolicy {
 	 * 쿠폰 정책의 할인율입니다.
 	 */
 	@NotNull
-	@ColumnDefault("1.0")
+	@ColumnDefault("0")
 	private double discountRate;
 
 	/**
 	 * 쿠폰 정책의 할인 금액입니다.
 	 */
 	@NotNull
+	@ColumnDefault("0")
 	private int discountAmount;
 
 	/**

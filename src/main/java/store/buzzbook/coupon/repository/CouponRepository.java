@@ -1,7 +1,10 @@
 package store.buzzbook.coupon.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import store.buzzbook.coupon.common.constant.CouponStatus;
 import store.buzzbook.coupon.entity.Coupon;
 
 /**
@@ -13,4 +16,9 @@ import store.buzzbook.coupon.entity.Coupon;
 public interface CouponRepository extends JpaRepository<Coupon, Long> {
 
 	Boolean existsByCouponCode(String couponCode);
+
+	Optional<Coupon> findByCouponCodeAndCouponPolicyId(String couponCode, int couponPolicyId);
+
+	Optional<Coupon> findByCouponCodeAndCouponPolicyIdAndStatus(String couponCode, int couponPolicyId,
+		CouponStatus couponStatus);
 }

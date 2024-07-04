@@ -1,5 +1,8 @@
 package store.buzzbook.coupon.service;
 
+import java.util.List;
+
+import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
@@ -20,6 +23,14 @@ public interface CouponService {
 	 * @return 조회된 쿠폰 응답 객체
 	 */
 	CouponResponse getCoupon(long id);
+
+	/**
+	 * 주어진 요청 목록에 따라 쿠폰 상태를 기준으로 모든 쿠폰을 조회합니다.
+	 *
+	 * @param request 쿠폰 상태 조회 요청 객체 리스트
+	 * @return 조회된 쿠폰 응답 객체 리스트
+	 */
+	List<CouponResponse> getAllCouponsByStatus(List<CouponLogRequest> request, String couponStatusName);
 
 	/**
 	 * 새로운 쿠폰을 생성합니다.
