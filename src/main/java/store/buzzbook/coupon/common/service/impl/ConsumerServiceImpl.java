@@ -38,6 +38,7 @@ public class ConsumerServiceImpl {
 	@Transactional
 	@RabbitListener(queues = REQUEST_QUEUE_NAME)
 	public void receiveWelcomeCouponRequest(Message message) {
+		log.debug("Received welcome coupon request: {}", message);
 		String messageType = (String)message.getMessageProperties().getHeaders().get("type");
 
 		switch (messageType) {
