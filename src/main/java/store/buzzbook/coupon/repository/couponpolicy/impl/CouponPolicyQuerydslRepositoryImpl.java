@@ -15,6 +15,7 @@ import com.querydsl.core.types.dsl.BooleanExpression;
 
 import lombok.extern.slf4j.Slf4j;
 import store.buzzbook.coupon.common.constant.CouponScope;
+import store.buzzbook.coupon.common.constant.CouponStatus;
 import store.buzzbook.coupon.common.constant.DiscountType;
 import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
 import store.buzzbook.coupon.dto.couponpolicy.CouponPolicyConditionRequest;
@@ -127,7 +128,7 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 			.leftJoin(coupon.couponPolicy, couponPolicy)
 			.leftJoin(specificCoupon).on(couponPolicy.id.eq(specificCoupon.couponPolicy.id))
 			.leftJoin(categoryCoupon).on(couponPolicy.id.eq(categoryCoupon.couponPolicy.id))
-			.where(coupon.couponCode.eq(couponCode))
+			.where(coupon.couponCode.eq(couponCode), coupon.status.eq(CouponStatus.AVAILABLE))
 			.fetchOne();
 
 		if (fetchedCoupon == null) {

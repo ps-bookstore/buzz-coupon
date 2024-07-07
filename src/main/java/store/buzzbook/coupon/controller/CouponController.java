@@ -90,15 +90,12 @@ public class CouponController {
 	/**
 	 * 쿠폰 상태를 수정합니다.
 	 *
-	 * @param couponId 수정할 쿠폰의 ID
 	 * @param request 쿠폰 수정 요청 정보를 담은 객체
 	 * @return 수정된 쿠폰 정보를 담은 ResponseEntity 객체
 	 */
-	@PutMapping("/{couponId}")
-	@Transactional
+	@PutMapping
 	@Operation(summary = "쿠폰 수정", description = "쿠폰 상태를 수정합니다.")
-	public ResponseEntity<CouponResponse> updateCoupon(@PathVariable long couponId,
-		@Valid @RequestBody UpdateCouponRequest request) {
-		return ResponseEntity.ok(couponService.updateCoupon(couponId, request));
+	public ResponseEntity<CouponResponse> updateCoupon(@Valid @RequestBody UpdateCouponRequest request) {
+		return ResponseEntity.ok(couponService.updateCoupon(request));
 	}
 }

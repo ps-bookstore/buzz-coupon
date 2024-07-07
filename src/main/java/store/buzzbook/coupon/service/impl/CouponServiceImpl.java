@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.common.constant.CouponStatus;
@@ -133,21 +134,23 @@ public class CouponServiceImpl implements CouponService {
 	/**
 	 * 쿠폰을 업데이트합니다.
 	 *
-	 * @param id 쿠폰 ID
 	 * @param request 쿠폰 업데이트 요청 객체
 	 * @return 업데이트된 쿠폰 응답 객체
 	 * @throws CouponNotFoundException 쿠폰을 찾을 수 없는 경우
 	 * @throws IllegalArgumentException 요청 객체가 null 인 경우
 	 */
+	@Transactional
 	@Override
-	public CouponResponse updateCoupon(long id, UpdateCouponRequest request) {
-		validateId(id);
-
+	public CouponResponse updateCoupon(UpdateCouponRequest request) {
 		if (Objects.isNull(request)) {
 			throw new IllegalArgumentException("쿠폰 로그 수정 요청을 찾을 수 없습니다.");
 		}
 
-		Coupon coupon = couponRepository.findById(id)
+		if (!couponRepository.existsByCouponCode(request.couponCode())) {
+			throw new CouponNotFoundException();
+		}
+
+		Coupon coupon = couponRepository.findByCouponCode(request.couponCode())
 			.orElseThrow(CouponNotFoundException::new);
 
 		coupon.changeStatus(request.status());

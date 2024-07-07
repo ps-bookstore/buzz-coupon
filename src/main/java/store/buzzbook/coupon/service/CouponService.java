@@ -50,5 +50,5 @@ public interface CouponService {
 	 * @param request 쿠폰 업데이트 요청 객체
 	 * @return 업데이트된 쿠폰 응답 객체
 	 */
-	CouponResponse updateCoupon(long id, UpdateCouponRequest request);
+	CouponResponse updateCoupon(UpdateCouponRequest request);
 }
