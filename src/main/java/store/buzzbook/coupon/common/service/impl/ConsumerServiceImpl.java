@@ -64,6 +64,7 @@ public class ConsumerServiceImpl {
 	}
 
 	private void handleWelcomeRequest(CreateWelcomeCouponRequest request) {
+		log.info("Received welcome coupon request: {}", request);
 		CouponPolicy welcomeCouponPolicy = couponPolicyRepository.findByName(WELCOME_COUPON_POLICY_NAME)
 			.orElseThrow(CouponPolicyNotFoundException::new);
 
