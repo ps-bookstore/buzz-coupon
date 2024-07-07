@@ -9,7 +9,7 @@ import store.buzzbook.coupon.entity.Coupon;
 
 @Builder
 public record OrderCouponResponse(
-	long id,
+	String code,
 	LocalDate createDate,
 	LocalDate expireDate,
 	CouponStatus status,
@@ -18,7 +18,7 @@ public record OrderCouponResponse(
 ) {
 	public static OrderCouponResponse from(Coupon coupon) {
 		return new OrderCouponResponse(
-			coupon.getId(),
+			coupon.getCouponCode(),
 			coupon.getCreateDate(),
 			coupon.getExpireDate(),
 			coupon.getStatus(),

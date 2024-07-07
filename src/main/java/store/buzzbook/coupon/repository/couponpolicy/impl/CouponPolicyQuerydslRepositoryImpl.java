@@ -136,7 +136,7 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 		}
 
 		return OrderCouponResponse.builder()
-			.id(fetchedCoupon.getId())
+			.code(fetchedCoupon.getCouponCode())
 			.createDate(fetchedCoupon.getCreateDate())
 			.expireDate(fetchedCoupon.getExpireDate())
 			.status(fetchedCoupon.getStatus())
