@@ -15,10 +15,12 @@ import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
 import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 import store.buzzbook.coupon.entity.Coupon;
 import store.buzzbook.coupon.entity.CouponPolicy;
 import store.buzzbook.coupon.repository.CouponRepository;
+import store.buzzbook.coupon.repository.couponpolicy.CouponPolicyRepository;
 import store.buzzbook.coupon.service.CouponPolicyService;
 import store.buzzbook.coupon.service.CouponService;
 
@@ -34,6 +36,7 @@ public class CouponServiceImpl implements CouponService {
 
 	private final CouponRepository couponRepository;
 	private final CouponPolicyService couponPolicyService;
+	private final CouponPolicyRepository couponPolicyRepository;
 
 	/**
 	 * 쿠폰 ID로 쿠폰을 조회합니다.
@@ -79,6 +82,17 @@ public class CouponServiceImpl implements CouponService {
 					.orElseThrow(CouponNotFoundException::new);
 				responses.add(CouponResponse.from(coupon));
 			}
+		}
+
+		return responses;
+	}
+
+	@Override
+	public List<OrderCouponResponse> getAvailableCoupons(List<CouponLogRequest> request) {
+		List<OrderCouponResponse> responses = new ArrayList<>();
+
+		for (CouponLogRequest couponLogRequest : request) {
+			responses.add(couponPolicyRepository.findCouponsWithTargetId(couponLogRequest.couponCode()));
 		}
 
 		return responses;

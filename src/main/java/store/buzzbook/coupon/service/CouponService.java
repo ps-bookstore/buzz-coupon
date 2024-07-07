@@ -6,6 +6,7 @@ import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
+import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
 import store.buzzbook.coupon.dto.coupon.UpdateCouponRequest;
 
 /**
@@ -31,6 +32,8 @@ public interface CouponService {
 	 * @return 조회된 쿠폰 응답 객체 리스트
 	 */
 	List<CouponResponse> getAllCouponsByStatus(List<CouponLogRequest> request, String couponStatusName);
+
+	List<OrderCouponResponse> getAvailableCoupons(List<CouponLogRequest> request);
 
 	/**
 	 * 새로운 쿠폰을 생성합니다.
