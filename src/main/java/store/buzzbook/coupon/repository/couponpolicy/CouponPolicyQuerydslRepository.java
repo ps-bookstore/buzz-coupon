@@ -41,6 +41,12 @@ public interface CouponPolicyQuerydslRepository {
 	 */
 	Page<CouponPolicy> findAllByCondition(CouponPolicyConditionRequest condition);
 
+	/**
+	 * 쿠폰 코드를 통해 타겟 ID를 포함한 쿠폰 정보를 조회합니다.
+	 *
+	 * @param couponCode 조회할 쿠폰 코드
+	 * @return 조회된 쿠폰 응답 객체, 쿠폰이 없는 경우 null 반환
+	 */
 	OrderCouponResponse findCouponsWithTargetId(String couponCode);
 
 }

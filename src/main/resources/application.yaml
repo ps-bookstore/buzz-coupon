@@ -8,13 +8,6 @@ spring:
   profiles:
     default: test
 
-  data:
-    web:
-      pageable:
-        default-page-size: 10
-        max-page-size: 50
-        one-indexed-parameters: false
-
   rabbitmq:
     host: 133.186.241.167
     port: 5672
@@ -34,7 +27,7 @@ spring:
       exchange: aa.coupon.exchange
       queue: aa.coupon.queue
       routing-key: aa.coupon.key
-      
+
       dlx:
         exchange: aa.coupon.dlx.exchange
         queue: aa.coupon.dlx.queue

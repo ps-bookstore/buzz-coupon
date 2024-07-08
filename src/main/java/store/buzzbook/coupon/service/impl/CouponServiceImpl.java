@@ -88,6 +88,12 @@ public class CouponServiceImpl implements CouponService {
 		return responses;
 	}
 
+	/**
+	 * 주어진 요청 목록에 따라 사용 가능한 쿠폰 정보를 조회합니다.
+	 *
+	 * @param request 쿠폰 상태 조회 요청 객체 리스트
+	 * @return 조회된 사용 가능한 쿠폰 응답 객체 리스트
+	 */
 	@Override
 	public List<OrderCouponResponse> getAvailableCoupons(List<CouponLogRequest> request) {
 		List<OrderCouponResponse> responses = new ArrayList<>();
@@ -146,7 +152,7 @@ public class CouponServiceImpl implements CouponService {
 			throw new IllegalArgumentException("쿠폰 로그 수정 요청을 찾을 수 없습니다.");
 		}
 
-		if (!couponRepository.existsByCouponCode(request.couponCode())) {
+		if (Boolean.FALSE.equals(couponRepository.existsByCouponCode(request.couponCode()))) {
 			throw new CouponNotFoundException();
 		}
 
