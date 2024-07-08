@@ -30,6 +30,16 @@ spring:
           max-attempts: 2
           multiplier: 3
 
+    coupon:
+      exchange: aa.coupon.exchange
+      queue: aa.coupon.queue
+      routing-key: aa.coupon.key
+      
+      dlx:
+        exchange: aa.coupon.dlx.exchange
+        queue: aa.coupon.dlx.queue
+        routing-key: aa.coupon.dlx.key
+
 springdoc:
   api-docs:
     path: /api-docs
