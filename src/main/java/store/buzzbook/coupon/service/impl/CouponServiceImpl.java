@@ -163,14 +163,7 @@ public class CouponServiceImpl implements CouponService {
 	public CouponResponse reviveCoupon(String couponCode) {
 		Coupon coupon = couponRepository.findByCouponCode(couponCode).orElseThrow(CouponNotFoundException::new);
 
-		coupon = Coupon.builder()
-			.id(coupon.getId())
-			.couponCode(coupon.getCouponCode())
-			.couponPolicy(coupon.getCouponPolicy())
-			.status(CouponStatus.AVAILABLE)
-			.createDate(coupon.getCreateDate())
-			.expireDate(coupon.getExpireDate())
-			.build();
+		coupon.changeStatus(CouponStatus.AVAILABLE);
 
 		return CouponResponse.from(coupon);
 

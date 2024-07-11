@@ -2195,3 +2195,499 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 2024-07-11 19:29:52 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2024-07-11 19:32:42 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [store.buzzbook.coupon.common.exception.CouponNotFoundException: 쿠폰 로그를 찾을 수 없습니다.]
 2024-07-11 19:34:52 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:38:21 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-07-11 19:38:21 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 19:38:21 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694301887, current=DOWN, previous=UP]
+2024-07-11 19:38:21 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:38:21 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:38:21 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:38:21 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:38:22 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:38:22 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:38:22 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:22 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:38:22 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 19:38:25 WARN  c.n.discovery.TimedSupervisorTask - task supervisor shutting down, can't accept the task
+2024-07-11 19:38:25 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-07-11 19:38:25 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200
+2024-07-11 19:38:25 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-07-11 19:38:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 19:38:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 5 JPA repository interfaces.
+2024-07-11 19:38:26 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 19:38:26 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 19:38:26 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 19:38:26 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 19:38:26 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:26 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 19:38:26 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 19:38:26 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 19:38:26 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 341 ms
+2024-07-11 19:38:26 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 19:38:26 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 19:38:26 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 19:38:26 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 19:38:26 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 19:38:26 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 19:38:26 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 19:38:26 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:38:26 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 19:38:26 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 19:38:27 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 19:38:27 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 19:38:27 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 19:38:27 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 19:38:27 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 19:38:27 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720694307466 with initial instances count: 4
+2024-07-11 19:38:27 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694307471, current=UP, previous=STARTING]
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:38:27 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:27 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 19:38:27 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 19:38:27 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 19:38:27 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#17542633:0/SimpleConnection@4b16106b [delegate=amqp://admin@133.186.241.167:5672/, localPort=54817]
+2024-07-11 19:38:27 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:38:27 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-07-11 19:38:28 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-07-11 19:38:28 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 19:38:28 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694308698, current=DOWN, previous=UP]
+2024-07-11 19:38:28 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:38:28 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:38:28 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:38:28 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:38:29 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:38:29 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:38:29 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:29 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:38:29 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 19:38:32 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-07-11 19:38:32 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200
+2024-07-11 19:38:32 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-07-11 19:38:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 19:38:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 5 JPA repository interfaces.
+2024-07-11 19:38:33 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 19:38:33 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 19:38:33 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 19:38:33 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 19:38:33 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:33 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 19:38:33 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 19:38:33 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 19:38:33 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 296 ms
+2024-07-11 19:38:33 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 19:38:33 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 19:38:33 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 19:38:33 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 19:38:33 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 19:38:33 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 19:38:33 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 19:38:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:38:33 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 19:38:33 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 19:38:34 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 19:38:34 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 19:38:34 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 19:38:34 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 19:38:34 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 19:38:34 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720694314550 with initial instances count: 4
+2024-07-11 19:38:34 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694314553, current=UP, previous=STARTING]
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:38:34 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:34 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 19:38:34 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 19:38:34 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 19:38:34 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#76b2acd1:0/SimpleConnection@c012a6 [delegate=amqp://admin@133.186.241.167:5672/, localPort=54825]
+2024-07-11 19:38:34 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:38:34 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-07-11 19:38:40 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 19:38:40 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694320064, current=DOWN, previous=UP]
+2024-07-11 19:38:40 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:38:40 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:38:40 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:38:40 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:38:40 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:38:40 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:38:40 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:38:40 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 19:38:43 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-07-11 19:38:43 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200
+2024-07-11 19:38:43 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-07-11 19:38:45 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-07-11 19:38:45 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-11 19:38:45 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-11 19:38:46 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 19:38:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 132 ms. Found 5 JPA repository interfaces.
+2024-07-11 19:38:47 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 19:38:47 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 19:38:47 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 19:38:47 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 19:38:47 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:47 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 19:38:47 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 19:38:47 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 19:38:47 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2230 ms
+2024-07-11 19:38:48 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 19:38:48 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 19:38:48 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-11 19:38:48 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 19:38:48 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 19:38:48 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 19:38:48 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 19:38:49 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 19:38:49 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:38:49 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 19:38:49 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 19:38:51 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 19:38:51 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 19:38:51 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 19:38:51 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 19:38:51 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 19:38:51 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720694331448 with initial instances count: 4
+2024-07-11 19:38:51 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694331453, current=UP, previous=STARTING]
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:38:51 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:38:51 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 19:38:51 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 19:38:51 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 19:38:51 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#4ec380fc:0/SimpleConnection@4b62b25c [delegate=amqp://admin@133.186.241.167:5672/, localPort=54844]
+2024-07-11 19:38:51 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:38:52 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-11 19:38:52 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-07-11 19:38:52 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-07-11 19:40:57 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [store.buzzbook.coupon.common.exception.CouponNotFoundException: 쿠폰 로그를 찾을 수 없습니다.]
+2024-07-11 19:41:46 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 19:41:46 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694506209, current=DOWN, previous=UP]
+2024-07-11 19:41:46 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:41:46 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:41:46 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:41:46 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:41:46 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:41:46 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:41:46 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:41:46 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 19:41:49 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-07-11 19:41:49 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200
+2024-07-11 19:41:49 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-07-11 19:41:51 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-07-11 19:41:51 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-11 19:41:51 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-11 19:41:53 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 19:41:53 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 123 ms. Found 5 JPA repository interfaces.
+2024-07-11 19:41:53 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 19:41:53 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 19:41:53 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 19:41:53 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 19:41:53 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:41:53 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 19:41:53 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 19:41:53 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 19:41:53 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1985 ms
+2024-07-11 19:41:54 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 19:41:54 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 19:41:54 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-11 19:41:54 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 19:41:54 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 19:41:54 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 19:41:54 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 19:41:55 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 19:41:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:41:55 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 19:41:55 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 19:41:56 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 19:41:56 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 19:41:56 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 19:41:56 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 19:41:56 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 19:41:56 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 19:41:57 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720694517318 with initial instances count: 4
+2024-07-11 19:41:57 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694517323, current=UP, previous=STARTING]
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:41:57 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:41:57 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 19:41:57 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 19:41:57 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 19:41:57 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#40bc8b91:0/SimpleConnection@34221b56 [delegate=amqp://admin@133.186.241.167:5672/, localPort=54930]
+2024-07-11 19:41:57 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:41:57 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-11 19:41:57 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-07-11 19:41:57 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-07-11 19:43:39 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 19:43:39 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694619590, current=DOWN, previous=UP]
+2024-07-11 19:43:39 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:43:39 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [store.buzzbook.coupon.common.exception.CouponNotFoundException: 쿠폰 로그를 찾을 수 없습니다.]
+2024-07-11 19:43:39 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:43:39 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 19:43:39 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:43:40 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:43:40 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 19:43:40 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:43:40 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 19:43:43 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-07-11 19:43:43 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-11 19:43:43 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-11 19:43:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 19:43:44 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 5 JPA repository interfaces.
+2024-07-11 19:43:44 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 19:43:44 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 19:43:44 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 19:43:44 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 19:43:44 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:43:44 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 19:43:44 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 19:43:44 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 19:43:44 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1186 ms
+2024-07-11 19:43:45 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 19:43:45 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 19:43:45 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-11 19:43:45 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 19:43:45 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 19:43:45 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 19:43:45 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 19:43:46 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 19:43:46 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 19:43:46 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 19:43:46 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 19:43:47 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 19:43:47 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 19:43:47 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 19:43:47 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 19:43:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 19:43:47 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720694627846 with initial instances count: 4
+2024-07-11 19:43:47 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720694627850, current=UP, previous=STARTING]
+2024-07-11 19:43:47 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 19:43:47 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 19:43:47 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 19:43:47 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 19:43:47 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#34829dd7:0/SimpleConnection@4127bd0a [delegate=amqp://admin@133.186.241.167:5672/, localPort=54995]
+2024-07-11 19:43:47 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 19:43:48 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-11 19:43:48 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-07-11 19:43:48 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-07-11 19:47:54 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [store.buzzbook.coupon.common.exception.CouponNotFoundException: 쿠폰 로그를 찾을 수 없습니다.]
+2024-07-11 19:48:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:52:05 WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [store.buzzbook.coupon.common.exception.CouponNotFoundException: 쿠폰 로그를 찾을 수 없습니다.]
+2024-07-11 19:53:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 19:58:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 20:03:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 20:08:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 20:13:47 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 20:16:29 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-07-11 20:16:29 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 20:16:29 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720696589637, current=DOWN, previous=UP]
+2024-07-11 20:16:29 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 20:16:29 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 20:16:29 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 20:16:29 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 20:16:30 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 20:16:30 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 20:16:30 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:16:30 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 20:16:30 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 20:16:33 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-07-11 20:16:33 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200
+2024-07-11 20:16:33 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-07-11 20:16:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 20:16:33 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 5 JPA repository interfaces.
+2024-07-11 20:16:33 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 20:16:33 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 20:16:33 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 20:16:33 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 20:16:33 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:16:33 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 20:16:33 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 20:16:33 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 20:16:33 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 456 ms
+2024-07-11 20:16:34 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 20:16:34 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 20:16:34 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 20:16:34 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 20:16:34 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 20:16:34 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 20:16:34 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 20:16:34 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 20:16:34 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 20:16:34 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 20:16:35 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 20:16:35 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 20:16:35 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 20:16:35 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 20:16:35 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 20:16:35 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720696595370 with initial instances count: 4
+2024-07-11 20:16:35 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720696595373, current=UP, previous=STARTING]
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 20:16:35 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:16:35 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 20:16:35 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 20:16:35 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 20:16:35 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#394b56d4:0/SimpleConnection@38fdb51 [delegate=amqp://admin@133.186.241.167:5672/, localPort=55565]
+2024-07-11 20:16:35 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 20:16:35 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-07-11 20:16:36 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-07-11 20:16:36 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 20:16:36 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720696596611, current=DOWN, previous=UP]
+2024-07-11 20:16:36 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 20:16:36 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 20:16:36 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 20:16:36 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 20:16:37 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 20:16:37 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 20:16:37 INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:16:37 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 20:16:37 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 20:16:40 INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2024-07-11 20:16:40 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200
+2024-07-11 20:16:40 INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient
+2024-07-11 20:16:41 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 20:16:41 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 5 JPA repository interfaces.
+2024-07-11 20:16:41 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 20:16:41 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 20:16:41 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 20:16:41 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 20:16:41 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:16:41 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 20:16:41 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 20:16:41 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 20:16:41 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 306 ms
+2024-07-11 20:16:41 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 20:16:41 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 20:16:41 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 20:16:41 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 20:16:41 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 20:16:41 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 20:16:41 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 20:16:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 20:16:41 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 20:16:41 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-07-11 20:16:42 INFO  o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate.
+2024-07-11 20:16:42 WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-07-11 20:16:42 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator'
+2024-07-11 20:16:42 INFO  o.s.c.n.eureka.InstanceInfoFactory - Setting initial instance status as: STARTING
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Initializing Eureka in region us-east-1
+2024-07-11 20:16:42 INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Disable delta property : false
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Single vip registry refresh property : null
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Force full registry fetch : false
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Application is null : false
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Registered Applications size is zero : true
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Application version is -1: true
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Getting all instance registry info from the eureka server
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - The response status is 200
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Starting heartbeat executor: renew interval is: 30
+2024-07-11 20:16:42 INFO  c.n.discovery.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Discovery Client initialized at timestamp 1720696602457 with initial instances count: 4
+2024-07-11 20:16:42 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720696602460, current=UP, previous=STARTING]
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 20:16:42 INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:16:42 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/'
+2024-07-11 20:16:42 INFO  o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091
+2024-07-11 20:16:42 INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672
+2024-07-11 20:16:42 INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#7dfcd4d6:0/SimpleConnection@734642b8 [delegate=amqp://admin@133.186.241.167:5672/, localPort=55575]
+2024-07-11 20:16:42 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 20:16:42 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-07-11 20:17:50 INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN
+2024-07-11 20:17:50 INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1720696670242, current=DOWN, previous=UP]
+2024-07-11 20:17:50 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service...
+2024-07-11 20:17:50 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 20:17:50 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2024-07-11 20:17:50 INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204
+2024-07-11 20:17:50 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 20:17:50 INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2024-07-11 20:17:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 20:17:50 INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2024-07-11 20:17:55 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-07-11 20:17:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-07-11 20:17:55 INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-07-11 20:17:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-11 20:17:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 74 ms. Found 5 JPA repository interfaces.
+2024-07-11 20:17:56 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=da5c965a-c78f-35e1-8ebc-afdfc9bbb60e
+2024-07-11 20:17:56 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-07-11 20:17:56 WARN  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-07-11 20:17:56 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8091 (http)
+2024-07-11 20:17:56 INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8091"]
+2024-07-11 20:17:56 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-07-11 20:17:56 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-07-11 20:17:56 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-07-11 20:17:56 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1172 ms
+2024-07-11 20:17:57 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:mysql://133.186.241.167:3306/be6_aa_coupon_dev?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC'
+2024-07-11 20:17:57 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-11 20:17:57 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-07-11 20:17:57 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-07-11 20:17:57 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-07-11 20:17:57 WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-07-11 20:17:57 WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-07-11 20:17:57 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-07-11 20:17:57 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-11 20:17:58 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-11 20:17:58 INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
