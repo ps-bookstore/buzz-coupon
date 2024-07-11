@@ -51,5 +51,8 @@ springdoc:
   model-and-view-allowed: true
 
 logncrash:
-  appkey: Xyx7DoyszcG66ULx
+  config:
+    file-path: /Users/parkheejun/NHNacademy/AA/buzz-coupon/logs
+    file-name: log
+  app-key: Xyx7DoyszcG66ULx
   url: https://api-logncrash.cloud.toast.com

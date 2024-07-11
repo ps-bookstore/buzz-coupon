@@ -9,6 +9,7 @@ public record LogNCrashRequest(
 	String logVersion,
 	String body,
 	String logSource,
-	String logType
+	String logType,
+	String host
 ) {
 }

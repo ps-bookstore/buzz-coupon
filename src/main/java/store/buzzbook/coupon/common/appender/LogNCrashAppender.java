@@ -1,27 +1,17 @@
 package store.buzzbook.coupon.common.appender;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
 import store.buzzbook.coupon.adapter.LogNCrashAdapter;
 import store.buzzbook.coupon.dto.log.LogNCrashRequest;
 
-@Component
 public class LogNCrashAppender extends AppenderBase<ILoggingEvent> {
 
-	@Value("${logncrash.appkey}")
 	private String appKey;
-
 	private LogNCrashAdapter logNCrashAdapter;
 
-	public LogNCrashAppender() {
-	}
-
-	@Autowired
-	public LogNCrashAppender(LogNCrashAdapter logNCrashAdapter) {
+	public LogNCrashAppender(String appKey, LogNCrashAdapter logNCrashAdapter) {
+		this.appKey = appKey;
 		this.logNCrashAdapter = logNCrashAdapter;
 	}
 
@@ -36,9 +26,10 @@ public class LogNCrashAppender extends AppenderBase<ILoggingEvent> {
 			.projectName(appKey)
 			.projectVersion("1.0.0")
 			.logVersion("v2")
-			.body(iLoggingEvent.getMessage())
+			.body(iLoggingEvent.getFormattedMessage())
 			.logSource("aa")
 			.logType("aa")
+			.host("aa-coupon-api")
 			.build();
 	}
 }
