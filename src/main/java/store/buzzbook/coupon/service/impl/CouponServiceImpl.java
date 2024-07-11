@@ -158,16 +158,6 @@ public class CouponServiceImpl implements CouponService {
 		return CouponResponse.from(coupon);
 	}
 
-	@Transactional
-	@Override
-	public CouponResponse reviveCoupon(String couponCode) {
-		Coupon coupon = couponRepository.findByCouponCode(couponCode).orElseThrow(CouponNotFoundException::new);
-
-		coupon.changeStatus(CouponStatus.AVAILABLE);
-
-		return CouponResponse.from(coupon);
-	}
-
 	/**
 	 * 주어진 ID가 유효한지 확인합니다.
 	 *
