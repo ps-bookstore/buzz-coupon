@@ -50,6 +50,4 @@ public interface CouponService {
 	 * @return 업데이트된 쿠폰 응답 객체
 	 */
 	CouponResponse updateCoupon(UpdateCouponRequest request);
-
-	CouponResponse reviveCoupon(String couponCode);
 }

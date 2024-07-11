@@ -166,7 +166,6 @@ public class CouponServiceImpl implements CouponService {
 		coupon.changeStatus(CouponStatus.AVAILABLE);
 
 		return CouponResponse.from(coupon);
-
 	}
 
 	/**
