@@ -117,6 +117,12 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 		return new PageImpl<>(couponPolicies, condition.pageable(), total);
 	}
 
+	/**
+	 * 쿠폰 코드를 통해 타겟 ID를 포함한 쿠폰 정보를 조회합니다.
+	 *
+	 * @param couponCode 조회할 쿠폰 코드
+	 * @return 조회된 쿠폰 응답 객체, 쿠폰이 없는 경우 null 반환
+	 */
 	@Override
 	public OrderCouponResponse findCouponsWithTargetId(String couponCode) {
 		QCouponPolicy couponPolicy = QCouponPolicy.couponPolicy;
@@ -145,6 +151,15 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 			.build();
 	}
 
+	/**
+	 * 쿠폰 정책에 따라 타겟 ID를 조회합니다.
+	 * <p>
+	 * 쿠폰 정책의 타입에 따라 글로벌, 책, 카테고리의 타겟 ID를 반환합니다.
+	 * </p>
+	 *
+	 * @param policy 타겟 ID를 조회할 쿠폰 정책
+	 * @return 타겟 ID, 글로벌 타입의 경우 0, 책이나 카테고리 타입의 경우 해당 ID를 반환, 그 외의 경우 null 반환
+	 */
 	private Integer getTargetId(CouponPolicy policy) {
 		if (policy.getCouponType().getName() == CouponScope.GLOBAL) {
 			return 0;

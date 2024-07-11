@@ -33,6 +33,12 @@ public interface CouponService {
 	 */
 	List<CouponResponse> getAllCouponsByStatus(List<CouponLogRequest> request, String couponStatusName);
 
+	/**
+	 * 주어진 요청 목록에 따라 사용 가능한 쿠폰 정보를 조회합니다.
+	 *
+	 * @param request 쿠폰 상태 조회 요청 객체 리스트
+	 * @return 조회된 사용 가능한 쿠폰 응답 객체 리스트
+	 */
 	List<OrderCouponResponse> getAvailableCoupons(List<CouponLogRequest> request);
 
 	/**
