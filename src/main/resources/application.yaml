@@ -49,3 +49,7 @@ springdoc:
   cache:
     disabled: true
   model-and-view-allowed: true
+
+logncrash:
+  appkey: Xyx7DoyszcG66ULx
+  url: https://api-logncrash.cloud.toast.com
