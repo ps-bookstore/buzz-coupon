@@ -20,6 +20,7 @@ import store.buzzbook.coupon.entity.Coupon;
  */
 public record CouponResponse(
 	long id,
+	String couponCode,
 	LocalDate createDate,
 	LocalDate expireDate,
 	CouponStatus status,
@@ -34,6 +35,7 @@ public record CouponResponse(
 	public static CouponResponse from(Coupon coupon) {
 		return new CouponResponse(
 			coupon.getId(),
+			coupon.getCouponCode(),
 			coupon.getCreateDate(),
 			coupon.getExpireDate(),
 			coupon.getStatus(),
