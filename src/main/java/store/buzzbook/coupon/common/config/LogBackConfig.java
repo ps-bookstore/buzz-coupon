@@ -30,6 +30,21 @@ import store.buzzbook.coupon.common.appender.LogNCrashAppender;
 @RequiredArgsConstructor
 public class LogBackConfig {
 
+	@Value("${logncrash.version}")
+	private String version;
+
+	@Value("${logncrash.host}")
+	private String host;
+
+	@Value("${logncrash.log.version}")
+	private String logVersion;
+
+	@Value("${logncrash.log.source}")
+	private String logSource;
+
+	@Value("${logncrash.log.type}")
+	private String logType;
+
 	@Value("${logncrash.app-key}")
 	private String appKey;
 
@@ -84,7 +99,8 @@ public class LogBackConfig {
 	}
 
 	private LogNCrashAppender getLogNCrashAppender() {
-		LogNCrashAppender logNCrashAppender = new LogNCrashAppender(appKey, logNCrashAdapter);
+		LogNCrashAppender logNCrashAppender = new LogNCrashAppender(version, host, logVersion, logSource, logType,
+			appKey, logNCrashAdapter);
 		logNCrashAppender.start();
 		return logNCrashAppender;
 	}
