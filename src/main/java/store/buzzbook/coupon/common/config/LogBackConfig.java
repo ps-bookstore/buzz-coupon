@@ -83,7 +83,7 @@ public class LogBackConfig {
 
 	private void createLoggers() {
 		// 로거 이름, 로깅 레벨, 상위 로깅 설정 상속 여부
-		createLogger("root", DEBUG, true);
+		createLogger("root", INFO, true);
 		createLogger("jdbc", INFO, false);
 		createLogger("jdbc.sqlonly", INFO, false);
 		createLogger("jdbc.sqltiming", INFO, false);
@@ -97,11 +97,13 @@ public class LogBackConfig {
 		logger.setLevel(logLevel);
 
 		logger.addAppender(consoleAppender);
-		if (!loggerName.equals("root")) {
-			logger.addAppender(fileAppender);
-			logger.addAppender(filterAppender);
+		logger.addAppender(fileAppender);
+		logger.addAppender(filterAppender);
+		
+		if (logLevel.equals(DEBUG)) {
 			logger.addAppender(logNCrashAppender);
 		}
+
 	}
 
 	private LogNCrashAppender getLogNCrashAppender() {
