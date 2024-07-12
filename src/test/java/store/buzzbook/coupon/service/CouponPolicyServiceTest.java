@@ -107,15 +107,16 @@ class CouponPolicyServiceTest {
 		// given
 		Pageable pageable = PageRequest.of(0, 10, Sort.by("id").ascending());
 		CouponPolicyConditionRequest testCondition = new CouponPolicyConditionRequest(
-			pageable,
 			"AMOUNT",
 			"false",
 			"BOOK"
 		);
-		when(couponPolicyRepository.findAllByCondition(any())).thenReturn(new PageImpl<>(List.of(testCouponPolicy1)));
+		when(couponPolicyRepository.findAllByCondition(any(), any())).thenReturn(
+			new PageImpl<>(List.of(testCouponPolicy1)));
 
 		// when
-		Page<CouponPolicyResponse> couponPolicies = couponPolicyService.getCouponPoliciesByPaging(testCondition);
+		Page<CouponPolicyResponse> couponPolicies = couponPolicyService.getCouponPoliciesByPaging(pageable,
+			testCondition);
 
 		// then
 		assertThat(couponPolicies).isNotNull();
@@ -128,7 +129,7 @@ class CouponPolicyServiceTest {
 		// given
 
 		// when & then
-		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.getCouponPoliciesByPaging(null));
+		assertThrows(IllegalArgumentException.class, () -> couponPolicyService.getCouponPoliciesByPaging(null, null));
 	}
 
 	@Test

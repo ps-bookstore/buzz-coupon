@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,10 +54,11 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	 * @return 페이징 처리된 쿠폰 정책 응답 리스트
 	 */
 	@Override
-	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(CouponPolicyConditionRequest condition) {
+	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable,
+		CouponPolicyConditionRequest condition) {
 		validateRequest(condition);
 
-		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(condition);
+		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(pageable, condition);
 		return couponPolicies.map(CouponPolicyResponse::from);
 	}
 

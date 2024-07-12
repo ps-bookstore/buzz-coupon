@@ -8,6 +8,7 @@ import java.util.Objects;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
@@ -94,7 +95,7 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 	 * @return 페이징 처리된 쿠폰 정책 리스트
 	 */
 	@Override
-	public Page<CouponPolicy> findAllByCondition(CouponPolicyConditionRequest condition) {
+	public Page<CouponPolicy> findAllByCondition(Pageable pageable, CouponPolicyConditionRequest condition) {
 		QCouponPolicy couponPolicy = QCouponPolicy.couponPolicy;
 
 		List<CouponPolicy> couponPolicies = from(couponPolicy)
@@ -102,8 +103,8 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 				discountTypeEq(condition.discountTypeName()),
 				isDeletedEq(condition.isDeleted()),
 				couponTypeEq(condition.couponTypeName()))
-			.offset(condition.pageable().getOffset())
-			.limit(condition.pageable().getPageSize())
+			.offset(pageable.getOffset())
+			.limit(pageable.getPageSize())
 			.select(couponPolicy)
 			.fetch();
 
@@ -114,7 +115,7 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 				couponTypeEq(condition.couponTypeName()))
 			.fetch().size();
 
-		return new PageImpl<>(couponPolicies, condition.pageable(), total);
+		return new PageImpl<>(couponPolicies, pageable, total);
 	}
 
 	/**
@@ -137,7 +138,7 @@ public class CouponPolicyQuerydslRepositoryImpl extends QuerydslRepositorySuppor
 			.where(coupon.couponCode.eq(couponCode), coupon.status.eq(CouponStatus.AVAILABLE))
 			.fetchOne();
 
-		if (fetchedCoupon == null) {
+		if (Objects.isNull(fetchedCoupon)) {
 			return null;
 		}
 

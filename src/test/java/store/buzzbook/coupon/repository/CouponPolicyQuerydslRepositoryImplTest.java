@@ -184,14 +184,13 @@ class CouponPolicyQuerydslRepositoryImplTest {
 		// given
 		Pageable pageable = PageRequest.of(0, 10, Sort.by("id").ascending());
 		CouponPolicyConditionRequest testCondition = new CouponPolicyConditionRequest(
-			pageable,
 			"RATE",
 			"false",
 			"GLOBAL"
 		);
 
 		// when
-		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(testCondition);
+		Page<CouponPolicy> couponPolicies = couponPolicyRepository.findAllByCondition(pageable, testCondition);
 
 		// then
 		assertThat(couponPolicies).isNotNull();
