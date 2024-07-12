@@ -6,7 +6,6 @@ import static java.io.File.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
 import ch.qos.logback.classic.Level;
@@ -90,15 +89,6 @@ public class LogBackConfig {
 		return logNCrashAppender;
 	}
 
-	private String getLogFilePath(String filePath) {
-		Resource resource = resourceLoader.getResource("classpath:" + filePath);
-		try {
-			return resource.getFile().getAbsolutePath();
-		} catch (Exception e) {
-			return filePath;
-		}
-	}
-
 	// 콘솔 로그 어펜더 생성
 	private ConsoleAppender<ILoggingEvent> getLogConsoleAppender() {
 		final String appenderName = "STDOUT";
@@ -111,9 +101,8 @@ public class LogBackConfig {
 	private RollingFileAppender<ILoggingEvent> getLogFileAppender() {
 		final String appenderName = "LOGS";
 
-		final String logFilePath = getLogFilePath(filePath) + separator + fileName;
-		final String archiveLogFile =
-			getLogFilePath(filePath) + separator + appenderName + separator + fileName + fileNamePattern;
+		final String logFilePath = filePath + separator + fileName;
+		final String archiveLogFile = filePath + separator + appenderName + separator + fileName + fileNamePattern;
 
 		PatternLayoutEncoder fileLogEncoder = createLogEncoder(pattern);
 		RollingFileAppender<ILoggingEvent> logFileAppender = createLogFileAppender(appenderName, logFilePath,

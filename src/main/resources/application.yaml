@@ -52,7 +52,7 @@ springdoc:
 
 logncrash:
   config:
-    file-path: /logs
+    file-path: logs
     file-name: log
   app-key: Xyx7DoyszcG66ULx
   url: https://api-logncrash.cloud.toast.com
