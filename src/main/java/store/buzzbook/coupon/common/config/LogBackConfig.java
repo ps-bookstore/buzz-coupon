@@ -61,11 +61,11 @@ public class LogBackConfig {
 	private final LogNCrashAdapter logNCrashAdapter;
 
 	private final LoggerContext logCtx = (LoggerContext)LoggerFactory.getILoggerFactory();
-	private final String pattern = "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n";
-	private final String fileNamePattern = ".%d{yyyy-MM-dd}_%i";
-	private final String ext = ".log";
-	private final String maxFileSize = "10MB";
-	private final int maxHistory = 30;
+	private static final String LOG_PATTERN = "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n";
+	private static final String FILE_NAME_PATTERN = ".%d{yyyy-MM-dd}_%i";
+	private static final String EXT = ".log";
+	private static final String MAX_FILE_SIZE = "10MB";
+	private static final int MAX_HISTORY = 30;
 
 	private ConsoleAppender<ILoggingEvent> consoleAppender;
 	private RollingFileAppender<ILoggingEvent> fileAppender;
@@ -99,7 +99,7 @@ public class LogBackConfig {
 		logger.addAppender(consoleAppender);
 		logger.addAppender(fileAppender);
 		logger.addAppender(filterAppender);
-		
+
 		if (logLevel.equals(DEBUG)) {
 			logger.addAppender(logNCrashAppender);
 		}
@@ -107,17 +107,17 @@ public class LogBackConfig {
 	}
 
 	private LogNCrashAppender getLogNCrashAppender() {
-		LogNCrashAppender logNCrashAppender = new LogNCrashAppender(version, host, platform, logVersion, logSource,
+		LogNCrashAppender newLogNCrashAppender = new LogNCrashAppender(version, host, platform, logVersion, logSource,
 			logType, appKey, logNCrashAdapter);
-		logNCrashAppender.start();
-		return logNCrashAppender;
+		newLogNCrashAppender.start();
+		return newLogNCrashAppender;
 	}
 
 	// 콘솔 로그 어펜더 생성
 	private ConsoleAppender<ILoggingEvent> getLogConsoleAppender() {
 		final String appenderName = "STDOUT";
 
-		PatternLayoutEncoder consoleLogEncoder = createLogEncoder(pattern);
+		PatternLayoutEncoder consoleLogEncoder = createLogEncoder(LOG_PATTERN);
 		return createLogConsoleAppender(appenderName, consoleLogEncoder);
 	}
 
@@ -126,12 +126,12 @@ public class LogBackConfig {
 		final String appenderName = "LOGS";
 
 		final String logFilePath = filePath + separator + fileName;
-		final String archiveLogFile = filePath + separator + appenderName + separator + fileName + fileNamePattern;
+		final String archiveLogFile = filePath + separator + appenderName + separator + fileName + FILE_NAME_PATTERN;
 
-		PatternLayoutEncoder fileLogEncoder = createLogEncoder(pattern);
+		PatternLayoutEncoder fileLogEncoder = createLogEncoder(LOG_PATTERN);
 		RollingFileAppender<ILoggingEvent> logFileAppender = createLogFileAppender(appenderName, logFilePath,
 			fileLogEncoder);
-		SizeAndTimeBasedRollingPolicy<RollingPolicy> logFilePolicy = createLogFilePolicy(maxFileSize, maxHistory,
+		SizeAndTimeBasedRollingPolicy<RollingPolicy> logFilePolicy = createLogFilePolicy(MAX_FILE_SIZE, MAX_HISTORY,
 			archiveLogFile, logFileAppender);
 
 		logFileAppender.setRollingPolicy(logFilePolicy);
@@ -145,12 +145,12 @@ public class LogBackConfig {
 		final String appenderName = "ERROR";
 
 		final String errorLogFilePath = filePath + separator + appenderName + separator + fileName;
-		final String errorLogFile = errorLogFilePath + fileNamePattern;
+		final String errorLogFile = errorLogFilePath + FILE_NAME_PATTERN;
 
-		PatternLayoutEncoder fileLogEncoder = createLogEncoder(pattern);
+		PatternLayoutEncoder fileLogEncoder = createLogEncoder(LOG_PATTERN);
 		RollingFileAppender<ILoggingEvent> logFileAppender = createLogFileAppender(appenderName, errorLogFilePath,
 			fileLogEncoder);
-		SizeAndTimeBasedRollingPolicy<RollingPolicy> logFilePolicy = createLogFilePolicy(maxFileSize, maxHistory,
+		SizeAndTimeBasedRollingPolicy<RollingPolicy> logFilePolicy = createLogFilePolicy(MAX_FILE_SIZE, MAX_HISTORY,
 			errorLogFile, logFileAppender);
 		LevelFilter levelFilter = createLevelFilter(ERROR);
 
@@ -186,7 +186,7 @@ public class LogBackConfig {
 		logFileAppender.setContext(logCtx);
 		logFileAppender.setEncoder(logEncoder);
 		logFileAppender.setAppend(true);
-		logFileAppender.setFile(logFilePath + ext);
+		logFileAppender.setFile(logFilePath + EXT);
 		return logFileAppender;
 	}
 
@@ -195,7 +195,7 @@ public class LogBackConfig {
 		SizeAndTimeBasedRollingPolicy<RollingPolicy> logFilePolicy = new SizeAndTimeBasedRollingPolicy<>();
 		logFilePolicy.setContext(logCtx);
 		logFilePolicy.setParent(logFileAppender);
-		logFilePolicy.setFileNamePattern(fileNamePattern + ext);
+		logFilePolicy.setFileNamePattern(fileNamePattern + EXT);
 		logFilePolicy.setMaxHistory(maxHistory);
 		logFilePolicy.setMaxFileSize(FileSize.valueOf(maxFileSize));
 		logFilePolicy.start();
