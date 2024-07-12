@@ -4,9 +4,10 @@ import static ch.qos.logback.classic.Level.*;
 import static java.io.File.*;
 
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
@@ -22,10 +23,12 @@ import ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy;
 import ch.qos.logback.core.spi.FilterReply;
 import ch.qos.logback.core.util.FileSize;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.adapter.LogNCrashAdapter;
 import store.buzzbook.coupon.common.appender.LogNCrashAppender;
 
 @Configuration
+@RequiredArgsConstructor
 public class LogBackConfig {
 
 	@Value("${logncrash.app-key}")
@@ -37,8 +40,8 @@ public class LogBackConfig {
 	@Value("${logncrash.config.file-name}")
 	private String fileName;
 
-	@Autowired
-	private LogNCrashAdapter logNCrashAdapter;
+	private final ResourceLoader resourceLoader;
+	private final LogNCrashAdapter logNCrashAdapter;
 
 	private final LoggerContext logCtx = (LoggerContext)LoggerFactory.getILoggerFactory();
 	private final String pattern = "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-3level %logger{5} - %msg %n";
@@ -87,6 +90,15 @@ public class LogBackConfig {
 		return logNCrashAppender;
 	}
 
+	private String getLogFilePath(String filePath) {
+		Resource resource = resourceLoader.getResource("classpath:" + filePath);
+		try {
+			return resource.getFile().getAbsolutePath();
+		} catch (Exception e) {
+			return filePath;
+		}
+	}
+
 	// 콘솔 로그 어펜더 생성
 	private ConsoleAppender<ILoggingEvent> getLogConsoleAppender() {
 		final String appenderName = "STDOUT";
@@ -99,8 +111,9 @@ public class LogBackConfig {
 	private RollingFileAppender<ILoggingEvent> getLogFileAppender() {
 		final String appenderName = "LOGS";
 
-		final String logFilePath = filePath + separator + fileName;
-		final String archiveLogFile = filePath + separator + appenderName + separator + fileName + fileNamePattern;
+		final String logFilePath = getLogFilePath(filePath) + separator + fileName;
+		final String archiveLogFile =
+			getLogFilePath(filePath) + separator + appenderName + separator + fileName + fileNamePattern;
 
 		PatternLayoutEncoder fileLogEncoder = createLogEncoder(pattern);
 		RollingFileAppender<ILoggingEvent> logFileAppender = createLogFileAppender(appenderName, logFilePath,
