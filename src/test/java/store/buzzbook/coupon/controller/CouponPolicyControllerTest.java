@@ -16,7 +16,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -183,23 +182,24 @@ class CouponPolicyControllerTest {
 	void getCouponPoliciesByPaging() throws Exception {
 		// given
 		CouponPolicyConditionRequest condition = new CouponPolicyConditionRequest(
-			PageRequest.of(0, 10),
 			"amount",
 			"false",
 			"book"
 		);
 
-		when(couponPolicyService.getCouponPoliciesByPaging(any())).thenReturn(couponPolicyPage);
+		when(couponPolicyService.getCouponPoliciesByPaging(any(), any())).thenReturn(couponPolicyPage);
 
 		// when & then
 		mockMvc.perform(post("/api/coupons/policies/condition")
 				.content(objectMapper.writeValueAsString(condition))
+				.param("page", "0")
+				.param("size", "20")
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
 			.andExpect(jsonPath("$.content[0].id").value(testCouponPolicyResponse.id()))
 			.andExpect(jsonPath("$.content[0].name").value(testCouponPolicyResponse.name()));
 
-		verify(couponPolicyService).getCouponPoliciesByPaging(any());
+		verify(couponPolicyService).getCouponPoliciesByPaging(any(), any());
 	}
 
 	@Test

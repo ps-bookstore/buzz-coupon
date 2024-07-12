@@ -111,7 +111,10 @@ public class CouponServiceImpl implements CouponService {
 		List<OrderCouponResponse> responses = new ArrayList<>();
 
 		for (CouponLogRequest couponLogRequest : request) {
-			responses.add(couponPolicyRepository.findCouponsWithTargetId(couponLogRequest.couponCode()));
+			OrderCouponResponse coupon = couponPolicyRepository.findCouponsWithTargetId(couponLogRequest.couponCode());
+			if (Objects.nonNull(coupon)) {
+				responses.add(coupon);
+			}
 		}
 
 		return responses;
@@ -129,7 +132,7 @@ public class CouponServiceImpl implements CouponService {
 		if (Objects.isNull(request)) {
 			throw new IllegalArgumentException("쿠폰 로그 생성 요청을 찾을 수 없습니다.");
 		}
-		
+
 		CouponPolicy couponPolicy = couponPolicyService.getCouponPolicyById(request.couponPolicyId());
 		String couponCode = CodeCreator.createCode();
 		LocalDate now = LocalDate.now();

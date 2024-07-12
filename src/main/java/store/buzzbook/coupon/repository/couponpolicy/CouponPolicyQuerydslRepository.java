@@ -3,6 +3,7 @@ package store.buzzbook.coupon.repository.couponpolicy;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import store.buzzbook.coupon.common.constant.CouponScope;
 import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
@@ -39,7 +40,7 @@ public interface CouponPolicyQuerydslRepository {
 	 * @param condition 쿠폰 정책 조회 조건
 	 * @return 페이징 처리된 쿠폰 정책 리스트
 	 */
-	Page<CouponPolicy> findAllByCondition(CouponPolicyConditionRequest condition);
+	Page<CouponPolicy> findAllByCondition(Pageable pageable, CouponPolicyConditionRequest condition);
 
 	/**
 	 * 쿠폰 코드를 통해 타겟 ID를 포함한 쿠폰 정보를 조회합니다.

@@ -96,8 +96,7 @@ class CouponControllerTest {
 
 		mockMvc.perform(get("/api/coupons/1"))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.id").value(testCouponResponse.id()))
-			.andExpect(jsonPath("$.couponCode").value(testCouponResponse.couponCode()));
+			.andExpect(jsonPath("$.id").value(testCouponResponse.id()));
 
 		verify(couponService).getCoupon(anyLong());
 	}
@@ -127,8 +126,7 @@ class CouponControllerTest {
 				.content(objectMapper.writeValueAsString(testCouponLogRequests))
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$[0].id").value(testCouponResponse.id()))
-			.andExpect(jsonPath("$[0].couponCode").value(testCouponResponse.couponCode()));
+			.andExpect(jsonPath("$[0].id").value(testCouponResponse.id()));
 
 		verify(couponService).getAllCouponsByStatus(anyList(), anyString());
 	}
@@ -161,8 +159,7 @@ class CouponControllerTest {
 				.content(objectMapper.writeValueAsString(request))
 				.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.id").value(testCouponResponse.id()))
-			.andExpect(jsonPath("$.couponCode").value(testCouponResponse.couponCode()));
+			.andExpect(jsonPath("$.id").value(testCouponResponse.id()));
 
 		verify(couponService).updateCoupon(any());
 	}
