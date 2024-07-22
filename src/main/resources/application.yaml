@@ -9,10 +9,6 @@ spring:
     default: test
 
   rabbitmq:
-    host: 133.186.241.167
-    port: 5672
-    username: admin
-    password: nhnacademy123!
     listener:
       simple:
         acknowledge-mode: auto
@@ -63,3 +59,12 @@ logncrash:
     version: v2
     source: aa
     type: aa
+
+nhncloud:
+  keymanager:
+    appkey: 2SxwmBzUfnqJaA2A
+    rabbitmq:
+      host: f69fc5e00f0141c38d527a2212f3d4dd
+      port: 5c47bf4ae7c3446e842bc08a4a761709
+      username: 163ce59ebd4c4182aef7d478f8c75e00
+      password: 4ef2fcb3ca7649d687dcb781fc70c346

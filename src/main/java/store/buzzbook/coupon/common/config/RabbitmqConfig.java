@@ -13,6 +13,9 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
+import store.buzzbook.coupon.common.dto.SecretResponse;
 
 @Configuration
 public class RabbitmqConfig {
@@ -35,17 +38,21 @@ public class RabbitmqConfig {
 	@Value("${spring.rabbitmq.coupon.dlx.routing-key}")
 	public String dlxRoutingKey;
 
-	@Value("${spring.rabbitmq.host}")
-	private String host;
+	@Value("${nhncloud.keymanager.appkey}")
+	private String appKey;
 
-	@Value("${spring.rabbitmq.username}")
-	private String username;
+	@Value("${nhncloud.keymanager.rabbitmq.host}")
+	private String rabbitmqHost;
 
-	@Value("${spring.rabbitmq.password}")
-	private String password;
+	@Value("${nhncloud.keymanager.rabbitmq.port}")
+	private String rabbitmqPort;
 
-	@Value("${spring.rabbitmq.port}")
-	private int port;
+
+	@Value("${nhncloud.keymanager.rabbitmq.username}")
+	private String rabbitmqUsername;
+
+	@Value("${nhncloud.keymanager.rabbitmq.password}")
+	private String rabbitmqPassword;
 
 	@Bean
 	DirectExchange requestExchange() {
@@ -82,11 +89,27 @@ public class RabbitmqConfig {
 
 	@Bean
 	ConnectionFactory connectionFactory() {
+		RestTemplate restTemplate = new RestTemplate();
+
+		SecretResponse host = restTemplate.getForObject(
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqHost), SecretResponse.class);
+
+		SecretResponse port = restTemplate.getForObject(
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqPort), SecretResponse.class);
+
+
+		SecretResponse username = restTemplate.getForObject(
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqUsername), SecretResponse.class);
+
+		SecretResponse password = restTemplate.getForObject(
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqPassword), SecretResponse.class);
+
+
 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
-		connectionFactory.setHost(host);
-		connectionFactory.setPort(port);
-		connectionFactory.setUsername(username);
-		connectionFactory.setPassword(password);
+		connectionFactory.setHost(host.getBody().getSecret());
+		connectionFactory.setPort(Integer.parseInt(port.getBody().getSecret()));
+		connectionFactory.setUsername(username.getBody().getSecret());
+		connectionFactory.setPassword(password.getBody().getSecret());
 		return connectionFactory;
 	}
 
