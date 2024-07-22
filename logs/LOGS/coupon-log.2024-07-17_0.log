@@ -1,0 +1,815 @@
+2024-07-17 00:04:23.073 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 00:09:23.095 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 00:14:23.091 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 00:16:24.695 [SpringApplicationShutdownHook] INFO o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN 
+2024-07-17 00:16:24.696 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721142984696, current=DOWN, previous=UP] 
+2024-07-17 00:16:24.696 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 00:16:24.723 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 00:16:24.734 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 00:16:24.800 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 00:16:24.989 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 00:16:25.705 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 00:16:25.751 [SpringApplicationShutdownHook] INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-07-17 00:16:25.756 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Shutting down DiscoveryClient ... 
+2024-07-17 00:16:28.758 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Unregistering ... 
+2024-07-17 00:16:28.859 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200 
+2024-07-17 00:16:28.861 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient 
+2024-07-17 09:01:37.089 [restartedMain] INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate. 
+2024-07-17 09:01:37.108 [restartedMain] WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath. 
+2024-07-17 09:01:37.117 [restartedMain] INFO o.s.b.a.e.w.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator' 
+2024-07-17 09:01:37.181 [restartedMain] INFO o.s.c.n.e.InstanceInfoFactory - Setting initial instance status as: STARTING 
+2024-07-17 09:01:37.199 [restartedMain] INFO c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1 
+2024-07-17 09:01:37.201 [restartedMain] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Application version is -1: true 
+2024-07-17 09:01:37.210 [restartedMain] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 09:01:37.636 [restartedMain] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 09:01:37.637 [restartedMain] INFO c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 30 
+2024-07-17 09:01:37.638 [restartedMain] INFO c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2024-07-17 09:01:37.640 [restartedMain] INFO c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1721174497640 with initial instances count: 0 
+2024-07-17 09:01:37.643 [restartedMain] INFO o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP 
+2024-07-17 09:01:37.643 [restartedMain] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721174497643, current=UP, previous=STARTING] 
+2024-07-17 09:01:37.644 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 09:01:37.652 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/' 
+2024-07-17 09:01:37.653 [restartedMain] INFO o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091 
+2024-07-17 09:01:37.655 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672 
+2024-07-17 09:01:37.730 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#55b27fa3:0/SimpleConnection@55e19c6d [delegate=amqp://admin@133.186.241.167:5672/, localPort=59224] 
+2024-07-17 09:01:37.789 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 09:01:37.932 [restartedMain] INFO s.b.c.CouponapiApplication - Started CouponapiApplication in 5.573 seconds (process running for 5.961) 
+2024-07-17 09:01:38.247 [RMI TCP Connection(4)-127.0.0.1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-07-17 09:01:38.247 [RMI TCP Connection(4)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-07-17 09:01:38.249 [RMI TCP Connection(4)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2024-07-17 09:02:07.642 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 09:02:07.643 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 09:02:07.643 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 09:02:07.643 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 09:02:07.643 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 09:02:07.643 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Application version is -1: false 
+2024-07-17 09:02:07.644 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 09:02:07.784 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 09:06:37.198 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:11:37.190 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:16:37.178 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:21:37.168 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:26:37.159 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:31:37.186 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:36:37.181 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:41:37.181 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:46:37.180 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:51:37.178 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 09:56:37.173 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:01:37.167 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:06:37.165 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:11:37.159 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:16:37.157 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:21:37.148 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:26:37.143 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:31:37.097 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:36:37.092 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:41:37.085 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:46:37.076 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:51:37.069 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 10:56:37.062 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:01:37.089 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:06:37.088 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:11:37.078 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:16:37.075 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:21:37.065 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:26:37.063 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:31:37.060 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:36:37.055 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:41:37.055 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:46:37.047 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:51:37.045 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 11:56:37.038 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:01:37.036 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:06:37.035 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:11:37.034 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:16:37.029 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:21:37.016 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:26:37.015 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:31:37.007 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:36:36.996 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:41:36.988 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:46:36.983 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:51:36.982 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 12:56:36.974 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:01:36.965 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:06:36.956 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:11:36.905 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:16:36.899 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:21:36.887 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:26:36.873 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:31:36.862 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:36:36.851 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:41:36.847 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:46:36.840 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:51:36.835 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 13:56:36.824 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:01:36.814 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:06:36.806 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:11:36.812 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:16:36.804 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:21:36.791 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:26:36.779 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:31:36.773 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:36:36.761 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:41:36.732 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:46:36.721 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:51:36.709 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 14:56:36.696 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:01:36.687 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:06:36.678 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:11:36.772 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:16:14.662 [http-nio-8091-exec-1] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction] with root cause 
+java.net.SocketException: Broken pipe
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:62) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.tryWrite(NioSocketImpl.java:394) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:410) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:440) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:819) ~[na:na]
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1195) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:125) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.implFlush(BufferedOutputStream.java:252) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:240) ~[na:na]
+	at com.mysql.cj.protocol.a.SimplePacketSender.send(SimplePacketSender.java:57) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketSender.send(TimeTrackingPacketSender.java:52) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:620) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:684) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1050) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:658) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.setReadOnlyInternal(ConnectionImpl.java:2115) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.setReadOnly(ConnectionImpl.java:2106) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at org.apache.commons.dbcp2.DelegatingConnection.setReadOnly(DelegatingConnection.java:939) ~[commons-dbcp2-2.12.0.jar:2.12.0]
+	at org.apache.commons.dbcp2.DelegatingConnection.setReadOnly(DelegatingConnection.java:939) ~[commons-dbcp2-2.12.0.jar:2.12.0]
+	at org.springframework.jdbc.datasource.DataSourceUtils.prepareConnectionForTransaction(DataSourceUtils.java:190) ~[spring-jdbc-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:165) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:420) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:532) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:617) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:386) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at store.buzzbook.coupon.controller.CouponPolicyController$$SpringCGLIB$$0.getCouponPoliciesByScope(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+2024-07-17 15:16:15.104 [http-nio-8091-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction] with root cause 
+java.net.SocketException: Broken pipe
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:62) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.tryWrite(NioSocketImpl.java:394) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:410) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:440) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:819) ~[na:na]
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1195) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:125) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.implFlush(BufferedOutputStream.java:252) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:240) ~[na:na]
+	at com.mysql.cj.protocol.a.SimplePacketSender.send(SimplePacketSender.java:57) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketSender.send(TimeTrackingPacketSender.java:52) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:620) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:684) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1050) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:658) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.setReadOnlyInternal(ConnectionImpl.java:2115) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.setReadOnly(ConnectionImpl.java:2106) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at org.apache.commons.dbcp2.DelegatingConnection.setReadOnly(DelegatingConnection.java:939) ~[commons-dbcp2-2.12.0.jar:2.12.0]
+	at org.apache.commons.dbcp2.DelegatingConnection.setReadOnly(DelegatingConnection.java:939) ~[commons-dbcp2-2.12.0.jar:2.12.0]
+	at org.springframework.jdbc.datasource.DataSourceUtils.prepareConnectionForTransaction(DataSourceUtils.java:190) ~[spring-jdbc-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:165) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:420) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:532) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:617) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:386) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at store.buzzbook.coupon.controller.CouponPolicyController$$SpringCGLIB$$0.getCouponPoliciesByScope(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+2024-07-17 15:16:26.908 [http-nio-8091-exec-3] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.transaction.CannotCreateTransactionException: Could not open JPA EntityManager for transaction] with root cause 
+java.net.SocketException: Broken pipe
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method) ~[na:na]
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:62) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.tryWrite(NioSocketImpl.java:394) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implWrite(NioSocketImpl.java:410) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.write(NioSocketImpl.java:440) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$2.write(NioSocketImpl.java:819) ~[na:na]
+	at java.base/java.net.Socket$SocketOutputStream.write(Socket.java:1195) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:125) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.implFlush(BufferedOutputStream.java:252) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:240) ~[na:na]
+	at com.mysql.cj.protocol.a.SimplePacketSender.send(SimplePacketSender.java:57) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketSender.send(TimeTrackingPacketSender.java:52) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:620) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:684) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:1050) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryString(NativeProtocol.java:997) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:658) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.setReadOnlyInternal(ConnectionImpl.java:2115) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ConnectionImpl.setReadOnly(ConnectionImpl.java:2106) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at org.apache.commons.dbcp2.DelegatingConnection.setReadOnly(DelegatingConnection.java:939) ~[commons-dbcp2-2.12.0.jar:2.12.0]
+	at org.apache.commons.dbcp2.DelegatingConnection.setReadOnly(DelegatingConnection.java:939) ~[commons-dbcp2-2.12.0.jar:2.12.0]
+	at org.springframework.jdbc.datasource.DataSourceUtils.prepareConnectionForTransaction(DataSourceUtils.java:190) ~[spring-jdbc-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.beginTransaction(HibernateJpaDialect.java:165) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:420) ~[spring-orm-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:532) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:405) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:617) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:386) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at store.buzzbook.coupon.controller.CouponPolicyController$$SpringCGLIB$$0.getCouponPoliciesByScope(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.8.jar:6.1.8]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.24.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.8.jar:6.1.8]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.24.jar:10.1.24]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+2024-07-17 15:16:36.767 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:17:35.919 [SpringApplicationShutdownHook] INFO o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN 
+2024-07-17 15:17:35.919 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721197055919, current=DOWN, previous=UP] 
+2024-07-17 15:17:35.920 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 15:17:35.943 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 15:17:35.952 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 15:17:36.018 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 15:17:36.707 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 15:17:36.711 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 15:17:36.751 [SpringApplicationShutdownHook] INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-07-17 15:17:36.755 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Shutting down DiscoveryClient ... 
+2024-07-17 15:17:39.762 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Unregistering ... 
+2024-07-17 15:17:39.893 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200 
+2024-07-17 15:17:39.896 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient 
+2024-07-17 15:17:46.599 [restartedMain] INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate. 
+2024-07-17 15:17:46.618 [restartedMain] WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath. 
+2024-07-17 15:17:46.626 [restartedMain] INFO o.s.b.a.e.w.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator' 
+2024-07-17 15:17:46.689 [restartedMain] INFO o.s.c.n.e.InstanceInfoFactory - Setting initial instance status as: STARTING 
+2024-07-17 15:17:46.706 [restartedMain] INFO c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1 
+2024-07-17 15:17:46.708 [restartedMain] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Application version is -1: true 
+2024-07-17 15:17:46.718 [restartedMain] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 15:17:47.014 [restartedMain] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 15:17:47.016 [restartedMain] INFO c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 30 
+2024-07-17 15:17:47.017 [restartedMain] INFO c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2024-07-17 15:17:47.018 [restartedMain] INFO c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1721197067018 with initial instances count: 4 
+2024-07-17 15:17:47.021 [restartedMain] INFO o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP 
+2024-07-17 15:17:47.022 [restartedMain] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721197067022, current=UP, previous=STARTING] 
+2024-07-17 15:17:47.022 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 15:17:47.032 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/' 
+2024-07-17 15:17:47.032 [restartedMain] INFO o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091 
+2024-07-17 15:17:47.035 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672 
+2024-07-17 15:17:47.100 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#277a3279:0/SimpleConnection@6c412748 [delegate=amqp://admin@133.186.241.167:5672/, localPort=60227] 
+2024-07-17 15:17:47.135 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 15:17:47.305 [restartedMain] INFO s.b.c.CouponapiApplication - Started CouponapiApplication in 5.192 seconds (process running for 5.624) 
+2024-07-17 15:17:47.506 [RMI TCP Connection(3)-127.0.0.1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-07-17 15:17:47.506 [RMI TCP Connection(3)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-07-17 15:17:47.508 [RMI TCP Connection(3)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-07-17 15:22:46.715 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:27:46.714 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:32:46.707 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:37:46.704 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:42:46.700 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:47:46.661 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:52:46.652 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 15:57:46.641 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:02:46.635 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:07:46.629 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:12:46.628 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:17:46.632 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:22:46.626 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:27:46.620 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:32:46.614 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:37:46.618 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:42:46.616 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:47:46.611 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:52:46.601 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 16:57:46.596 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:02:46.592 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:06:52.711 [SpringApplicationShutdownHook] INFO o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN 
+2024-07-17 17:06:52.712 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721203612712, current=DOWN, previous=UP] 
+2024-07-17 17:06:52.712 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 17:06:52.749 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 17:06:52.759 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 17:06:52.780 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 17:06:52.817 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 17:06:52.872 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 17:06:52.908 [SpringApplicationShutdownHook] INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-07-17 17:06:52.913 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Shutting down DiscoveryClient ... 
+2024-07-17 17:06:55.919 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Unregistering ... 
+2024-07-17 17:06:56.052 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200 
+2024-07-17 17:06:56.054 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient 
+2024-07-17 17:07:38.476 [restartedMain] INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate. 
+2024-07-17 17:07:38.494 [restartedMain] WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath. 
+2024-07-17 17:07:38.503 [restartedMain] INFO o.s.b.a.e.w.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator' 
+2024-07-17 17:07:38.566 [restartedMain] INFO o.s.c.n.e.InstanceInfoFactory - Setting initial instance status as: STARTING 
+2024-07-17 17:07:38.583 [restartedMain] INFO c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1 
+2024-07-17 17:07:38.585 [restartedMain] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:07:38.594 [restartedMain] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 17:07:38.594 [restartedMain] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 17:07:38.594 [restartedMain] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 17:07:38.594 [restartedMain] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 17:07:38.594 [restartedMain] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 17:07:38.595 [restartedMain] INFO c.n.d.DiscoveryClient - Application version is -1: true 
+2024-07-17 17:07:38.595 [restartedMain] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 17:07:38.865 [restartedMain] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 17:07:38.866 [restartedMain] INFO c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 30 
+2024-07-17 17:07:38.867 [restartedMain] INFO c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2024-07-17 17:07:38.869 [restartedMain] INFO c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1721203658869 with initial instances count: 3 
+2024-07-17 17:07:38.872 [restartedMain] INFO o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP 
+2024-07-17 17:07:38.873 [restartedMain] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721203658873, current=UP, previous=STARTING] 
+2024-07-17 17:07:38.873 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 17:07:38.883 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/' 
+2024-07-17 17:07:38.883 [restartedMain] INFO o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091 
+2024-07-17 17:07:38.885 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672 
+2024-07-17 17:07:38.959 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#1f85405b:0/SimpleConnection@20d4f889 [delegate=amqp://admin@133.186.241.167:5672/, localPort=51909] 
+2024-07-17 17:07:38.987 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 17:07:39.170 [restartedMain] INFO s.b.c.CouponapiApplication - Started CouponapiApplication in 5.524 seconds (process running for 6.086) 
+2024-07-17 17:07:39.401 [RMI TCP Connection(3)-127.0.0.1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-07-17 17:07:39.402 [RMI TCP Connection(3)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-07-17 17:07:39.403 [RMI TCP Connection(3)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-07-17 17:12:38.572 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:17:38.565 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:22:38.555 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:27:38.547 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:32:38.539 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:37:38.538 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:42:38.533 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:47:38.528 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:52:38.524 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:57:38.519 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 17:57:48.525 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG s.b.c.c.s.i.ConsumerServiceImpl - Received WelcomeCouponRequest: CreateWelcomeCouponRequest[userId=40] 
+2024-07-17 17:57:51.036 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG s.b.c.c.s.i.ConsumerServiceImpl - Received WelcomeCouponRequest: CreateWelcomeCouponRequest[userId=40] 
+2024-07-17 17:57:51.222 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN o.s.a.r.r.RejectAndDontRequeueRecoverer - Retries exhausted for message (Body:'{"userId":40}' MessageProperties [headers={__TypeId__=store.buzzbook.core.dto.coupon.CreateWelcomeCouponRequest}, contentType=application/json, contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0, redelivered=false, receivedExchange=aa.coupon.exchange, receivedRoutingKey=aa.coupon.key, deliveryTag=1, consumerTag=amq.ctag-tG5h8yzGP0Ug1uIWEyAC5A, consumerQueue=aa.coupon.queue]) 
+org.springframework.amqp.rabbit.support.ListenerExecutionFailedException: Listener method 'public void store.buzzbook.coupon.common.service.impl.ConsumerServiceImpl.receiveWelcomeCouponRequest(store.buzzbook.coupon.dto.coupon.CreateWelcomeCouponRequest)' threw exception
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:287) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandlerAndProcessResult(MessagingMessageListenerAdapter.java:225) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.onMessage(MessagingMessageListenerAdapter.java:149) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.doInvokeListener(AbstractMessageListenerContainer.java:1682) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.actualInvokeListener(AbstractMessageListenerContainer.java:1604) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.retry.interceptor.RetryOperationsInterceptor$1.doWithRetry(RetryOperationsInterceptor.java:92) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:344) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:233) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.interceptor.RetryOperationsInterceptor.invoke(RetryOperationsInterceptor.java:113) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.amqp.rabbit.listener.$Proxy216.invokeListener(Unknown Source) ~[na:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.invokeListener(AbstractMessageListenerContainer.java:1592) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.doExecuteListener(AbstractMessageListenerContainer.java:1583) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.executeListenerAndHandleException(AbstractMessageListenerContainer.java:1528) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.lambda$executeListener$8(AbstractMessageListenerContainer.java:1506) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.13.0.jar:1.13.0]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.executeListener(AbstractMessageListenerContainer.java:1506) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.doReceiveAndExecute(SimpleMessageListenerContainer.java:1082) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.receiveAndExecute(SimpleMessageListenerContainer.java:1018) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.mainLoop(SimpleMessageListenerContainer.java:1420) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1322) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: feign.FeignException$BadRequest: [400 Bad Request] during [POST] to [http://localhost:8080/api/account/coupons/batch] [UserAdapter#createUserCoupon(CreateUserCouponRequest)]: []
+	at feign.FeignException.clientErrorStatus(FeignException.java:222) ~[feign-core-13.2.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:203) ~[feign-core-13.2.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:194) ~[feign-core-13.2.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.2.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:126) ~[feign-core-13.2.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:72) ~[feign-core-13.2.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63) ~[feign-core-13.2.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114) ~[feign-core-13.2.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70) ~[feign-core-13.2.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99) ~[feign-core-13.2.1.jar:na]
+	at jdk.proxy3/jdk.proxy3.$Proxy194.createUserCoupon(Unknown Source) ~[na:na]
+	at store.buzzbook.coupon.common.service.impl.ConsumerServiceImpl.receiveWelcomeCouponRequest(ConsumerServiceImpl.java:51) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at store.buzzbook.coupon.common.service.impl.ConsumerServiceImpl$$SpringCGLIB$$0.receiveWelcomeCouponRequest(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:169) ~[spring-messaging-6.1.8.jar:6.1.8]
+	at org.springframework.amqp.rabbit.listener.adapter.KotlinAwareInvocableHandlerMethod.doInvoke(KotlinAwareInvocableHandlerMethod.java:45) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:119) ~[spring-messaging-6.1.8.jar:6.1.8]
+	at org.springframework.amqp.rabbit.listener.adapter.HandlerAdapter.invoke(HandlerAdapter.java:75) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:278) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	... 27 common frames omitted
+2024-07-17 17:57:51.234 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN o.s.a.r.l.ConditionalRejectingErrorHandler - Execution of Rabbit message listener failed. 
+org.springframework.amqp.rabbit.support.ListenerExecutionFailedException: Retry Policy Exhausted
+	at org.springframework.amqp.rabbit.retry.RejectAndDontRequeueRecoverer.recover(RejectAndDontRequeueRecoverer.java:76) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.config.StatelessRetryOperationsInterceptorFactoryBean.recover(StatelessRetryOperationsInterceptorFactoryBean.java:78) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.retry.interceptor.RetryOperationsInterceptor$ItemRecovererCallback.recover(RetryOperationsInterceptor.java:128) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.support.RetryTemplate.handleRetryExhausted(RetryTemplate.java:560) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:405) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.support.RetryTemplate.execute(RetryTemplate.java:233) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.interceptor.RetryOperationsInterceptor.invoke(RetryOperationsInterceptor.java:113) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.amqp.rabbit.listener.$Proxy216.invokeListener(Unknown Source) ~[na:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.invokeListener(AbstractMessageListenerContainer.java:1592) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.doExecuteListener(AbstractMessageListenerContainer.java:1583) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.executeListenerAndHandleException(AbstractMessageListenerContainer.java:1528) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.lambda$executeListener$8(AbstractMessageListenerContainer.java:1506) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.13.0.jar:1.13.0]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.executeListener(AbstractMessageListenerContainer.java:1506) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.doReceiveAndExecute(SimpleMessageListenerContainer.java:1082) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.receiveAndExecute(SimpleMessageListenerContainer.java:1018) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.mainLoop(SimpleMessageListenerContainer.java:1420) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1322) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+Caused by: org.springframework.amqp.AmqpRejectAndDontRequeueException: null
+	... 21 common frames omitted
+Caused by: org.springframework.amqp.rabbit.support.ListenerExecutionFailedException: Listener method 'public void store.buzzbook.coupon.common.service.impl.ConsumerServiceImpl.receiveWelcomeCouponRequest(store.buzzbook.coupon.dto.coupon.CreateWelcomeCouponRequest)' threw exception
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:287) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandlerAndProcessResult(MessagingMessageListenerAdapter.java:225) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.onMessage(MessagingMessageListenerAdapter.java:149) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.doInvokeListener(AbstractMessageListenerContainer.java:1682) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.actualInvokeListener(AbstractMessageListenerContainer.java:1604) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.retry.interceptor.RetryOperationsInterceptor$1.doWithRetry(RetryOperationsInterceptor.java:92) ~[spring-retry-2.0.6.jar:na]
+	at org.springframework.retry.support.RetryTemplate.doExecute(RetryTemplate.java:344) ~[spring-retry-2.0.6.jar:na]
+	... 16 common frames omitted
+Caused by: feign.FeignException$BadRequest: [400 Bad Request] during [POST] to [http://localhost:8080/api/account/coupons/batch] [UserAdapter#createUserCoupon(CreateUserCouponRequest)]: []
+	at feign.FeignException.clientErrorStatus(FeignException.java:222) ~[feign-core-13.2.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:203) ~[feign-core-13.2.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:194) ~[feign-core-13.2.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.2.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:126) ~[feign-core-13.2.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:72) ~[feign-core-13.2.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63) ~[feign-core-13.2.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114) ~[feign-core-13.2.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70) ~[feign-core-13.2.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99) ~[feign-core-13.2.1.jar:na]
+	at jdk.proxy3/jdk.proxy3.$Proxy194.createUserCoupon(Unknown Source) ~[na:na]
+	at store.buzzbook.coupon.common.service.impl.ConsumerServiceImpl.receiveWelcomeCouponRequest(ConsumerServiceImpl.java:51) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.8.jar:6.1.8]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.8.jar:6.1.8]
+	at store.buzzbook.coupon.common.service.impl.ConsumerServiceImpl$$SpringCGLIB$$0.receiveWelcomeCouponRequest(<generated>) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:169) ~[spring-messaging-6.1.8.jar:6.1.8]
+	at org.springframework.amqp.rabbit.listener.adapter.KotlinAwareInvocableHandlerMethod.doInvoke(KotlinAwareInvocableHandlerMethod.java:45) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.messaging.handler.invocation.InvocableHandlerMethod.invoke(InvocableHandlerMethod.java:119) ~[spring-messaging-6.1.8.jar:6.1.8]
+	at org.springframework.amqp.rabbit.listener.adapter.HandlerAdapter.invoke(HandlerAdapter.java:75) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	at org.springframework.amqp.rabbit.listener.adapter.MessagingMessageListenerAdapter.invokeHandler(MessagingMessageListenerAdapter.java:278) ~[spring-rabbit-3.1.5.jar:3.1.5]
+	... 27 common frames omitted
+2024-07-17 18:02:38.514 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 18:07:38.508 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 18:12:07.785 [SpringApplicationShutdownHook] INFO o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN 
+2024-07-17 18:12:07.786 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721207527786, current=DOWN, previous=UP] 
+2024-07-17 18:12:07.786 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 18:12:07.810 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 18:12:07.819 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 18:12:07.893 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 18:12:07.989 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 18:12:08.421 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 18:12:08.457 [SpringApplicationShutdownHook] INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-07-17 18:12:08.461 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Shutting down DiscoveryClient ... 
+2024-07-17 18:12:11.466 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Unregistering ... 
+2024-07-17 18:12:11.571 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200 
+2024-07-17 18:12:11.573 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient 
+2024-07-17 20:21:46.570 [restartedMain] INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate. 
+2024-07-17 20:21:46.591 [restartedMain] WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath. 
+2024-07-17 20:21:46.600 [restartedMain] INFO o.s.b.a.e.w.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator' 
+2024-07-17 20:21:46.667 [restartedMain] INFO o.s.c.n.e.InstanceInfoFactory - Setting initial instance status as: STARTING 
+2024-07-17 20:21:46.685 [restartedMain] INFO c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1 
+2024-07-17 20:21:46.687 [restartedMain] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 20:21:46.696 [restartedMain] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 20:21:46.697 [restartedMain] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 20:21:46.697 [restartedMain] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 20:21:46.697 [restartedMain] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 20:21:46.697 [restartedMain] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 20:21:46.697 [restartedMain] INFO c.n.d.DiscoveryClient - Application version is -1: true 
+2024-07-17 20:21:46.697 [restartedMain] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 20:21:47.009 [restartedMain] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 20:21:47.010 [restartedMain] INFO c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 30 
+2024-07-17 20:21:47.011 [restartedMain] INFO c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2024-07-17 20:21:47.013 [restartedMain] INFO c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1721215307012 with initial instances count: 0 
+2024-07-17 20:21:47.016 [restartedMain] INFO o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP 
+2024-07-17 20:21:47.016 [restartedMain] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721215307016, current=UP, previous=STARTING] 
+2024-07-17 20:21:47.017 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 20:21:47.025 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/' 
+2024-07-17 20:21:47.026 [restartedMain] INFO o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091 
+2024-07-17 20:21:47.028 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672 
+2024-07-17 20:21:47.105 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#2109802b:0/SimpleConnection@28a67806 [delegate=amqp://admin@133.186.241.167:5672/, localPort=54819] 
+2024-07-17 20:21:47.132 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 20:21:47.320 [restartedMain] INFO s.b.c.CouponapiApplication - Started CouponapiApplication in 4.952 seconds (process running for 5.455) 
+2024-07-17 20:21:47.660 [RMI TCP Connection(3)-127.0.0.1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-07-17 20:21:47.660 [RMI TCP Connection(3)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-07-17 20:21:47.661 [RMI TCP Connection(3)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-07-17 20:22:17.014 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 20:22:17.015 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 20:22:17.015 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 20:22:17.015 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 20:22:17.015 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 20:22:17.015 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Application version is -1: false 
+2024-07-17 20:22:17.015 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 20:22:17.158 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 20:26:46.695 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 20:31:46.693 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 20:35:38.751 [SpringApplicationShutdownHook] INFO o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN 
+2024-07-17 20:35:38.752 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721216138752, current=DOWN, previous=UP] 
+2024-07-17 20:35:38.752 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 20:35:38.772 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 20:35:38.783 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 20:35:38.856 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 20:35:39.337 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 20:35:39.344 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 20:35:39.379 [SpringApplicationShutdownHook] INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-07-17 20:35:39.383 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Shutting down DiscoveryClient ... 
+2024-07-17 20:35:42.389 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Unregistering ... 
+2024-07-17 20:35:42.488 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200 
+2024-07-17 20:35:42.491 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient 
+2024-07-17 21:44:16.351 [restartedMain] INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate. 
+2024-07-17 21:44:16.548 [restartedMain] WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath. 
+2024-07-17 21:44:16.610 [restartedMain] INFO o.s.b.a.e.w.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator' 
+2024-07-17 21:44:16.851 [restartedMain] INFO o.s.c.n.e.InstanceInfoFactory - Setting initial instance status as: STARTING 
+2024-07-17 21:44:16.941 [restartedMain] INFO c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1 
+2024-07-17 21:44:16.952 [restartedMain] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Application version is -1: true 
+2024-07-17 21:44:16.967 [restartedMain] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 21:44:17.460 [restartedMain] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 21:44:17.463 [restartedMain] INFO c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 30 
+2024-07-17 21:44:17.466 [restartedMain] INFO c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2024-07-17 21:44:17.471 [restartedMain] INFO c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1721220257470 with initial instances count: 0 
+2024-07-17 21:44:17.480 [restartedMain] INFO o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP 
+2024-07-17 21:44:17.480 [restartedMain] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721220257480, current=UP, previous=STARTING] 
+2024-07-17 21:44:17.482 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 21:44:17.505 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/' 
+2024-07-17 21:44:17.505 [restartedMain] INFO o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091 
+2024-07-17 21:44:17.512 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672 
+2024-07-17 21:44:17.606 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#3ca4ded6:0/SimpleConnection@5aac8333 [delegate=amqp://admin@133.186.241.167:5672/, localPort=58563] 
+2024-07-17 21:44:17.668 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 21:44:17.846 [restartedMain] INFO s.b.c.CouponapiApplication - Started CouponapiApplication in 8.089 seconds (process running for 8.751) 
+2024-07-17 21:44:18.132 [RMI TCP Connection(7)-127.0.0.1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-07-17 21:44:18.132 [RMI TCP Connection(7)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-07-17 21:44:18.137 [RMI TCP Connection(7)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 5 ms 
+2024-07-17 21:44:47.463 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 21:44:47.465 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 21:44:47.465 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 21:44:47.465 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 21:44:47.465 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 21:44:47.466 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Application version is -1: false 
+2024-07-17 21:44:47.466 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 21:44:47.586 [DiscoveryClient-CacheRefreshExecutor-0] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 21:49:16.941 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 21:54:16.932 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 21:59:16.926 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:04:16.917 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:09:16.910 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:14:16.909 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:19:16.908 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:24:16.906 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:29:16.900 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:34:16.897 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:39:16.892 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:44:16.885 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:49:16.877 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:54:16.873 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 22:59:16.870 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:04:16.867 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:09:16.863 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:14:16.858 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:19:16.814 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:24:16.806 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:29:16.796 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:34:16.788 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:39:16.777 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:41:03.515 [SpringApplicationShutdownHook] INFO o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application COUPON-API with eureka with status DOWN 
+2024-07-17 23:41:03.519 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721227263519, current=DOWN, previous=UP] 
+2024-07-17 23:41:03.519 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 23:41:03.559 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 23:41:03.570 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish. 
+2024-07-17 23:41:03.579 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 23:41:03.652 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 23:41:03.698 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish. 
+2024-07-17 23:41:03.747 [SpringApplicationShutdownHook] INFO o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-07-17 23:41:03.753 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Shutting down DiscoveryClient ... 
+2024-07-17 23:41:06.760 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Unregistering ... 
+2024-07-17 23:41:06.895 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - deregister  status: 200 
+2024-07-17 23:41:06.898 [SpringApplicationShutdownHook] INFO c.n.d.DiscoveryClient - Completed shut down of DiscoveryClient 
+2024-07-17 23:41:13.703 [restartedMain] INFO o.s.c.n.e.c.DiscoveryClientOptionalArgsConfiguration - Eureka HTTP Client uses RestTemplate. 
+2024-07-17 23:41:13.720 [restartedMain] WARN o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath. 
+2024-07-17 23:41:13.729 [restartedMain] INFO o.s.b.a.e.w.EndpointLinksResolver - Exposing 21 endpoints beneath base path '/actuator' 
+2024-07-17 23:41:13.792 [restartedMain] INFO o.s.c.n.e.InstanceInfoFactory - Setting initial instance status as: STARTING 
+2024-07-17 23:41:13.809 [restartedMain] INFO c.n.d.DiscoveryClient - Initializing Eureka in region us-east-1 
+2024-07-17 23:41:13.811 [restartedMain] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:41:13.820 [restartedMain] INFO c.n.d.DiscoveryClient - Disable delta property : false 
+2024-07-17 23:41:13.820 [restartedMain] INFO c.n.d.DiscoveryClient - Single vip registry refresh property : null 
+2024-07-17 23:41:13.820 [restartedMain] INFO c.n.d.DiscoveryClient - Force full registry fetch : false 
+2024-07-17 23:41:13.820 [restartedMain] INFO c.n.d.DiscoveryClient - Application is null : false 
+2024-07-17 23:41:13.821 [restartedMain] INFO c.n.d.DiscoveryClient - Registered Applications size is zero : true 
+2024-07-17 23:41:13.821 [restartedMain] INFO c.n.d.DiscoveryClient - Application version is -1: true 
+2024-07-17 23:41:13.821 [restartedMain] INFO c.n.d.DiscoveryClient - Getting all instance registry info from the eureka server 
+2024-07-17 23:41:14.142 [restartedMain] INFO c.n.d.DiscoveryClient - The response status is 200 
+2024-07-17 23:41:14.144 [restartedMain] INFO c.n.d.DiscoveryClient - Starting heartbeat executor: renew interval is: 30 
+2024-07-17 23:41:14.145 [restartedMain] INFO c.n.d.InstanceInfoReplicator - InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2024-07-17 23:41:14.147 [restartedMain] INFO c.n.d.DiscoveryClient - Discovery Client initialized at timestamp 1721227274146 with initial instances count: 4 
+2024-07-17 23:41:14.150 [restartedMain] INFO o.s.c.n.e.s.EurekaServiceRegistry - Registering application COUPON-API with eureka with status UP 
+2024-07-17 23:41:14.150 [restartedMain] INFO c.n.d.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1721227274150, current=UP, previous=STARTING] 
+2024-07-17 23:41:14.151 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api: registering service... 
+2024-07-17 23:41:14.160 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8091 (http) with context path '/' 
+2024-07-17 23:41:14.160 [restartedMain] INFO o.s.c.n.e.s.EurekaAutoServiceRegistration - Updating port to 8091 
+2024-07-17 23:41:14.162 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: 133.186.241.167:5672 
+2024-07-17 23:41:14.253 [restartedMain] INFO o.s.a.r.c.CachingConnectionFactory - Created new connection: connectionFactory#412e9276:0/SimpleConnection@641db057 [delegate=amqp://admin@133.186.241.167:5672/, localPort=57451] 
+2024-07-17 23:41:14.264 [DiscoveryClient-InstanceInfoReplicator-0] INFO c.n.d.DiscoveryClient - DiscoveryClient_COUPON-API/coupon-api - registration status: 204 
+2024-07-17 23:41:14.474 [restartedMain] INFO s.b.c.CouponapiApplication - Started CouponapiApplication in 4.641 seconds (process running for 4.994) 
+2024-07-17 23:41:14.731 [RMI TCP Connection(2)-127.0.0.1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-07-17 23:41:14.731 [RMI TCP Connection(2)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2024-07-17 23:41:14.732 [RMI TCP Connection(2)-127.0.0.1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2024-07-17 23:46:13.813 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:51:13.874 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
+2024-07-17 23:56:13.874 [AsyncResolver-bootstrap-executor-0] INFO c.n.d.s.r.a.ConfigClusterResolver - Resolving eureka endpoints via configuration 
