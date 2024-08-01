@@ -47,7 +47,6 @@ public class RabbitmqConfig {
 	@Value("${nhncloud.keymanager.rabbitmq.port}")
 	private String rabbitmqPort;
 
-
 	@Value("${nhncloud.keymanager.rabbitmq.username}")
 	private String rabbitmqUsername;
 
@@ -92,18 +91,20 @@ public class RabbitmqConfig {
 		RestTemplate restTemplate = new RestTemplate();
 
 		SecretResponse host = restTemplate.getForObject(
-			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqHost), SecretResponse.class);
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey,
+				rabbitmqHost), SecretResponse.class);
 
 		SecretResponse port = restTemplate.getForObject(
-			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqPort), SecretResponse.class);
-
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey,
+				rabbitmqPort), SecretResponse.class);
 
 		SecretResponse username = restTemplate.getForObject(
-			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqUsername), SecretResponse.class);
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey,
+				rabbitmqUsername), SecretResponse.class);
 
 		SecretResponse password = restTemplate.getForObject(
-			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey, rabbitmqPassword), SecretResponse.class);
-
+			String.format("https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/%s/secrets/%s", appKey,
+				rabbitmqPassword), SecretResponse.class);
 
 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
 		connectionFactory.setHost(host.getBody().getSecret());

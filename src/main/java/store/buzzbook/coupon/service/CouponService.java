@@ -4,6 +4,7 @@ import java.util.List;
 
 import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CouponStatusResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
 import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
@@ -24,6 +25,8 @@ public interface CouponService {
 	 * @return 조회된 쿠폰 응답 객체
 	 */
 	CouponResponse getCoupon(long id);
+
+	CouponStatusResponse getCouponStatus(String couponCode);
 
 	/**
 	 * 주어진 요청 목록에 따라 쿠폰 상태를 기준으로 모든 쿠폰을 조회합니다.
