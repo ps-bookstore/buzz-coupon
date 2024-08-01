@@ -20,6 +20,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CouponStatusResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
 import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
@@ -51,6 +52,12 @@ public class CouponController {
 	@Operation(summary = "쿠폰 조회", description = "쿠폰 정보를 조회합니다.")
 	public ResponseEntity<CouponResponse> getCoupon(@PathVariable long couponId) {
 		return ResponseEntity.ok(couponService.getCoupon(couponId));
+	}
+
+	@GetMapping("/{couponCode}")
+	@Operation(summary = "쿠폰 조회", description = "쿠폰 코드로 쿠폰 정보를 조회합니다.")
+	public ResponseEntity<CouponStatusResponse> getCouponByCode(@PathVariable String couponCode) {
+		return ResponseEntity.ok(couponService.getCouponStatus(couponCode));
 	}
 
 	/**

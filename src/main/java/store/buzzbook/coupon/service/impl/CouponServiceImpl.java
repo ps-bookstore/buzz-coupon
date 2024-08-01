@@ -14,6 +14,7 @@ import store.buzzbook.coupon.common.exception.CouponNotFoundException;
 import store.buzzbook.coupon.common.utils.CodeCreator;
 import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
+import store.buzzbook.coupon.dto.coupon.CouponStatusResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
 import store.buzzbook.coupon.dto.coupon.CreateCouponResponse;
 import store.buzzbook.coupon.dto.coupon.OrderCouponResponse;
@@ -53,6 +54,18 @@ public class CouponServiceImpl implements CouponService {
 		Coupon coupon = couponRepository.findById(id).orElseThrow(CouponNotFoundException::new);
 
 		return CouponResponse.from(coupon);
+	}
+
+	@Override
+	public CouponStatusResponse getCouponStatus(String couponCode) {
+		if (Objects.isNull(couponCode)) {
+			throw new IllegalArgumentException();
+		}
+
+		Coupon coupon = couponRepository.findByCouponCode(couponCode)
+			.orElseThrow(CouponNotFoundException::new);
+
+		return CouponStatusResponse.from(coupon);
 	}
 
 	/**
