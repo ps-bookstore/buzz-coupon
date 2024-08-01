@@ -55,7 +55,7 @@ public class CouponController {
 		return ResponseEntity.ok(couponService.getCoupon(couponId));
 	}
 
-	@PostMapping
+	@PostMapping("/info")
 	@Operation(summary = "쿠폰 조회", description = "쿠폰 코드로 쿠폰 정보를 조회합니다.")
 	public ResponseEntity<CouponStatusResponse> getCouponByCode(@Valid @RequestBody CouponRequest request) {
 		return ResponseEntity.ok(couponService.getCouponStatus(request));
