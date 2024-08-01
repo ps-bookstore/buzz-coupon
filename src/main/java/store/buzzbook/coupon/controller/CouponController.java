@@ -19,6 +19,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.dto.coupon.CouponLogRequest;
+import store.buzzbook.coupon.dto.coupon.CouponRequest;
 import store.buzzbook.coupon.dto.coupon.CouponResponse;
 import store.buzzbook.coupon.dto.coupon.CouponStatusResponse;
 import store.buzzbook.coupon.dto.coupon.CreateCouponRequest;
@@ -54,10 +55,10 @@ public class CouponController {
 		return ResponseEntity.ok(couponService.getCoupon(couponId));
 	}
 
-	@GetMapping("/{couponCode}")
+	@PostMapping
 	@Operation(summary = "쿠폰 조회", description = "쿠폰 코드로 쿠폰 정보를 조회합니다.")
-	public ResponseEntity<CouponStatusResponse> getCouponByCode(@PathVariable String couponCode) {
-		return ResponseEntity.ok(couponService.getCouponStatus(couponCode));
+	public ResponseEntity<CouponStatusResponse> getCouponByCode(@Valid @RequestBody CouponRequest request) {
+		return ResponseEntity.ok(couponService.getCouponStatus(request));
 	}
 
 	/**
