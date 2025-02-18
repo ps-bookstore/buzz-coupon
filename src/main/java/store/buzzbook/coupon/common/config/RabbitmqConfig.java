@@ -45,7 +45,7 @@ public class RabbitmqConfig {
 	@Value("${spring.rabbitmq.username}")
 	private String rabbitmqUsername;
 
-	@Value("${nhncloud.keymanager.rabbitmq.password}")
+	@Value("${spring.rabbitmq.password}")
 	private String rabbitmqPassword;
 
 	@Bean
