@@ -40,7 +40,7 @@ public class RabbitmqConfig {
 	private String rabbitmqHost;
 
 	@Value("${spring.rabbitmq.port}")
-	private String rabbitmqPort;
+	private int rabbitmqPort;
 
 	@Value("${spring.rabbitmq.username}")
 	private String rabbitmqUsername;
@@ -86,7 +86,7 @@ public class RabbitmqConfig {
 
 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
 		connectionFactory.setHost(rabbitmqHost);
-		connectionFactory.setPort(Integer.parseInt(rabbitmqPort));
+		connectionFactory.setPort(rabbitmqPort);
 		connectionFactory.setUsername(rabbitmqUsername);
 		connectionFactory.setPassword(rabbitmqPassword);
 		return connectionFactory;
