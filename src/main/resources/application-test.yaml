@@ -26,5 +26,5 @@ spring:
 
 api:
   gateway:
-    host: buzz-book.store
-    port: 8080
+    host: buzz-book.shop
+    port: 8000
