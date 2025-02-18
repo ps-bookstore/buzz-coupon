@@ -15,15 +15,16 @@ spring:
     min-idle: 1
 
   jpa:
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQLDialect
+    generate-ddl: false
     hibernate:
       ddl-auto: none
-    generate-ddl: false
-    show-sql: false
     properties:
       hibernate:
         format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
 
   rabbitmq:
     host: 43.202.250.117
