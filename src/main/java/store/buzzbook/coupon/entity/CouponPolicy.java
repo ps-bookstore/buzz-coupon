@@ -47,7 +47,7 @@ public class CouponPolicy {
 	 * 쿠폰 타입은 LAZY 로딩 전략을 사용하여 필요할 때 로드됩니다.
 	 * </p>
 	 */
-	@ManyToOne(optional = false, fetch = FetchType.LAZY)
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private CouponType couponType;
 
 	/**
