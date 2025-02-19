@@ -49,7 +49,6 @@ public class CouponController {
 	 * @return 조회된 쿠폰 정보를 담은 ResponseEntity 객체
 	 */
 	@GetMapping("/{couponId}")
-	@Transactional(readOnly = true)
 	@Operation(summary = "쿠폰 조회", description = "쿠폰 정보를 조회합니다.")
 	public ResponseEntity<CouponResponse> getCoupon(@PathVariable long couponId) {
 		return ResponseEntity.ok(couponService.getCoupon(couponId));
@@ -81,7 +80,6 @@ public class CouponController {
 	 * @return 조회된 쿠폰 응답 객체 리스트를 포함한 ResponseEntity
 	 */
 	@PostMapping("/condition")
-	@Transactional(readOnly = true)
 	@Operation(summary = "회원 쿠폰 조회", description = "회원이 가진 쿠폰 정보를 상태에 따라 조회합니다.")
 	public ResponseEntity<List<CouponResponse>> getUserCoupons(@Valid @RequestBody List<CouponLogRequest> request,
 		@RequestParam String couponStatusName) {
@@ -95,7 +93,6 @@ public class CouponController {
 	 * @return 발급된 쿠폰 정보를 담은 ResponseEntity 객체
 	 */
 	@PostMapping
-	@Transactional
 	@Operation(summary = "쿠폰 발급", description = "쿠폰을 발급합니다.")
 	public ResponseEntity<CreateCouponResponse> createCoupon(@Valid @RequestBody CreateCouponRequest request) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(couponService.createCoupon(request));

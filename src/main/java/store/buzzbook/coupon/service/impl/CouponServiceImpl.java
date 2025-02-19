@@ -48,6 +48,7 @@ public class CouponServiceImpl implements CouponService {
 	 * @return 조회된 쿠폰 응답 객체
 	 * @throws CouponNotFoundException 쿠폰을 찾을 수 없는 경우
 	 */
+	@Transactional(readOnly = true)
 	@Override
 	public CouponResponse getCoupon(long id) {
 		validateId(id);
@@ -76,6 +77,7 @@ public class CouponServiceImpl implements CouponService {
 	 * @return 조회된 쿠폰 응답 객체 리스트
 	 * @throws CouponNotFoundException 요청 조건에 맞는 쿠폰을 찾을 수 없는 경우
 	 */
+	@Transactional(readOnly = true)
 	@Override
 	public List<CouponResponse> getAllCouponsByStatus(List<CouponLogRequest> request, String couponStatusName) {
 		if (Objects.isNull(request) || request.isEmpty()) {
@@ -116,6 +118,7 @@ public class CouponServiceImpl implements CouponService {
 	 * @param request 쿠폰 상태 조회 요청 객체 리스트
 	 * @return 조회된 사용 가능한 쿠폰 응답 객체 리스트
 	 */
+	@Transactional
 	@Override
 	public List<OrderCouponResponse> getAvailableCoupons(List<CouponLogRequest> request) {
 		if (Objects.isNull(request) || request.isEmpty()) {
@@ -141,6 +144,7 @@ public class CouponServiceImpl implements CouponService {
 	 * @return 생성된 쿠폰 응답 객체
 	 * @throws IllegalArgumentException 요청 객체가 null 인 경우
 	 */
+	@Transactional
 	@Override
 	public CreateCouponResponse createCoupon(CreateCouponRequest request) {
 		if (Objects.isNull(request)) {
