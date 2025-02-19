@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import store.buzzbook.coupon.common.constant.CouponScope;
@@ -30,6 +31,7 @@ public class CouponTypeServiceImpl implements CouponTypeService {
 	 *
 	 * @return 모든 쿠폰 타입 응답 리스트
 	 */
+	@Transactional(readOnly = true)
 	@Override
 	public List<CouponTypeResponse> getAllCouponTypes() {
 		return couponTypeRepository.findAllBy().stream()

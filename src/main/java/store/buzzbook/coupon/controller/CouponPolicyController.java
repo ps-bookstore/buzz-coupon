@@ -53,7 +53,6 @@ public class CouponPolicyController {
 	 * @return 조회된 쿠폰 정책 리스트를 담은 페이지 객체
 	 */
 	@PostMapping("/condition")
-	@Transactional(readOnly = true)
 	@Operation(summary = "쿠폰 정책 리스트 조회", description = "조건과 페이징 처리된 모든 쿠폰 정책 리스트를 조회합니다.")
 	public ResponseEntity<Page<CouponPolicyResponse>> getCouponPoliciesByPaging(
 		@Valid @RequestBody CouponPolicyConditionRequest condition, Pageable pageable) {
@@ -67,7 +66,6 @@ public class CouponPolicyController {
 	 * @return 조회된 쿠폰 정책 리스트를 담은 응답 객체
 	 */
 	@GetMapping
-	@Transactional(readOnly = true)
 	@Operation(summary = "특정 범위 쿠폰 정책 리스트 조회", description = "특정 범위의 다운로드 가능한 쿠폰 정책 리스트를 조회합니다.")
 	public ResponseEntity<CouponPoliciesResponse> getCouponPoliciesByScope(@RequestParam List<String> scope) {
 		return ResponseEntity.ok(couponPolicyService.getCouponPoliciesByScope(scope));
@@ -80,7 +78,6 @@ public class CouponPolicyController {
 	 * @return 생성된 쿠폰 정책 정보를 담은 응답 객체
 	 */
 	@PostMapping
-	@Transactional
 	@Operation(summary = "쿠폰 정책 생성", description = "쿠폰 정책을 생성합니다.")
 	public ResponseEntity<CreateCouponPolicyResponse> createCouponPolicy(
 		@Valid @RequestBody CreateCouponPolicyRequest request) {
@@ -95,7 +92,6 @@ public class CouponPolicyController {
 	 * @return 수정된 쿠폰 정책 정보를 담은 응답 객체
 	 */
 	@PutMapping("/{couponPolicyId}")
-	@Transactional
 	@Operation(summary = "쿠폰 정책 수정", description = "쿠폰 정책의 다운로드가 끝나는 날을 수정합니다.")
 	public ResponseEntity<CouponPolicyResponse> updateCouponPolicy(@PathVariable int couponPolicyId,
 		@Valid @RequestBody UpdateCouponPolicyRequest request) {
@@ -109,7 +105,6 @@ public class CouponPolicyController {
 	 * @return 응답 본문이 없는 ResponseEntity 객체
 	 */
 	@DeleteMapping("/{couponPolicyId}")
-	@Transactional
 	@Operation(summary = "쿠폰 정책 삭제", description = "쿠폰 정책을 삭제합니다.")
 	public ResponseEntity<Void> deleteCouponPolicy(@PathVariable int couponPolicyId) {
 		couponPolicyService.deleteCouponPolicy(couponPolicyId);
@@ -122,7 +117,6 @@ public class CouponPolicyController {
 	 * @return 조회된 쿠폰 타입 리스트를 담은 응답 객체
 	 */
 	@GetMapping("/types")
-	@Transactional(readOnly = true)
 	@Operation(summary = "쿠폰 타입 조회", description = "쿠폰 정책 타입을 조회 합니다.")
 	public ResponseEntity<List<CouponTypeResponse>> getCouponTypes() {
 		return ResponseEntity.ok(couponTypeService.getAllCouponTypes());
@@ -135,7 +129,6 @@ public class CouponPolicyController {
 	 * @return 조회된 쿠폰 정책 리스트를 담은 응답 객체
 	 */
 	@GetMapping("/specifics/{bookId}")
-	@Transactional(readOnly = true)
 	@Operation(summary = "특정 도서 쿠폰 리스트 조회", description = "특정 도서 쿠폰의 리스트를 조회 합니다.")
 	public ResponseEntity<List<CouponPolicyResponse>> getSpecificCouponPolicies(@PathVariable int bookId) {
 		return ResponseEntity.ok(couponPolicyService.getSpecificCoupons(bookId));

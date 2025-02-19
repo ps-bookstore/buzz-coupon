@@ -53,6 +53,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	 * @param condition 쿠폰 정책 조회 조건
 	 * @return 페이징 처리된 쿠폰 정책 응답 리스트
 	 */
+	@Transactional(readOnly = true)
 	@Override
 	public Page<CouponPolicyResponse> getCouponPoliciesByPaging(Pageable pageable,
 		CouponPolicyConditionRequest condition) {
@@ -68,6 +69,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	 * @param scope 쿠폰 범위 리스트
 	 * @return 쿠폰 범위에 따른 쿠폰 정책 응답 리스트
 	 */
+	@Transactional(readOnly = true)
 	@Override
 	public CouponPoliciesResponse getCouponPoliciesByScope(List<String> scope) {
 		if (Objects.isNull(scope) || scope.isEmpty()) {
@@ -111,6 +113,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	 * @param bookId 책 ID
 	 * @return 특정 책에 대한 쿠폰 정책 응답 리스트
 	 */
+	@Transactional(readOnly = true)
 	@Override
 	public List<CouponPolicyResponse> getSpecificCoupons(int bookId) {
 		validateId(bookId);
@@ -189,6 +192,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	 * @param request 쿠폰 정책 업데이트 요청 객체
 	 * @return 업데이트된 쿠폰 정책 응답 객체
 	 */
+	@Transactional
 	@Override
 	public CouponPolicyResponse updateCouponPolicy(int id, UpdateCouponPolicyRequest request) {
 		validateId(id);
@@ -205,6 +209,7 @@ public class CouponPolicyServiceImpl implements CouponPolicyService {
 	 *
 	 * @param id 쿠폰 정책 ID
 	 */
+	@Transactional
 	@Override
 	public void deleteCouponPolicy(int id) {
 		validateId(id);
